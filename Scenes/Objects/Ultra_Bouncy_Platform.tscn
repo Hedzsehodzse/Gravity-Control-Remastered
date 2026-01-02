@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://clm1xfvtch65v"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b6gr2h4sdwnkl" path="res://Resources/Physics/Ultra_Bouncy.tres" id="1_msiiy"]
+[ext_resource type="Texture2D" uid="uid://b24pwr02a7s36" path="res://Images/Shapes/Platform.png" id="2_hitbu"]
+[ext_resource type="Script" uid="uid://cnctyjrhjutaw" path="res://Scripts/Bounce.gd" id="2_ul5bj"]
+
+[node name="Platform" type="StaticBody2D"]
+physics_material_override = ExtResource("1_msiiy")
+script = ExtResource("2_ul5bj")
+Type = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3882353, 0.007843138, 0.77254903, 1)
+texture_filter = 1
+texture = ExtResource("2_hitbu")
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-24.5, -5.5, 24.5, -5.5, 24.5, 5.5, -24.5, 5.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 129
+
+[node name="Collider" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(-24.5, -5.5, 24.5, -5.5, 24.5, 5.5, -24.5, 5.5)
+
+[connection signal="body_entered" from="Area2D" to="." method="Body_Entered"]

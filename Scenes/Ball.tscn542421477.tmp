@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg42pk2o4yk00"]
+
+[ext_resource type="Script" uid="uid://cbm1284refie2" path="res://Scripts/Ball.gd" id="1_eb1ap"]
+[ext_resource type="Texture2D" uid="uid://4weadiup5hsa" path="res://Images/Shapes/Circle.png" id="2_27lt3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dy5s"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_eb1ap"]
+resource_name = "Anim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_27lt3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dh43"]
+_data = {
+&"Anim": SubResource("Animation_eb1ap"),
+&"RESET": SubResource("Animation_27lt3")
+}
+
+[node name="Ball" type="RigidBody2D" groups=["Player"]]
+script = ExtResource("1_eb1ap")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_0dy5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.26751447, 0.318584, 1, 1)
+texture_filter = 1
+texture = ExtResource("2_27lt3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="Collider" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_0dy5s")
+
+[node name="Laser" type="Node2D" parent="."]
+top_level = true
+
+[node name="Line" type="Line2D" parent="Laser"]
+points = PackedVector2Array(0, 0, 0, 50)
+default_color = Color(1, 1, 1, 0)
+
+[node name="Ray" type="RayCast2D" parent="Laser"]
+target_position = Vector2(0, 1000)
+
+[node name="Anim" type="AnimationPlayer" parent="Laser"]
+libraries = {
+&"": SubResource("AnimationLibrary_3dh43")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="Body_Entered"]

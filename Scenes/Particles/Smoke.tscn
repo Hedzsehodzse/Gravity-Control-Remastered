@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxb0iwewnrj0t"]
+
+[ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="1_tsetl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aaj1x"]
+
+[sub_resource type="Curve" id="Curve_aaj1x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kra5k"]
+curve = SubResource("Curve_aaj1x")
+
+[sub_resource type="Curve" id="Curve_kra5k"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.030303031, 1), 0.0, 0.0, 0, 0, Vector2(0.9924243, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vtcox"]
+curve = SubResource("Curve_kra5k")
+
+[sub_resource type="Curve" id="Curve_vtcox"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1.9325845), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6mg7h"]
+curve = SubResource("Curve_vtcox")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fccq1"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_6mg7h")
+color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+alpha_curve = SubResource("CurveTexture_kra5k")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+hue_variation_curve = SubResource("CurveTexture_vtcox")
+
+[node name="Smoke" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_aaj1x")
+amount = 160
+lifetime = 2.5
+process_material = SubResource("ParticleProcessMaterial_fccq1")
+script = ExtResource("1_tsetl")
+
+[connection signal="finished" from="." to="." method="Finished"]

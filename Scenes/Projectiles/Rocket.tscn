@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://brxu38feey5x2"]
+
+[ext_resource type="Script" uid="uid://ctwq18qvfpqdt" path="res://Scripts/Rocket.gd" id="1_04b3i"]
+[ext_resource type="PackedScene" uid="uid://mp3fjehy7rek" path="res://Scenes/Particles/Explosion.tscn" id="2_iywrq"]
+[ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="3_aaj1x"]
+[ext_resource type="PackedScene" uid="uid://dxb0iwewnrj0t" path="res://Scenes/Particles/Smoke.tscn" id="4_kra5k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04b3i"]
+radius = 30.0
+
+[node name="Rocket" type="CharacterBody2D"]
+z_index = 101
+script = ExtResource("1_04b3i")
+
+[node name="Base" type="Polygon2D" parent="."]
+position = Vector2(0, 2)
+color = Color(0.8913855, 0, 0.2051911, 1)
+polygon = PackedVector2Array(-2, -5, 2, -5, 2, 2, -2, 2)
+
+[node name="Head" type="Polygon2D" parent="."]
+position = Vector2(0, 2)
+polygon = PackedVector2Array(0, -8, 2, -5, -2, -5)
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 129
+
+[node name="Collider" type="CollisionPolygon2D" parent="Area"]
+visible = false
+polygon = PackedVector2Array(0, -6, 2, -3, 2, 4, -2, 4, -2, -3)
+
+[node name="Cast" type="ShapeCast2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_04b3i")
+target_position = Vector2(0, 0)
+max_results = 10
+collision_mask = 128
+
+[node name="Explosion" parent="." instance=ExtResource("2_iywrq")]
+script = ExtResource("3_aaj1x")
+
+[node name="Smoke" parent="." instance=ExtResource("4_kra5k")]
+position = Vector2(0, 4)
+amount = 300
+
+[connection signal="body_entered" from="Area" to="." method="Body_Entered"]
+[connection signal="finished" from="Explosion" to="Explosion" method="Finished"]

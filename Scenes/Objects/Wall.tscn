@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddyb1r5mdojua"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cagn8d2vcpxql" path="res://Resources/Physics/Normal.tres" id="1_gcwo5"]
+[ext_resource type="Script" uid="uid://cnctyjrhjutaw" path="res://Scripts/Bounce.gd" id="2_n5r65"]
+
+[node name="Wall" type="StaticBody2D"]
+scale = Vector2(0.5, 0.25)
+physics_material_override = ExtResource("1_gcwo5")
+script = ExtResource("2_n5r65")
+
+[node name="Polygon" type="Polygon2D" parent="."]
+position = Vector2(210.09998, 42)
+color = Color(0.022898939, 3.9647707e-06, 0.16473797, 1)
+polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(210.09998, 42)
+polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 129
+
+[node name="Collider" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(210.09998, 42)
+polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="Body_Entered"]

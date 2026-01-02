@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4bbt26eem4gx"]
+
+[ext_resource type="Script" uid="uid://vh80oya0d0k" path="res://Scripts/Gravity.gd" id="1_f4i6u"]
+[ext_resource type="Script" uid="uid://dpipguhgsdyp" path="res://Scripts/Kill.gd" id="1_u3fna"]
+[ext_resource type="Texture2D" uid="uid://c4k8msootbp0p" path="res://Images/Shapes/Blade.png" id="2_fr04k"]
+[ext_resource type="PackedScene" uid="uid://r1q8r3rp4ocj" path="res://Scenes/Particles/Death.tscn" id="4_fr04k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0dy5s"]
+radius = 6.0
+
+[sub_resource type="Curve" id="Curve_r8nsi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.67424244, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aaj1x"]
+curve = SubResource("Curve_r8nsi")
+
+[sub_resource type="Curve" id="Curve_ds747"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.75757575, 1.52809), 0.0, 0.0, 0, 0, Vector2(0.9621212, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vtcox"]
+curve = SubResource("Curve_ds747")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sv5i4"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 5, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_vtcox")
+color = Color(1, 0.16470589, 0, 1)
+alpha_curve = SubResource("CurveTexture_aaj1x")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[sub_resource type="GDScript" id="GDScript_iaj43"]
+script/source = "extends GPUParticles2D
+
+
+func Finished() -> void:
+	queue_free()
+"
+
+[node name="Saw" type="RigidBody2D" groups=["Enemy", "Saw"]]
+collision_layer = 128
+mass = 0.5
+script = ExtResource("1_f4i6u")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_0dy5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.78039217, 0, 0, 1)
+z_index = 100
+texture_filter = 1
+texture = ExtResource("2_fr04k")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_u3fna")
+
+[node name="Collider" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_0dy5s")
+
+[node name="Death" parent="." instance=ExtResource("4_fr04k")]
+process_material = SubResource("ParticleProcessMaterial_sv5i4")
+script = SubResource("GDScript_iaj43")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="Body_Entered"]

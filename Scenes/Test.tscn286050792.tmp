@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://byjjdugavovbf"]
+
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="1_0dy5s"]
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_kq4yt"]
+[ext_resource type="PackedScene" uid="uid://b2ohtnamrxiwd" path="res://Scenes/Objects/Bouncy_Wall.tscn" id="2_f2nln"]
+[ext_resource type="PackedScene" uid="uid://c7hc3mfgcxnhn" path="res://Scenes/Objects/Sticky_Wall.tscn" id="3_efk68"]
+[ext_resource type="PackedScene" uid="uid://byr03h7x0goox" path="res://Scenes/Objects/Ultra_Bouncy_Wall.tscn" id="4_06fis"]
+[ext_resource type="PackedScene" uid="uid://c6mrjxpibn5l6" path="res://Scenes/Objects/Spike.tscn" id="5_06fis"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="5_efk68"]
+[ext_resource type="PackedScene" uid="uid://djji37pbkyivx" path="res://Scenes/Enemies/Square.tscn" id="7_mma61"]
+[ext_resource type="PackedScene" uid="uid://chxd22xsgobt8" path="res://Scenes/Enemies/Fast_Square.tscn" id="8_rxb08"]
+[ext_resource type="PackedScene" uid="uid://la1jmdp166dj" path="res://Scenes/Enemies/Large_Square.tscn" id="9_kq4yt"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+vertices = PackedVector2Array(-517.0703, 228.5, -420.5, 228.5, -420.5, 437.29688, -531.6719, 471.53906, -360.5, 437.29688, -360.5, 228.5, -66.09375, 228.5, 5.796875, 288.82813, 56.429688, 228.5, 358.5, 228.5, 358.5, 389.29688, 418.5, 389.29688, 418.5, 228.5, 638.2969, 228.5, 664.8594, 392.35156, 638.2969, 168.5, 418.5, 168.5, 418.5, -168.5, 587.2969, -168.5, 587.2969, -228.5, 418.5, -228.5, 418.5, -289.10156, 624.1797, -293.57813, -420.5, 168.5, -513.46875, 168.5, -493.21094, -168.5, -420.5, -168.5, -420.5, -228.5, -489.60938, -228.5, -487.14063, -269.39063, -420.5, -270.84375, 358.5, -228.5, -360.5, -228.5, -360.5, -272.14844, 358.5, -287.78906, 82.046875, -0.3984375, 358.5, -168.5, 358.5, 148.5, 59.46875, 148.5, -11.5390625, 88.89844, -124.4375, -0.3984375, -76.328125, 135.78906, -84.32031, 149.27344, -92.296875, 135.82031, -100.25781, 149.24219, -108.22656, 135.8125, 82.046875, -64.39844, -360.5, -168.5, -128.45313, -97.13281, -44.757813, 129.36719, -65.49219, 154.07031, -45.179688, 129.03906, -303.5625, 103.02344, -127.60156, 168.5, -360.5, 168.5, -335.5625, 47.59375, -151.10156, -58.898438, -109.046875, -64.39844)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 7), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(4, 7, 10), PackedInt32Array(18, 19, 22, 15), PackedInt32Array(15, 22, 14), PackedInt32Array(13, 15, 14), PackedInt32Array(10, 11, 14, 3, 4), PackedInt32Array(4, 3, 2), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 32, 33, 34), PackedInt32Array(35, 36, 37, 38, 39), PackedInt32Array(40, 35, 39), PackedInt32Array(41, 42, 43, 40), PackedInt32Array(43, 44, 45), PackedInt32Array(36, 35, 46), PackedInt32Array(47, 36, 46, 48), PackedInt32Array(49, 50, 41, 51), PackedInt32Array(40, 39, 51, 41), PackedInt32Array(52, 40, 43, 45), PackedInt32Array(52, 45, 53, 54), PackedInt32Array(55, 52, 54), PackedInt32Array(55, 54, 47), PackedInt32Array(56, 55, 47, 48), PackedInt32Array(48, 46, 57)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 20.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kq4yt")
+
+[node name="BG" type="Polygon2D" parent="."]
+color = Color(0.07443375, 0.0112198675, 0.2706345, 1)
+polygon = PackedVector2Array(-697, -383, 906, -444, 847, 577, -666, 676)
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-9, -199)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(42, 198)
+scale = Vector2(3, 0.25)
+
+[node name="Wall5" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-34, -33)
+scale = Vector2(0.5, 0.3)
+
+[node name="Wall6" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-213.82, 13.555)
+rotation = -0.5235988
+scale = Vector2(0.5, 0.3)
+
+[node name="Bouncy_Wall" parent="Nav/Stuff" instance=ExtResource("2_f2nln")]
+position = Vector2(154, 178)
+
+[node name="Sticky_Wall" parent="Nav/Stuff" instance=ExtResource("3_efk68")]
+position = Vector2(315.835, 178)
+scale = Vector2(0.32, 0.25)
+
+[node name="Wall7" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-3.0000033, 191.99998)
+rotation = 0.6981317
+scale = Vector2(0.255, 1.155)
+
+[node name="Ultra_Bouncy_Wall" parent="Nav/Stuff" instance=ExtResource("4_06fis")]
+position = Vector2(31.999992, 159)
+rotation = 0.6981317
+scale = Vector2(0.285, 0.15)
+
+[node name="Spike3" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-76.33, 188.515)
+
+[node name="Spike4" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-92.305, 188.515)
+
+[node name="Spike2" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-108.215, 188.515)
+
+[node name="Spike5" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-128.445, -44.4)
+
+[node name="Ball" parent="." instance=ExtResource("5_efk68")]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+Weapon = 1
+
+[node name="Square" parent="." instance=ExtResource("7_mma61")]
+position = Vector2(-300, -78)
+
+[node name="Fast_Square" parent="." instance=ExtResource("8_rxb08")]
+position = Vector2(-338, -136)
+
+[node name="Large_Square" parent="." instance=ExtResource("9_kq4yt")]
+position = Vector2(278, 118)
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Reload" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="UI/Reload"]
+layout_mode = 0
+offset_top = -53.0
+offset_right = 112.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]10"
+fit_content = true

@@ -1,0 +1,398 @@
+[gd_scene load_steps=24 format=3 uid="uid://byjjdugavovbf"]
+
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="1_0dy5s"]
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_kq4yt"]
+[ext_resource type="AudioStream" uid="uid://c7llnvi7cd7ds" path="res://Sounds/Music2(ZapSplat).mp3" id="2_07y4a"]
+[ext_resource type="AudioStream" uid="uid://dey2xwi102t2u" path="res://Sounds/Clock.mp3" id="3_65pw5"]
+[ext_resource type="PackedScene" uid="uid://c6mrjxpibn5l6" path="res://Scenes/Objects/Spike.tscn" id="5_06fis"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="5_efk68"]
+[ext_resource type="PackedScene" uid="uid://djji37pbkyivx" path="res://Scenes/Enemies/Square.tscn" id="7_mma61"]
+[ext_resource type="PackedScene" uid="uid://bgqv7o2mkempy" path="res://Scenes/Objects/Platform.tscn" id="8_rarx8"]
+[ext_resource type="PackedScene" uid="uid://chxd22xsgobt8" path="res://Fast_Square.tscn" id="8_rxb08"]
+[ext_resource type="PackedScene" uid="uid://la1jmdp166dj" path="res://Scenes/Enemies/Large_Square.tscn" id="9_kq4yt"]
+[ext_resource type="PackedScene" uid="uid://clm1xfvtch65v" path="res://Scenes/Objects/Ultra_Bouncy_Platform.tscn" id="10_wjxug"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="11_8d4ee"]
+[ext_resource type="PackedScene" uid="uid://c4bbt26eem4gx" path="res://Scenes/Enemies/Saw.tscn" id="11_rarx8"]
+[ext_resource type="PackedScene" uid="uid://csi1rvlv2slt8" path="res://Scenes/Objects/Sticky_Platform.tscn" id="12_wjxug"]
+[ext_resource type="Texture2D" uid="uid://bayxg8l78h5eu" path="res://Images/UI/Reload_Bar.png" id="13_8d4ee"]
+[ext_resource type="Texture2D" uid="uid://b2cs0w8n0tlgl" path="res://Images/UI/Reload.png" id="14_3la1u"]
+[ext_resource type="FontFile" uid="uid://xmbht22ff63f" path="res://Resources/m5x7.ttf" id="15_b07cf"]
+[ext_resource type="PackedScene" uid="uid://deuikyuhwt5hh" path="res://Scenes/Objects/Laser.tscn" id="15_c5xim"]
+[ext_resource type="Theme" uid="uid://be30117u5y2fm" path="res://Resources/Themes/Panel.tres" id="16_x8mav"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+vertices = PackedVector2Array(-517.0703, 228.5, -420.5, 228.5, -420.5, 437.29688, -531.6719, 471.53906, -360.5, 437.29688, -360.5, 228.5, 358.5, 228.5, 358.5, 389.29688, 418.5, 389.29688, 418.5, 228.5, 638.2969, 228.5, 664.8594, 392.35156, 638.2969, 168.5, 418.5, 168.5, 418.5, -168.5, 587.2969, -168.5, 587.2969, -228.5, 418.5, -228.5, 418.5, -289.10156, 624.1797, -293.57813, -420.5, 168.5, -513.46875, 168.5, -493.21094, -168.5, -420.5, -168.5, -420.5, -228.5, -489.60938, -228.5, -487.14063, -269.39063, -420.5, -270.84375, 358.5, -228.5, -360.5, -228.5, -360.5, -272.14844, 358.5, -287.78906, 44.5, 168.5, 44.5, 157.5, 84.390625, 38.203125, 103.5, 24.5, 241.5, 24.5, 298.5, 119.5, 298.5, 168.5, -239.5, -7.5, -212.02344, -7.5, -257.84375, 0.6328125, 329.5, -75.5, 329.5, -126.5, 358.5, -168.5, 358.5, 157.5, 349.5, 119.5, 263.4297, -75.5, 241.5, -26.5, 256.4375, -68.50781, -242.38281, 88.28125, -211.5, 82.796875, -211.5, 123.5, -258.5, 157.5, -84.390625, 38.203125, -193.36719, 72.5, -207.47656, -7.5, -54.5, -7.5, -42.648438, 8.890625, -54.5, -58.5, 103.5, -26.5, 42.648438, 8.890625, -102.5, -111.5, -102.5, -162.5, -44.5, -157.5, 193.50781, -131.4375, 240.5, -84.453125, 240.5, -75.5, 349.5, 157.5, -74.5, 123.5, -44.5, 157.5, -44.5, 168.5, -258.5, 168.5, -347.5, 157.5, -347.5, 168.5, -349.5, 168.5, -349.5, 70.5, -360.5, 70.5, -360.5, 44.5, -349.5, 44.5, -349.5, -44.5, -360.5, -44.5, -360.5, -71.5, -349.5, -71.5, -239.5, -58.5, -349.5, -160.5, -360.5, -160.5, -360.5, -168.5, -44.5, -168.5, -240.5, -162.5, 10.71875, 54.5, 249.45313, -75.5, -240.5, -111.5, 270.54688, -126.5, 229.5625, -167.49219, 44.5, -168.5, 44.5, -157.5, -44.5, 105.5, -37.28125, 105.5, -33.34375, 111.13281, 33.34375, 111.13281, 37.28125, 105.5, 44.5, 105.5, -10.71875, 54.5, -74.5, 72.5, -44.5, 95.17969, -25.34375, 105.5, 25.34375, 105.5, 44.5, 95.17969)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(15, 16, 19, 12), PackedInt32Array(12, 19, 11), PackedInt32Array(10, 12, 11), PackedInt32Array(7, 8, 11, 3, 4), PackedInt32Array(4, 3, 2), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 34, 35, 36, 37, 38), PackedInt32Array(39, 40, 41), PackedInt32Array(42, 43, 44, 45, 46), PackedInt32Array(47, 42, 46, 37, 36, 48, 49), PackedInt32Array(50, 51, 52, 53), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(57, 59, 60, 61), PackedInt32Array(60, 59, 62, 63, 64, 65, 66, 67), PackedInt32Array(45, 68, 46), PackedInt32Array(69, 70, 71, 72, 53, 52), PackedInt32Array(73, 74, 75, 76), PackedInt32Array(76, 77, 78, 79), PackedInt32Array(80, 81, 82, 83, 84), PackedInt32Array(85, 86, 87, 88, 89), PackedInt32Array(53, 73, 76, 79), PackedInt32Array(35, 34, 61, 60), PackedInt32Array(57, 61, 90, 58), PackedInt32Array(91, 49, 48, 60, 67), PackedInt32Array(92, 62, 59, 84, 83), PackedInt32Array(84, 39, 41, 80), PackedInt32Array(44, 43, 93, 94), PackedInt32Array(95, 44, 94), PackedInt32Array(95, 94, 65, 96), PackedInt32Array(69, 97, 98, 99, 70), PackedInt32Array(100, 101, 102, 33), PackedInt32Array(90, 103, 58), PackedInt32Array(104, 55, 54), PackedInt32Array(104, 54, 105), PackedInt32Array(69, 104, 105, 97), PackedInt32Array(50, 53, 79, 80, 41), PackedInt32Array(70, 99, 106, 107, 100, 33), PackedInt32Array(102, 108, 34), PackedInt32Array(102, 34, 33), PackedInt32Array(92, 83, 85, 89), PackedInt32Array(63, 89, 88), PackedInt32Array(63, 88, 64), PackedInt32Array(65, 64, 96)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 20.0
+
+[sub_resource type="Animation" id="Animation_x8mav"]
+resource_name = "Fade"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_07y4a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65pw5"]
+_data = {
+&"Fade": SubResource("Animation_x8mav"),
+&"RESET": SubResource("Animation_07y4a")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kq4yt")
+Game_Mode = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_07y4a")
+volume_db = -18.0
+
+[node name="Clock" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_65pw5")
+volume_db = -10.0
+
+[node name="BG" type="Polygon2D" parent="."]
+color = Color(0.07443375, 0.0112198675, 0.2706345, 1)
+polygon = PackedVector2Array(-697, -383, 906, -444, 847, 577, -666, 676)
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-9, -199)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("1_0dy5s")]
+position = Vector2(42, 198)
+scale = Vector2(3, 0.25)
+
+[node name="Platform" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-195, -33)
+
+[node name="Platform2" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-147, -33)
+
+[node name="Spike" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-133, -38)
+
+[node name="Spike2" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-161, -38)
+
+[node name="Platform3" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-99, -33)
+
+[node name="Platform4" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(0, 80)
+
+[node name="Platform5" parent="Nav/Stuff" instance=ExtResource("11_8d4ee")]
+position = Vector2(-38, 60)
+rotation = 0.9599311
+
+[node name="Platform6" parent="Nav/Stuff" instance=ExtResource("11_8d4ee")]
+position = Vector2(38.000004, 60)
+rotation = -0.9599311
+
+[node name="Platform7" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-224.99998, 39.999996)
+rotation = 1.3962634
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform8" parent="Nav/Stuff" instance=ExtResource("12_wjxug")]
+position = Vector2(-167, 98)
+
+[node name="Platform9" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(-119, 98)
+
+[node name="Spike3" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-143, 93)
+
+[node name="Platform10" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(148, -1)
+
+[node name="Spike4" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(136, -6)
+
+[node name="Platform11" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(197, -1)
+
+[node name="Platform12" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(354, 183)
+
+[node name="Platform13" parent="Nav/Stuff" instance=ExtResource("11_8d4ee")]
+position = Vector2(324, 164)
+rotation = 1.5707964
+
+[node name="Spike5" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(129, 189)
+
+[node name="Platform14" parent="Nav/Stuff" instance=ExtResource("12_wjxug")]
+position = Vector2(0, 183)
+
+[node name="Platform15" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(-375, 0)
+rotation = 1.5707964
+
+[node name="Platform16" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(285, -101)
+
+[node name="Platform17" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(243.00002, -118.00001)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike6" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(379, -102)
+rotation = -1.5707964
+
+[node name="Spike7" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(208, -189)
+rotation = -3.1415925
+
+[node name="Platform19" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(-375, -116)
+rotation = 1.5707964
+
+[node name="Platform20" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-196, -137)
+
+[node name="Platform21" parent="Nav/Stuff" instance=ExtResource("8_rarx8")]
+position = Vector2(-147, -137)
+
+[node name="Spike8" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-172, -141)
+
+[node name="Platform22" parent="Nav/Stuff" instance=ExtResource("10_wjxug")]
+position = Vector2(-303, 183)
+
+[node name="Platform23" parent="Nav/Stuff" instance=ExtResource("12_wjxug")]
+position = Vector2(-375, 164)
+rotation = 1.5707964
+
+[node name="Platform24" parent="Nav/Stuff" instance=ExtResource("12_wjxug")]
+position = Vector2(-375, 115)
+rotation = 1.5707964
+
+[node name="Spike9" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-335, 188)
+
+[node name="Spike10" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-350, 188)
+
+[node name="Spike11" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-365, 188)
+
+[node name="Spike12" parent="Nav/Stuff" instance=ExtResource("5_06fis")]
+position = Vector2(-143, 189)
+
+[node name="Platform25" parent="Nav/Stuff" instance=ExtResource("12_wjxug")]
+position = Vector2(0, -183)
+
+[node name="Ball" parent="." instance=ExtResource("5_efk68")]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+
+[node name="Square" parent="." instance=ExtResource("7_mma61")]
+position = Vector2(-318, -103)
+
+[node name="Fast_Square" parent="." instance=ExtResource("8_rxb08")]
+position = Vector2(-356, -161)
+
+[node name="Large_Square" parent="." instance=ExtResource("9_kq4yt")]
+position = Vector2(260, 93)
+
+[node name="Saw" parent="." instance=ExtResource("11_rarx8")]
+position = Vector2(-146, -68)
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Reload" type="TextureProgressBar" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_right = 120.0
+grow_vertical = 0
+pivot_offset = Vector2(0, 60)
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("13_8d4ee")
+
+[node name="Bullet" type="TextureRect" parent="UI/Reload"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("14_3la1u")
+
+[node name="Time" type="RichTextLabel" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -102.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("15_b07cf")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]30"
+
+[node name="Txt_Timer" type="Timer" parent="UI/Time"]
+unique_name_in_owner = true
+
+[node name="Win" type="Panel" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -99.0
+offset_right = 185.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(185, 99)
+theme = ExtResource("16_x8mav")
+
+[node name="Anim" type="AnimationPlayer" parent="UI/Win"]
+libraries = {
+&"": SubResource("AnimationLibrary_65pw5")
+}
+speed_scale = 2.0
+
+[node name="Title" type="RichTextLabel" parent="UI/Win"]
+modulate = Color(0.09019608, 0.96862745, 0, 1)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 125.33331
+offset_bottom = 25.0
+scale = Vector2(3, 3)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.17254902)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+bbcode_enabled = true
+text = "[center]Victory!"
+
+[node name="Title2" type="RichTextLabel" parent="UI/Win"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 104.0
+offset_right = 184.5
+offset_bottom = 128.0
+scale = Vector2(2, 2)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.17254902)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+bbcode_enabled = true
+text = "[center][pulse freq=1.5]Press space to retry..."
+
+[node name="Laser" parent="." instance=ExtResource("15_c5xim")]
+position = Vector2(-218, -33)
+rotation = 0.21816616
+scale = Vector2(1, 1.05)
+
+[node name="Laser2" parent="." instance=ExtResource("15_c5xim")]
+position = Vector2(-221.00002, 62)
+rotation = -0.7417649
+scale = Vector2(1, 0.93)
+
+[connection signal="finished" from="Music" to="." method="Music_Finished"]
+[connection signal="tree_exiting" from="Ball" to="Ball" method="Tree_Exiting"]
+[connection signal="timeout" from="UI/Time/Txt_Timer" to="." method="Text_Timeout"]
