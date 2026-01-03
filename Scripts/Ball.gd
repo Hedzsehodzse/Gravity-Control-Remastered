@@ -8,6 +8,7 @@ enum weapons {LASER, ROCKET}
 var gravity_dir: Vector2 = Vector2.DOWN
 @onready var Main: Node2D = get_parent()
 var Reload_Timer: float = 0
+var first_time: bool = true
 
 
 func _ready() -> void:
@@ -20,6 +21,10 @@ func _ready() -> void:
 		$Shoot.stream = load("res://Sounds/Laser.mp3")
 		Reload_Time = 10
 		
+	if $"..".Game_Mode == $"..".modes.PLAYGROUND:
+		Reload_Time = 1
+		
+
 
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
@@ -47,13 +52,17 @@ func _physics_process(delta):
 	if Reload_Timer > Reload_Time:
 		%Reload.value = 100
 		%Reload.modulate.a = 1.0
+		if first_time:
+			$"..".Play_Sound(load("res://Sounds/Reload.mp3"), -5, global_position)
+			first_time = false
 	else:
 		%Reload.value = (Reload_Timer / Reload_Time) * 100
 		%Reload.modulate.a = 0.5
 		
-	if Input.is_action_pressed("Left_Click") and Reload_Timer > Reload_Time and $"..".Game_Mode == $"..".modes.CHASE:
+	if Input.is_action_pressed("Left_Click") and Reload_Timer > Reload_Time and ($"..".Game_Mode == $"..".modes.CHASE or $"..".Game_Mode == $"..".modes.PLAYGROUND):
 		Reload_Timer = 0
 		$Shoot.play()
+		first_time = true
 		
 		if Weapon == weapons.LASER:
 			var laser = load("res://Scenes/Projectiles/Laser.tscn").instantiate()

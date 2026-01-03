@@ -17,12 +17,13 @@ func Body_Entered(body: Node2D) -> void:
 			var collider = $Cast.get_collider(i)
 			collider.Die()
 		if has_node("Explosion") and has_node("Smoke"):
-			var particle = $Explosion
-			particle.reparent($"..")
-			particle.emitting = true
-			particle = $Smoke
-			particle.reparent($"..")
-			particle.emitting = false
+			Save_Particle($Explosion, true)
+			Save_Particle($Smoke, false)
+			Save_Particle($Smoke2, false)
 		$"..".Play_Sound(load("res://Sounds/Explosion.mp3"), 0 , global_position)
 		queue_free()
 			
+			
+func Save_Particle(particle: GPUParticles2D, emitting: bool):
+	particle.reparent($"..")
+	particle.emitting = emitting

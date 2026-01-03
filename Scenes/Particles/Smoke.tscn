@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxb0iwewnrj0t"]
+[gd_scene load_steps=12 format=3 uid="uid://dxb0iwewnrj0t"]
 
 [ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="1_tsetl"]
 
@@ -10,6 +10,13 @@ point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_kra5k"]
 curve = SubResource("Curve_aaj1x")
+
+[sub_resource type="Gradient" id="Gradient_tsetl"]
+offsets = PackedFloat32Array(0, 0.056603774, 0.14150943)
+colors = PackedColorArray(1, 0.105882354, 0.039215688, 1, 0.99607843, 0.41568628, 0.16862746, 1, 0.1764706, 0.1764706, 0.1764706, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nao8a"]
+gradient = SubResource("Gradient_tsetl")
 
 [sub_resource type="Curve" id="Curve_kra5k"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
@@ -39,7 +46,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_6mg7h")
-color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+color_ramp = SubResource("GradientTexture1D_nao8a")
 alpha_curve = SubResource("CurveTexture_kra5k")
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977

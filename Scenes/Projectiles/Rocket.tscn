@@ -1,25 +1,73 @@
-[gd_scene load_steps=6 format=3 uid="uid://brxu38feey5x2"]
+[gd_scene load_steps=17 format=3 uid="uid://brxu38feey5x2"]
 
 [ext_resource type="Script" uid="uid://ctwq18qvfpqdt" path="res://Scripts/Rocket.gd" id="1_04b3i"]
 [ext_resource type="PackedScene" uid="uid://mp3fjehy7rek" path="res://Scenes/Particles/Explosion.tscn" id="2_iywrq"]
+[ext_resource type="Texture2D" uid="uid://h4dre17bjbkj" path="res://Images/Rocket.png" id="2_vtcox"]
 [ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="3_aaj1x"]
 [ext_resource type="PackedScene" uid="uid://dxb0iwewnrj0t" path="res://Scenes/Particles/Smoke.tscn" id="4_kra5k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04b3i"]
 radius = 30.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vtcox"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_6mg7h"]
+_data = [Vector2(0, 0.033707857), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fccq1"]
+curve = SubResource("Curve_6mg7h")
+
+[sub_resource type="Gradient" id="Gradient_otdg7"]
+offsets = PackedFloat32Array(0, 0.0754717, 0.1981132, 0.26415095, 0.8867925)
+colors = PackedColorArray(1, 0.105882354, 0.039215688, 0, 0.99850607, 0.22390291, 0.088515416, 1, 0.99607843, 0.41568628, 0.16862746, 1, 0.99607843, 0.41568628, 0.16862746, 0, 0.99607843, 0.41568628, 0.16862746, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2xejp"]
+gradient = SubResource("Gradient_otdg7")
+
+[sub_resource type="Curve" id="Curve_7to72"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.030303031, 1), 0.0, 0.0, 0, 0, Vector2(0.9924243, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eojan"]
+curve = SubResource("Curve_7to72")
+
+[sub_resource type="Curve" id="Curve_e4jfq"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1.9325845), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_smv1o"]
+curve = SubResource("Curve_e4jfq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jn04p"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 6.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_smv1o")
+color_ramp = SubResource("GradientTexture1D_2xejp")
+alpha_curve = SubResource("CurveTexture_fccq1")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+hue_variation_curve = SubResource("CurveTexture_eojan")
+
 [node name="Rocket" type="CharacterBody2D"]
 z_index = 101
 script = ExtResource("1_04b3i")
 
-[node name="Base" type="Polygon2D" parent="."]
-position = Vector2(0, 2)
-color = Color(0.8913855, 0, 0.2051911, 1)
-polygon = PackedVector2Array(-2, -5, 2, -5, 2, 2, -2, 2)
-
-[node name="Head" type="Polygon2D" parent="."]
-position = Vector2(0, 2)
-polygon = PackedVector2Array(0, -8, 2, -5, -2, -5)
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+texture = ExtResource("2_vtcox")
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 0
@@ -42,6 +90,12 @@ script = ExtResource("3_aaj1x")
 [node name="Smoke" parent="." instance=ExtResource("4_kra5k")]
 position = Vector2(0, 4)
 amount = 300
+
+[node name="Smoke2" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_vtcox")
+position = Vector2(0, 4)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_jn04p")
 
 [connection signal="body_entered" from="Area" to="." method="Body_Entered"]
 [connection signal="finished" from="Explosion" to="Explosion" method="Finished"]

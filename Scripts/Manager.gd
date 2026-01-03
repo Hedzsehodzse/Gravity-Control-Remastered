@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum modes {SURVIVAL, CHASE}
+enum modes {SURVIVAL, CHASE, PLAYGROUND}
 @export var Game_Mode: modes
 @export var Survive_Time: float = 30
 @onready var timer: float = Survive_Time
@@ -10,6 +10,7 @@ var won: bool = false
 var lost: bool = false
 var text_times: int = 0
 var Enemy_Count: int = 0
+var Start_Timer: float = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,11 +24,19 @@ func _ready() -> void:
 		Text_Timeout()
 		%Reload.visible = false
 	
-	if Game_Mode == modes.CHASE:
+	elif Game_Mode == modes.CHASE:
 		for node in get_children():
 			if node.is_in_group("Enemy"):
 				Enemy_Count += 1
 		%Time.visible = false
+		
+	else:
+		%Time.visible = false
+		for node in get_children():
+			if node.is_in_group("Enemy"):
+				node.queue_free()
+		
+	get_tree().paused = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
