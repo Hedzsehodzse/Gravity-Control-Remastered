@@ -14,6 +14,7 @@ color = Color(0.022898939, 3.9647707e-06, 0.16473797, 1)
 polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(210.09998, 42)
 polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
 
@@ -21,6 +22,7 @@ polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
 collision_mask = 129
 
 [node name="Collider" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 position = Vector2(210.09998, 42)
 polygon = PackedVector2Array(-415, -80, -18, -80, -18, 0, -415, 0)
 

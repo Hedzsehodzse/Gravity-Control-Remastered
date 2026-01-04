@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsmc15b8g808k"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cagn8d2vcpxql" path="res://Resources/Physics/Normal.tres" id="1_ri0qy"]
+[ext_resource type="Script" uid="uid://cnctyjrhjutaw" path="res://Scripts/Bounce.gd" id="2_584cs"]
+[ext_resource type="Texture2D" uid="uid://c8dieukvrqbtq" path="res://Images/Shapes/Large_Circle.png" id="3_584cs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpdws"]
+radius = 40.012497
+
+[node name="Circle" type="StaticBody2D"]
+z_index = -6
+physics_material_override = ExtResource("1_ri0qy")
+script = ExtResource("2_584cs")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.023529412, 0, 0.16470589, 1)
+texture_filter = 1
+texture = ExtResource("3_584cs")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_jpdws")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 129
+
+[node name="Collider" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_jpdws")
+
+[connection signal="body_entered" from="Area2D" to="." method="Body_Entered"]

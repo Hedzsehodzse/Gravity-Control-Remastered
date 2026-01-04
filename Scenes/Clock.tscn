@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://did1jm3sy5o31"]
+
+[ext_resource type="AudioStream" uid="uid://dey2xwi102t2u" path="res://Sounds/Clock.mp3" id="1_ml741"]
+
+[node name="Clock" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ml741")
+volume_db = -10.0

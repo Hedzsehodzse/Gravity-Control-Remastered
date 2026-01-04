@@ -10,6 +10,8 @@ var gravity_dir: Vector2 = Vector2.DOWN
 var Reload_Timer: float = 0
 var first_time: bool = true
 
+@onready var Reload: Node = $"../UI/Reload"
+
 
 func _ready() -> void:
 	if Weapon == weapons.ROCKET:
@@ -49,15 +51,15 @@ func _physics_process(delta):
 	
 		
 	
-	if Reload_Timer > Reload_Time:
-		%Reload.value = 100
-		%Reload.modulate.a = 1.0
+	if Reload_Timer > Reload_Time and ($"..".Game_Mode == $"..".modes.CHASE or $"..".Game_Mode == $"..".modes.PLAYGROUND):
+		Reload.value = 100
+		Reload.modulate.a = 1.0
 		if first_time:
 			$"..".Play_Sound(load("res://Sounds/Reload.mp3"), -5, global_position)
 			first_time = false
 	else:
-		%Reload.value = (Reload_Timer / Reload_Time) * 100
-		%Reload.modulate.a = 0.5
+		Reload.value = (Reload_Timer / Reload_Time) * 100
+		Reload.modulate.a = 0.5
 		
 	if Input.is_action_pressed("Left_Click") and Reload_Timer > Reload_Time and ($"..".Game_Mode == $"..".modes.CHASE or $"..".Game_Mode == $"..".modes.PLAYGROUND):
 		Reload_Timer = 0

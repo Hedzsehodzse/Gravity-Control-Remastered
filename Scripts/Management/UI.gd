@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-@onready var Main: Node = %Ball.get_parent()
+@onready var Main: Node = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

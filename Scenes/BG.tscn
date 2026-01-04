@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cpqdw5bkpk6d8"]
+
+[node name="BG" type="Polygon2D"]
+z_index = -100
+color = Color(0.07443375, 0.0112198675, 0.2706345, 1)
+polygon = PackedVector2Array(-3013, -1808, 3506, -1978, 3603, 1968, -2964, 1956)

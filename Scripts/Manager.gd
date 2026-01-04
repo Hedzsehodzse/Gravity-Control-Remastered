@@ -1,7 +1,7 @@
 extends Node2D
 
 
-enum modes {SURVIVAL, CHASE, PLAYGROUND}
+enum modes {SURVIVAL, CHASE, PLAYGROUND, COLLECT}
 @export var Game_Mode: modes
 @export var Survive_Time: float = 30
 @onready var timer: float = Survive_Time
@@ -12,26 +12,44 @@ var text_times: int = 0
 var Enemy_Count: int = 0
 var Start_Timer: float = 3
 
+@onready var Winx = $UI/Win
+@onready var Timex = $UI/Time
+@onready var Txt_Timer = $UI/Time/Txt_Timer
+@onready var Reload = $UI/Reload
+@onready var Win_Title = $UI/Win/Title
+@onready var Win_Anim = $UI/Win/Anim
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Music_Finished()
-	%Win.visible = false
+	Winx.visible = false
+	
+	if Game_Mode != modes.CHASE and Game_Mode != modes.PLAYGROUND:
+		Reload.visible = false
+		
+	if Game_Mode != modes.SURVIVAL:
+		Timex.visible = false
+		
+	if Game_Mode != modes.COLLECT:
+		for node in $Stars.get_children():
+			node.queue_free()
+		
+	if Game_Mode == modes.COLLECT:
+		for node in $Stars.get_children():
+			Enemy_Count += 1
 	
 	if Game_Mode == modes.SURVIVAL:
-		%Txt_Timer.wait_time = Survive_Time / 3
-		%Txt_Timer.start()
+		Txt_Timer.wait_time = Survive_Time / 3
+		Txt_Timer.start()
 		Text_Timeout()
-		%Reload.visible = false
 	
-	elif Game_Mode == modes.CHASE:
+	if Game_Mode == modes.CHASE:
 		for node in get_children():
 			if node.is_in_group("Enemy"):
 				Enemy_Count += 1
-		%Time.visible = false
 		
-	else:
-		%Time.visible = false
+	if Game_Mode == modes.PLAYGROUND:
 		for node in get_children():
 			if node.is_in_group("Enemy"):
 				node.queue_free()
@@ -47,13 +65,13 @@ func _process(delta: float) -> void:
 		
 		if Game_Mode == modes.SURVIVAL:
 			timer -= delta
-			%Time.bbcode_text = "[center]" + str(roundi(timer))
+			Timex.bbcode_text = "[center]" + str(roundi(timer))
 			if timer < 8 and !%Clock.playing:
 				%Clock.play()
 			if timer < 0:
 				Win()
 				
-		if Game_Mode == modes.CHASE:
+		if Game_Mode == modes.CHASE or Game_Mode == modes.COLLECT:
 			if Enemy_Count == 0:
 				Win()
 
@@ -64,8 +82,8 @@ func Win():
 		for node in get_children():
 			if node.is_in_group("Enemy"):
 				node.Die()
-		%Win/Title.modulate = Color.LIME_GREEN
-		%Win/Title.bbcode_text = "[center]Victory!"
+		Win_Title.modulate = Color.LIME_GREEN
+		Win_Title.bbcode_text = "[center]Victory!"
 		Panel_Anim()
 		%Clock.stop()
 		Play_Sound(load("res://Sounds/Win.mp3"), 0, %Ball.global_position)
@@ -73,8 +91,8 @@ func Win():
 func Lose():
 	if !lost:
 		lost = true
-		%Win/Title.modulate = Color.RED
-		%Win/Title.bbcode_text = "[center]Defeat!"
+		Win_Title.modulate = Color.RED
+		Win_Title.bbcode_text = "[center]Defeat!"
 		print("LOST")
 		Panel_Anim()
 		%Clock.stop()
@@ -85,20 +103,20 @@ func Text_Timeout() -> void:
 	var tween: Tween = create_tween()
 	match text_times:
 		0:
-			tween.tween_property(%Time, "modulate", Color.YELLOW, Survive_Time / 3)
+			tween.tween_property(Timex, "modulate", Color.YELLOW, Survive_Time / 3)
 			text_times += 1
 		1:
-			tween.tween_property(%Time, "modulate", Color.ORANGE, Survive_Time / 3)
+			tween.tween_property(Timex, "modulate", Color.ORANGE, Survive_Time / 3)
 			text_times += 1
 		2:
-			tween.tween_property(%Time, "modulate", Color.RED, Survive_Time / 3)
+			tween.tween_property(Timex, "modulate", Color.RED, Survive_Time / 3)
 			
 func Panel_Anim():
-	%Time.bbcode_text = "¤"
-	%Win.position = get_viewport().get_canvas_transform() * %Ball.global_position
-	%Win/Anim.play("Fade")
+	Timex.bbcode_text = "¤"
+	Winx.position = get_viewport().get_canvas_transform() * %Ball.global_position
+	Win_Anim.play("Fade")
 	var tween = create_tween()
-	tween.tween_property(%Win, "position", Vector2(775, 381), 0.3)
+	tween.tween_property(Winx, "position", Vector2(775, 381), 0.3)
 
 
 func Music_Finished() -> void:
