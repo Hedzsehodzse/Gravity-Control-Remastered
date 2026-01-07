@@ -149,13 +149,13 @@ func Play_Sound(stream: Resource, volume_db: float, pos: Vector2):
 	tween.tween_callback(player.queue_free).set_delay(5)
 	
 func Update_Star_Counter():
-	if Enemy_Count == 0:
-		$UI/Star_Counters/Normal.queue_free()
-		$UI/Star_Counters/Normal_Texture.queue_free()
-	if Special_Enemy_Count == 0:
-		$UI/Star_Counters/Red.queue_free()
-		$UI/Star_Counters/Red_Texture.queue_free()
 	if $UI/Star_Counters.has_node("Normal"):
 		$UI/Star_Counters/Normal.bbcode_text = "[right]" + str(Enemy_Count) + " x"
+		if Enemy_Count == 0:
+			$UI/Star_Counters/Normal.queue_free()
+			$UI/Star_Counters/Normal_Texture.queue_free()
 	if $UI/Star_Counters.has_node("Red"):
 		$UI/Star_Counters/Red.bbcode_text = "[right]" + str(Special_Enemy_Count) + " x"
+		if Special_Enemy_Count == 0:
+			$UI/Star_Counters/Red.queue_free()
+			$UI/Star_Counters/Red_Texture.queue_free()
