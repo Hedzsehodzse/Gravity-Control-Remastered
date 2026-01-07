@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnjhskomaspxl"]
+[gd_scene load_steps=25 format=3 uid="uid://cnjhskomaspxl"]
 
 [ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_tbmwd"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_0exvw"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="17_52tsj"]
 [ext_resource type="PackedScene" uid="uid://c7hc3mfgcxnhn" path="res://Scenes/Objects/Sticky_Wall.tscn" id="17_tjn5s"]
 [ext_resource type="PackedScene" uid="uid://chxd22xsgobt8" path="res://Scenes/Enemies/Fast_Square.tscn" id="19_jexec"]
+[ext_resource type="PackedScene" uid="uid://bleymkiyujf8w" path="res://Scenes/Red_Star.tscn" id="23_dtica"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
 vertices = PackedVector2Array(431.57813, 180.63281, 418.5, 167.54688, 418.5, -193.5, 588.2969, -193.5, 635.2969, 191.5, 588.2969, -253.5, 418.5, -253.5, 418.5, -289.10156, 624.1797, -293.57813, 664.8594, 392.35156, -531.6719, 471.53906, -518.4531, 251.5, -423.4375, 251.5, -420.5, 254.4375, -420.5, 437.29688, -360.5, 437.29688, -360.5, 266.21875, -350.64063, 263.57813, -187.36719, 263.57813, -157, 271.72656, -126.63281, 263.57813, 348.64063, 263.57813, 358.5, 266.21875, 358.5, 389.29688, 434.5, 191.5, 635.2969, 251.5, 418.5, 254.4375, 421.4375, 251.5, 418.5, 389.29688, -338.5625, 251.5, -199.4375, 251.5, -114.5625, 251.5, 336.5625, 251.5, -433.57813, 180.63281, -436.5, 191.5, -514.85156, 191.5, -491.71094, -193.5, -460.71094, 0, -420.5, -193.5, -420.5, -61.070313, -426.35938, -59.507813, -426.35938, 59.507813, -420.5, 61.070313, -420.5, 167.54688, -451.5078, -34.359375, -451.5078, 34.359375, -420.5, -253.5, -488.10156, -253.5, -487.14063, -269.39063, -420.5, -270.84375, -197.27344, -253.5, -360.5, -253.5, -360.5, -272.14844, -174.5625, -276.1875, 358.5, -253.5, -95.46094, -253.5, -70.49219, -278.46094, 358.5, -287.78906, 358.5, -193.5, 358.5, 155.77344, 341.97656, 62.5, 337.5, 27.5, 337.5, -61.5, 201.07813, -127.109375, 178.92188, -135.1875, 170.54688, -138.74219, 217.25781, -171.5625, -250.5, 37.5, -177.89063, -33.929688, -273.10938, 79.546875, 316.9922, 112.61719, 348.64063, 158.42188, -250.5, -51.5, -245.07813, -56.820313, -161.45313, -87.25781, 164.0625, -26.203125, 139.10156, 23.929688, 60.726563, 0, 52.578125, -30.367188, 161.45313, -87.25781, 275.1875, -150.10156, 286.5, -61.5, 262.57813, -104.8125, -301.5, 37.5, -309.70313, 48.859375, 326.42188, 180.63281, 323.5, 191.5, 187.84375, 183.39844, 187.84375, 127.39844, -101.5, 191.5, -10.9609375, 183.39844, 153.07813, -90.82031, -69.453125, -121.25781, 69.453125, -121.25781, 0, -60.726563, -153.07813, -90.82031, -170.54688, -138.74219, -178.92188, -135.17969, -183.03125, -165.92969, 52.578125, 30.367188, 265.2422, -153.71094, 265.35938, -154.02344, 259.14063, -106.03906, 245.07813, -56.820313, 286.5, 27.5, 92.5, -182.5, 92.5, -193.5, -360.5, -60.28125, -360.5, -81.5, -312.5, -81.5, -357.64063, -59.523438, -332.4922, -34.359375, -312.5, -132.5, -360.5, -132.5, -360.5, -174.5, -191.60156, -174.5, -155.46094, -193.5, -92.5, -193.5, -92.5, -182.5, -274.3672, 145.07813, -274.14844, 144.82031, -262.78906, 154.36719, -10.9609375, 127.39844, -27.59375, 137.95313, -134.99219, 2.078125, -60.726563, 0, -52.578125, 30.367188, -57.960938, 96.97656, -30.367188, 52.578125, -14.5, 56.828125, -14.5, 64.82031, -350.64063, 158.42188, -360.5, 155.77344, -360.5, 74.28906, -342.46875, 87.9375, -209.57813, 180.63281, -212.5, 191.5, -325.5, 191.5, -328.42188, 180.63281, -52.578125, -30.367188, 30.367188, -52.578125, -262.54688, -104.74219, 86.921875, -169.17969, -86.921875, -169.17969, -157, 150.27344, 36.5, 74.9375, 36.5, 46.4375, 43.976563, 85.00781, 36.5, 100.5, 36.5, 90.53906, 23.039063, 100.5, -104.421875, 180.63281, -126.63281, 158.42188, -30.367188, -52.578125, -309.71094, 44.382813, -327.21094, 14.671875, -323.28906, 0, -301.5, -51.5, -187.36719, 158.42188)
@@ -49,14 +50,8 @@ position = Vector2(0, -191)
 [node name="Star2" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(0, -89)
 
-[node name="Star3" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(168, -115)
-
 [node name="Star4" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(-166, -113)
-
-[node name="Star5" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(-354, -154)
 
 [node name="Star6" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(-289, -104)
@@ -82,26 +77,32 @@ position = Vector2(-266, 170)
 [node name="Star13" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(-7, 124)
 
-[node name="Star14" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(91, 177)
-
 [node name="Star15" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(310, 33)
-
-[node name="Star16" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(367, -204)
-
-[node name="Star17" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(208, -130)
-
-[node name="Star18" parent="Stars" instance=ExtResource("5_vobf4")]
-position = Vector2(-19, 62)
 
 [node name="Star19" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(-119, 76)
 
 [node name="Star20" parent="Stars" instance=ExtResource("5_vobf4")]
 position = Vector2(96, 45)
+
+[node name="Red_Star" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(91, 177)
+
+[node name="Red_Star2" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(-354, -154)
+
+[node name="Red_Star3" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(367, -204)
+
+[node name="Red_Star4" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(-19, 62)
+
+[node name="Red_Star5" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(208, -131)
+
+[node name="Red_Star6" parent="Stars" instance=ExtResource("23_dtica")]
+position = Vector2(168, -115)
 
 [node name="Nav" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_mma61")

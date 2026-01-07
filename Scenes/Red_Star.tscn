@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb0g0ga6ihknv"]
+[gd_scene load_steps=11 format=3 uid="uid://bleymkiyujf8w"]
 
-[ext_resource type="Script" uid="uid://chsmjcmef06n1" path="res://Scripts/Star.gd" id="1_0l0nv"]
-[ext_resource type="Texture2D" uid="uid://dqcjb1qtjwo76" path="res://Images/Shapes/Star.png" id="1_jllp1"]
-[ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="2_6ojbo"]
+[ext_resource type="Script" uid="uid://chsmjcmef06n1" path="res://Scripts/Star.gd" id="1_lh6if"]
+[ext_resource type="Texture2D" uid="uid://dqcjb1qtjwo76" path="res://Images/Shapes/Star.png" id="2_q3oqb"]
+[ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="3_w1h2w"]
 
 [sub_resource type="Animation" id="Animation_6ojbo"]
 length = 0.001
@@ -73,13 +73,13 @@ scale_curve = SubResource("CurveTexture_kd7x3")
 hue_variation_min = -1.0
 hue_variation_max = 0.99999994
 
-[node name="Star" type="Area2D" groups=["Star"]]
-script = ExtResource("1_0l0nv")
+[node name="Red_Star" type="Area2D" groups=["Red_Star"]]
+script = ExtResource("1_lh6if")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0.09019608, 1)
+modulate = Color(0.7388413, 0, 0.05374387, 1)
 texture_filter = 1
-texture = ExtResource("1_jllp1")
+texture = ExtResource("2_q3oqb")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -94,13 +94,13 @@ shape = SubResource("CircleShape2D_6ojbo")
 [node name="Pop" type="GPUParticles2D" parent="."]
 texture_filter = 1
 emitting = false
-texture = ExtResource("1_jllp1")
+texture = ExtResource("2_q3oqb")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 0.54
 process_material = SubResource("ParticleProcessMaterial_r6cmk")
-script = ExtResource("2_6ojbo")
+script = ExtResource("3_w1h2w")
 
 [connection signal="body_entered" from="." to="." method="Body_Entered"]
 [connection signal="finished" from="Pop" to="Pop" method="Finished"]

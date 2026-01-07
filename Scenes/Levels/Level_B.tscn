@@ -1,0 +1,336 @@
+[gd_scene load_steps=24 format=3 uid="uid://dl336k2cwmka6"]
+
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_og208"]
+[ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_6qvkn"]
+[ext_resource type="PackedScene" uid="uid://did1jm3sy5o31" path="res://Scenes/Clock.tscn" id="3_ltokv"]
+[ext_resource type="PackedScene" uid="uid://cpqdw5bkpk6d8" path="res://Scenes/BG.tscn" id="4_3g82p"]
+[ext_resource type="PackedScene" uid="uid://bb0g0ga6ihknv" path="res://Scenes/Star.tscn" id="5_v4ms6"]
+[ext_resource type="PackedScene" uid="uid://bleymkiyujf8w" path="res://Scenes/Red_Star.tscn" id="6_og208"]
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="6_qtwb3"]
+[ext_resource type="PackedScene" uid="uid://1cbnsuqxiej4" path="res://Scenes/Objects/Ultra_Bouncy_Circle.tscn" id="7_kwjxk"]
+[ext_resource type="PackedScene" uid="uid://clm1xfvtch65v" path="res://Scenes/Objects/Ultra_Bouncy_Platform.tscn" id="7_rijuh"]
+[ext_resource type="PackedScene" uid="uid://bgqv7o2mkempy" path="res://Scenes/Objects/Platform.tscn" id="8_d4w7j"]
+[ext_resource type="PackedScene" uid="uid://csi1rvlv2slt8" path="res://Scenes/Objects/Sticky_Platform.tscn" id="9_xl723"]
+[ext_resource type="PackedScene" uid="uid://c0nxb86u7l0ef" path="res://Scenes/Objects/Large_Blade.tscn" id="11_mkw30"]
+[ext_resource type="PackedScene" uid="uid://c6mrjxpibn5l6" path="res://Scenes/Objects/Spike.tscn" id="13_oy35j"]
+[ext_resource type="PackedScene" uid="uid://b2ohtnamrxiwd" path="res://Scenes/Objects/Bouncy_Wall.tscn" id="13_rava4"]
+[ext_resource type="PackedScene" uid="uid://deuikyuhwt5hh" path="res://Scenes/Objects/Laser.tscn" id="15_4lytr"]
+[ext_resource type="PackedScene" uid="uid://d3pv1lwwnskg3" path="res://Scenes/Objects/Sticky_Circle.tscn" id="16_lea6v"]
+[ext_resource type="PackedScene" uid="uid://brfgvdyk28rnv" path="res://Scenes/Objects/Bouncy_Circle.tscn" id="17_v4ms6"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="18_nswc2"]
+[ext_resource type="PackedScene" uid="uid://byr03h7x0goox" path="res://Scenes/Objects/Ultra_Bouncy_Wall.tscn" id="19_lea6v"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="21_fdjqt"]
+[ext_resource type="PackedScene" uid="uid://djji37pbkyivx" path="res://Scenes/Enemies/Square.tscn" id="21_nswc2"]
+[ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="22_u81sv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+vertices = PackedVector2Array(-524.10156, 245.5, -414.5, 245.5, -414.5, 431.29688, -538.0703, 477.97656, -366.5, 431.29688, -366.5, 245.5, 64.03906, 245.5, 75.74219, 257.20313, 141.96094, 245.5, 364.5, 245.5, 364.5, 383.29688, 130.25781, 257.20313, 412.5, 383.29688, 412.5, 245.5, 629.2969, 245.5, 671.1875, 397.9375, 629.2969, 197.5, 412.5, 197.5, 412.5, -199.5, 582.2969, -199.5, 582.2969, -247.5, 412.5, -247.5, 412.5, -294.96875, 629.8125, -299.70313, 103, 264.52344, -414.5, 197.5, -521.21875, 197.5, -497.35938, -199.5, -414.5, -199.5, -414.5, -247.5, -494.47656, -247.5, -492.79688, -275.27344, -414.5, -276.96875, 364.5, -247.5, -360.53125, -247.5, -366.5, -253.46875, -366.5, -278.02344, 364.5, -293.92188, 194.5, -189.5, 271.5, -189.5, 327.5, -70.5, 250.5, -70.5, 235.85938, -76.84375, 162.60156, -120.86719, 162.60156, -126.97656, 62.5, 0, 162.60156, -19.578125, 250.5, -31.5, 327.5, -31.5, 183.28125, 18.648438, 162.60156, 17.023438, 364.5, -199.5, 364.5, 186.5, -322.39844, -135.79688, -322.39844, -30.773438, -329.10156, -59.578125, -328.60938, -142.14063, -113.5, 186.5, -203.39844, 176.42188, -27.257813, 171.20313, 0, 178.52344, -36.5, 186.5, 282.2578, 88.796875, 255, 81.47656, 217.71875, 46.039063, -13.25, -134.61719, -82.15625, -100.27344, -121.71875, -128.60156, -19.5, -150.5, 309.52344, 136, 315.5, 186.5, 302.20313, 108.74219, -115.15625, 44.351563, -54.132813, 31.257813, -31.257813, 54.132813, -27.257813, 76.796875, -47.203125, 96.74219, -134.64844, 78.14844, 162.60156, 44.640625, -64.75, -65.38281, -3.8828125, -95.71875, -3.9296875, -95.60156, -38.5, -71.5, 302.20313, 163.25781, -186.65625, -126.203125, -214.14844, -153.70313, -158.84375, -153.70313, -270.89063, -41.65625, -217.77344, -95.09375, -152.82813, -159.71094, -153.77344, -158.77344, -153.77344, -197.70313, -47.203125, 151.25781, -203.39844, 69.02344, 10.046875, -132, 0.4765625, -107.09375, 67.953125, -68, 81.92969, -104.39844, 118.60156, -126.97656, 118.60156, -19.578125, 54.132813, -31.257813, 227.74219, 88.796875, 162.60156, 115.328125, 207.79688, 108.74219, 162.60156, -69.53906, 213.22656, -39.132813, 200.47656, 136, 162.60156, 124.421875, 271.5, -199.5, 282.2578, 183.20313, -54.523438, 124, -182.57813, 5.421875, -182.61719, 5.5, -223.60156, -18.148438, -62.5, 0, 75.74219, 162.79688, 47.203125, 151.25781, 54.523438, 124, 118.60156, 17.023438, 118.60156, 124.421875, 103, 155.47656, 47.203125, 96.74219, 54.132813, 31.257813, 27.257813, 76.796875, 31.257813, 54.132813, -221.65625, -97.203125, -271.3828, -146.92969, -270.4922, -147.8125, -252.77344, -66.09375, 19.5, -150.5, 19.5, -199.5, 194.5, -199.5, 146.45313, -130.57813, 142.85156, -126.97656, -278.39844, -197.70313, -278.39844, -197.71875, 315.5, 197.5, 154.15625, 197.5, 255, 190.52344, 51.84375, 197.5, -36.5, 197.5, 55.796875, 182.74219, -113.5, 197.5, -355.5, 197.5, -247.39844, 176.42188, -355.5, 148.5, -366.5, 148.5, -366.5, 32.5, -355.5, 32.5, -176.20313, 54.257813, -176.14844, 54.171875, -278.39844, -91.71875, -278.39844, -30.773438, -239.77344, -10.5625, -361.10156, -59.578125, -355.5, -44.5, 0, 62.5, 0, 69.47656, -243.09375, 15.6484375, -247.39844, 69.02344, -54.132813, -31.257813, 152.4375, -126.97656, -19.5, -199.5, -358.8203, -199.5, -322.39844, -197.71875, 130.25781, 162.79688, 152.50781, 128.02344, 155.36719, 124.421875, 207.79688, 163.25781, 150.20313, 182.74219, -329.10156, -166.97656, -322.39844, -148.35156, -361.10156, -166.97656, -366.5, -191.82031, -366.5, -44.5, 38.5, -46.890625, 38.5, -71.5, -38.5, -46.890625, 27.257813, 171.20313, 145.32031, 124.421875, 227.74219, 183.20313)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(19, 20, 23, 15, 16), PackedInt32Array(14, 16, 15), PackedInt32Array(10, 12, 15, 3, 4), PackedInt32Array(24, 11, 10, 4), PackedInt32Array(4, 7, 24), PackedInt32Array(4, 3, 2), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(33, 34, 35, 36, 37), PackedInt32Array(38, 39, 40, 41, 42, 43, 44), PackedInt32Array(45, 46, 47, 48, 49, 50), PackedInt32Array(48, 40, 51, 52), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(57, 58, 59, 60, 61), PackedInt32Array(62, 63, 64, 48), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(69, 48, 52, 70), PackedInt32Array(48, 69, 71), PackedInt32Array(72, 73, 74, 75, 76, 77), PackedInt32Array(49, 78, 50), PackedInt32Array(79, 80, 81, 82), PackedInt32Array(83, 69, 70), PackedInt32Array(84, 85, 86), PackedInt32Array(84, 86, 87, 88), PackedInt32Array(89, 90, 91), PackedInt32Array(92, 59, 58, 93), PackedInt32Array(94, 95, 65, 68), PackedInt32Array(48, 71, 62), PackedInt32Array(96, 97, 98, 99, 45, 100), PackedInt32Array(64, 63, 101), PackedInt32Array(102, 64, 101, 103), PackedInt32Array(46, 104, 105), PackedInt32Array(102, 103, 106, 107), PackedInt32Array(108, 51, 40, 39), PackedInt32Array(109, 83, 70), PackedInt32Array(110, 92, 93), PackedInt32Array(76, 110, 93, 77), PackedInt32Array(111, 112, 113), PackedInt32Array(114, 73, 72, 111), PackedInt32Array(115, 116, 117, 118, 119, 120), PackedInt32Array(118, 117, 121), PackedInt32Array(122, 118, 121, 123, 124), PackedInt32Array(125, 126, 127, 88), PackedInt32Array(125, 88, 87, 128), PackedInt32Array(129, 130, 131, 38, 132, 133, 98), PackedInt32Array(91, 134, 135), PackedInt32Array(70, 136, 137, 138), PackedInt32Array(139, 140, 61, 141), PackedInt32Array(57, 142, 143, 144, 58), PackedInt32Array(145, 146, 147, 148), PackedInt32Array(149, 150, 77), PackedInt32Array(105, 42, 41, 47), PackedInt32Array(151, 128, 87), PackedInt32Array(152, 151, 87), PackedInt32Array(152, 87, 153), PackedInt32Array(153, 67, 66, 113), PackedInt32Array(154, 55, 54, 155), PackedInt32Array(48, 64, 49), PackedInt32Array(45, 50, 118), PackedInt32Array(122, 45, 118), PackedInt32Array(156, 124, 123, 157), PackedInt32Array(74, 156, 157, 75), PackedInt32Array(149, 77, 93), PackedInt32Array(158, 149, 93, 159), PackedInt32Array(160, 114, 111, 113), PackedInt32Array(38, 44, 161, 132), PackedInt32Array(129, 98, 97, 94, 68), PackedInt32Array(162, 68, 67, 89, 91), PackedInt32Array(163, 162, 91, 135), PackedInt32Array(163, 135, 164), PackedInt32Array(165, 166, 167, 107, 106, 168, 169), PackedInt32Array(56, 55, 170), PackedInt32Array(171, 56, 170, 164), PackedInt32Array(163, 164, 170, 172, 173), PackedInt32Array(174, 173, 172, 154), PackedInt32Array(155, 174, 154), PackedInt32Array(148, 155, 54), PackedInt32Array(148, 54, 152, 153, 145), PackedInt32Array(100, 175, 176, 96), PackedInt32Array(82, 177, 160, 113, 79), PackedInt32Array(115, 141, 61, 60), PackedInt32Array(158, 143, 145, 153, 113), PackedInt32Array(46, 105, 47), PackedInt32Array(99, 46, 45), PackedInt32Array(81, 96, 176), PackedInt32Array(81, 176, 82), PackedInt32Array(66, 79, 113), PackedInt32Array(143, 158, 159), PackedInt32Array(143, 159, 144), PackedInt32Array(115, 60, 178), PackedInt32Array(115, 178, 116), PackedInt32Array(165, 120, 119, 179, 166), PackedInt32Array(137, 169, 168, 180), PackedInt32Array(137, 180, 138), PackedInt32Array(70, 138, 109)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 14.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_og208")
+Game_Mode = 1
+
+[node name="Music" parent="." instance=ExtResource("2_6qvkn")]
+unique_name_in_owner = true
+
+[node name="Clock" parent="." instance=ExtResource("3_ltokv")]
+unique_name_in_owner = true
+
+[node name="BG" parent="." instance=ExtResource("4_3g82p")]
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(0, -68)
+
+[node name="Star2" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(0, -113)
+
+[node name="Star6" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-323, -125)
+
+[node name="Star7" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-364, -197)
+
+[node name="Star8" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-249, -200)
+
+[node name="Star9" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-367, -94)
+
+[node name="Star10" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-230, -12)
+
+[node name="Star11" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-225, 195)
+
+[node name="Star12" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-218, -97)
+
+[node name="Star13" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-305, 121)
+
+[node name="Star14" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-359, -6)
+
+[node name="Star15" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(140, 0)
+
+[node name="Star16" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(0, 67)
+
+[node name="Star17" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(0, 196)
+
+[node name="Star18" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(239, -55)
+
+[node name="Star21" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(20, -179)
+
+[node name="Star22" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(332, -173)
+
+[node name="Star23" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(199, -166)
+
+[node name="Star24" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(340, -53)
+
+[node name="Star25" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(257, 79)
+
+[node name="Star26" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(258, 194)
+
+[node name="Star27" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(123, 146)
+
+[node name="Star28" parent="Stars" instance=ExtResource("5_v4ms6")]
+position = Vector2(-104, 0)
+
+[node name="Red_Star" parent="Stars" instance=ExtResource("6_og208")]
+position = Vector2(167, -62)
+
+[node name="Red_Star2" parent="Stars" instance=ExtResource("6_og208")]
+position = Vector2(161, 37)
+
+[node name="Red_Star3" parent="Stars" instance=ExtResource("6_og208")]
+position = Vector2(-273, -151)
+
+[node name="Red_Star4" parent="Stars" instance=ExtResource("6_og208")]
+position = Vector2(-216, -158)
+
+[node name="Red_Star5" parent="Stars" instance=ExtResource("6_og208")]
+position = Vector2(-281, -98)
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-8, -224)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(39, 221)
+scale = Vector2(3, 0.25)
+
+[node name="Large_Blade" parent="Nav/Stuff" instance=ExtResource("11_mkw30")]
+
+[node name="Platform" parent="Nav/Stuff" instance=ExtResource("7_rijuh")]
+position = Vector2(233, -209)
+
+[node name="Platform2" parent="Nav/Stuff" instance=ExtResource("8_d4w7j")]
+position = Vector2(289, -51)
+
+[node name="Bouncy_Wall" parent="Nav/Stuff" instance=ExtResource("13_rava4")]
+position = Vector2(179.82, -85.33)
+rotation = 0.54105204
+scale = Vector2(0.2, 0.2)
+
+[node name="Platform3" parent="Nav/Stuff" instance=ExtResource("8_d4w7j")]
+position = Vector2(-39, -100)
+rotation = -0.46251225
+
+[node name="Platform4" parent="Nav/Stuff" instance=ExtResource("8_d4w7j")]
+position = Vector2(39, -100)
+rotation = 0.36651915
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform5" parent="Nav/Stuff" instance=ExtResource("9_xl723")]
+position = Vector2(0, -52)
+
+[node name="Wall5" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(141, -72)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+
+[node name="Wall6" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(141, 72.00001)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+
+[node name="Wall7" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(166.59, 75.62)
+rotation = 2.242748
+scale = Vector2(0.2, 0.2)
+
+[node name="Laser" parent="Nav/Stuff" instance=ExtResource("15_4lytr")]
+visible = true
+position = Vector2(140, -34)
+scale = Vector2(1, 1.3)
+
+[node name="Ultra_Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("7_kwjxk")]
+position = Vector2(0, 124)
+
+[node name="Bouncy_Wall2" parent="Nav/Stuff" instance=ExtResource("13_rava4")]
+position = Vector2(-225, 124)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+
+[node name="Spike" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-225.415, 83)
+
+[node name="Spike2" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-225.415, 162)
+rotation = -3.1415925
+
+[node name="Sitcky_Circle" parent="Nav/Stuff" instance=ExtResource("16_lea6v")]
+position = Vector2(103, 210)
+
+[node name="Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("17_v4ms6")]
+position = Vector2(255, 136)
+
+[node name="Platform6" parent="Nav/Stuff" instance=ExtResource("18_nswc2")]
+position = Vector2(354, 206)
+
+[node name="Wall8" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-345, -112)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.05)
+
+[node name="Wall9" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-300, -112.00001)
+rotation = 1.5707964
+scale = Vector2(0.35, 0.2)
+
+[node name="Wall10" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-235, -176.105)
+scale = Vector2(0.35, 0.2)
+
+[node name="Wall11" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-195, -87)
+rotation = -0.7853982
+scale = Vector2(0.35, 0.2)
+
+[node name="Wall12" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-274, -119)
+rotation = 0.7853982
+scale = Vector2(0.2, 0.2)
+
+[node name="Wall13" parent="Nav/Stuff" instance=ExtResource("6_qtwb3")]
+position = Vector2(-239, -148.00003)
+rotation = 0.7853982
+scale = Vector2(0.2, 0.2)
+
+[node name="Ultra_Bouncy_Wall" parent="Nav/Stuff" instance=ExtResource("19_lea6v")]
+z_index = -3
+position = Vector2(-287, -163.00002)
+rotation = -0.7853982
+scale = Vector2(0.1, 0.2)
+
+[node name="Spike3" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-213, -131)
+rotation = 0.7853982
+scale = Vector2(0.49999997, 0.49999997)
+
+[node name="Spike4" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-258.00003, -92.000015)
+rotation = -2.3561945
+scale = Vector2(0.49999997, 0.49999997)
+
+[node name="Platform7" parent="Nav/Stuff" instance=ExtResource("18_nswc2")]
+position = Vector2(0, -189)
+rotation = 1.5707964
+
+[node name="Platform8" parent="Nav/Stuff" instance=ExtResource("8_d4w7j")]
+position = Vector2(-199.99998, 18)
+rotation = 0.5235988
+
+[node name="Platform9" parent="Nav/Stuff" instance=ExtResource("8_d4w7j")]
+position = Vector2(-158.245, 42)
+rotation = 0.5235988
+
+[node name="Platform10" parent="Nav/Stuff" instance=ExtResource("18_nswc2")]
+position = Vector2(-75, 206)
+
+[node name="Platform11" parent="Nav/Stuff" instance=ExtResource("18_nswc2")]
+position = Vector2(-375, 187)
+rotation = 1.5707964
+
+[node name="Spike6" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-311, 212)
+
+[node name="Spike7" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-381, 54)
+rotation = 1.5707964
+
+[node name="Platform12" parent="Nav/Stuff" instance=ExtResource("7_rijuh")]
+position = Vector2(-375, -6)
+rotation = 1.5707964
+
+[node name="Spike8" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(-133, -214)
+rotation = -3.1415925
+
+[node name="Ultra_Bouncy_Wall2" parent="Nav/Stuff" instance=ExtResource("19_lea6v")]
+z_index = -1
+position = Vector2(-375.00003, -215.00003)
+rotation = -0.7853982
+scale = Vector2(0.1, 0.2)
+
+[node name="Spike9" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(103, -214)
+rotation = -3.1415925
+
+[node name="Spike10" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(379, -52)
+rotation = -1.5707964
+
+[node name="Spike11" parent="Nav/Stuff" instance=ExtResource("13_oy35j")]
+position = Vector2(191, 43.999992)
+rotation = 0.6457718
+
+[node name="Ball" parent="." instance=ExtResource("21_fdjqt")]
+unique_name_in_owner = true
+position = Vector2(0, -155)
+
+[node name="UI" parent="." instance=ExtResource("22_u81sv")]
+unique_name_in_owner = true
+
+[node name="Square" parent="." instance=ExtResource("21_nswc2")]
+position = Vector2(-363, -194)
+
+[node name="Square2" parent="." instance=ExtResource("21_nswc2")]
+position = Vector2(-305, 121)
+
+[node name="Square3" parent="." instance=ExtResource("21_nswc2")]
+position = Vector2(356, 175)
+
+[node name="Square4" parent="." instance=ExtResource("21_nswc2")]
+position = Vector2(331, -171)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bsl7kmbmonw2n"]
+[gd_scene load_steps=25 format=3 uid="uid://bsl7kmbmonw2n"]
 
 [ext_resource type="Script" uid="uid://cwxnjvy48j4vd" path="res://Scripts/Management/UI.gd" id="1_wunin"]
 [ext_resource type="Texture2D" uid="uid://bayxg8l78h5eu" path="res://Images/UI/Reload_Bar.png" id="2_j04uc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dk8ffoyv071li" path="res://Scripts/Management/Weapon_Selectgd.gd" id="7_5q4fb"]
 [ext_resource type="Texture2D" uid="uid://dhwx5tqfm5fye" path="res://Images/UI/Laser.png" id="8_mqm5i"]
 [ext_resource type="Texture2D" uid="uid://tjh4ltv036eq" path="res://Images/UI/Rocket_Icon.png" id="9_jnovg"]
+[ext_resource type="Texture2D" uid="uid://dqcjb1qtjwo76" path="res://Images/Shapes/Star.png" id="10_j04uc"]
 
 [sub_resource type="Animation" id="Animation_x8mav"]
 resource_name = "Fade"
@@ -620,6 +621,58 @@ libraries = {
 wait_time = 0.05
 one_shot = true
 autostart = true
+
+[node name="Star_Counters" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.5372549)
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Normal" type="RichTextLabel" parent="Star_Counters"]
+layout_mode = 0
+offset_left = -145.0
+offset_right = -116.75
+offset_bottom = 14.25
+scale = Vector2(4, 4)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[right]10 x"
+
+[node name="Normal_Texture" type="TextureRect" parent="Star_Counters"]
+modulate = Color(1, 1, 0.09019608, 1)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 1.0
+offset_right = 34.0
+offset_bottom = 53.0
+texture = ExtResource("10_j04uc")
+stretch_mode = 4
+
+[node name="Red" type="RichTextLabel" parent="Star_Counters"]
+layout_mode = 0
+offset_left = -145.0
+offset_top = 57.0
+offset_right = -116.75
+offset_bottom = 71.25
+scale = Vector2(4, 4)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[right]10 x"
+
+[node name="Red_Texture" type="TextureRect" parent="Star_Counters"]
+modulate = Color(0.7372549, 0, 0.05490196, 1)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 58.0
+offset_right = 34.0
+offset_bottom = 110.0
+texture = ExtResource("10_j04uc")
+stretch_mode = 4
 
 [connection signal="mouse_entered" from="Selection/Laser/Button" to="Selection/Laser" method="Entered"]
 [connection signal="mouse_exited" from="Selection/Laser/Button" to="Selection/Laser" method="Exited"]

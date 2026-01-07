@@ -11,6 +11,7 @@ var lost: bool = false
 var text_times: int = 0
 var Enemy_Count: int = 0
 var Start_Timer: float = 3
+var Special_Enemy_Count: int = 0
 
 @onready var Winx = $UI/Win
 @onready var Timex = $UI/Time
@@ -34,10 +35,16 @@ func _ready() -> void:
 	if Game_Mode != modes.COLLECT:
 		for node in $Stars.get_children():
 			node.queue_free()
+		$UI/Star_Counters.queue_free()
 		
 	if Game_Mode == modes.COLLECT:
 		for node in $Stars.get_children():
-			Enemy_Count += 1
+			if node.is_in_group("Red_Star"):
+				if Special_Enemy_Count < 2:
+					Special_Enemy_Count += 1
+			else:
+				Enemy_Count += 1
+		Update_Star_Counter()
 	
 	if Game_Mode == modes.SURVIVAL:
 		Txt_Timer.wait_time = Survive_Time / 3
@@ -53,6 +60,8 @@ func _ready() -> void:
 		for node in get_children():
 			if node.is_in_group("Enemy"):
 				node.queue_free()
+				
+	#Update_Star_Counter()
 		
 	get_tree().paused = true
 
@@ -72,7 +81,7 @@ func _process(delta: float) -> void:
 				Win()
 				
 		if Game_Mode == modes.CHASE or Game_Mode == modes.COLLECT:
-			if Enemy_Count == 0:
+			if Enemy_Count == 0 and Special_Enemy_Count < 1:
 				Win()
 
 func Win():
@@ -138,3 +147,15 @@ func Play_Sound(stream: Resource, volume_db: float, pos: Vector2):
 	player.playing = true
 	var tween = create_tween()
 	tween.tween_callback(player.queue_free).set_delay(5)
+	
+func Update_Star_Counter():
+	if Enemy_Count == 0:
+		$UI/Star_Counters/Normal.queue_free()
+		$UI/Star_Counters/Normal_Texture.queue_free()
+	if Special_Enemy_Count == 0:
+		$UI/Star_Counters/Red.queue_free()
+		$UI/Star_Counters/Red_Texture.queue_free()
+	if $UI/Star_Counters.has_node("Normal"):
+		$UI/Star_Counters/Normal.bbcode_text = "[right]" + str(Enemy_Count) + " x"
+	if $UI/Star_Counters.has_node("Red"):
+		$UI/Star_Counters/Red.bbcode_text = "[right]" + str(Special_Enemy_Count) + " x"

@@ -9,6 +9,10 @@ func Body_Entered(body: Node2D) -> void:
 		var particle = $Pop
 		particle.reparent($"..")
 		particle.emitting = true
-		$"../..".Enemy_Count -= 1
+		if is_in_group("Red_Star"):
+			$"../..".Special_Enemy_Count -= 1
+		else:
+			$"../..".Enemy_Count -= 1
+		$"../..".Update_Star_Counter()
 		$"../..".Play_Sound(load("res://Sounds/Star.mp3"), 5, body.global_position)
 		queue_free()
