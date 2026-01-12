@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsl7kmbmonw2n"]
+[gd_scene load_steps=27 format=3 uid="uid://bsl7kmbmonw2n"]
 
 [ext_resource type="Script" uid="uid://cwxnjvy48j4vd" path="res://Scripts/Management/UI.gd" id="1_wunin"]
 [ext_resource type="Texture2D" uid="uid://bayxg8l78h5eu" path="res://Images/UI/Reload_Bar.png" id="2_j04uc"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dhwx5tqfm5fye" path="res://Images/UI/Laser.png" id="8_mqm5i"]
 [ext_resource type="Texture2D" uid="uid://tjh4ltv036eq" path="res://Images/UI/Rocket_Icon.png" id="9_jnovg"]
 [ext_resource type="Texture2D" uid="uid://dqcjb1qtjwo76" path="res://Images/Shapes/Star.png" id="10_j04uc"]
+[ext_resource type="Theme" uid="uid://bawwngkc0mnhr" path="res://Resources/Themes/Menu_Button.tres" id="11_vqx31"]
+[ext_resource type="Theme" uid="uid://hppybex8hgn7" path="res://Resources/Themes/Quit_Button.tres" id="12_b1goy"]
 
 [sub_resource type="Animation" id="Animation_x8mav"]
 resource_name = "Fade"
@@ -674,6 +676,103 @@ offset_bottom = 110.0
 texture = ExtResource("10_j04uc")
 stretch_mode = 4
 
+[node name="FPS" type="RichTextLabel" parent="."]
+texture_filter = 1
+clip_contents = false
+offset_right = 24.666668
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+theme_override_constants/outline_size = 5
+bbcode_enabled = true
+text = "[center]00"
+fit_content = true
+
+[node name="Pause" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Pause"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 64.0
+offset_right = 48.5
+offset_bottom = 82.0
+grow_horizontal = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(48.5, 9)
+theme_override_colors/font_shadow_color = Color(0.24313726, 0.6627451, 0.8117647, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[center]Gravity Control"
+
+[node name="Resume" type="Button" parent="Pause"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 58.0
+offset_right = 95.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 42.5)
+theme = ExtResource("11_vqx31")
+theme_override_font_sizes/font_size = 48
+text = "Resume"
+
+[node name="Menu" type="Button" parent="Pause"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 163.0
+offset_right = 95.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 42.5)
+theme = ExtResource("12_b1goy")
+theme_override_font_sizes/font_size = 48
+text = "Menu"
+
+[node name="Quit" type="Button" parent="Pause"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 271.0
+offset_right = 95.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 42.5)
+theme = ExtResource("12_b1goy")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
 [connection signal="mouse_entered" from="Selection/Laser/Button" to="Selection/Laser" method="Entered"]
 [connection signal="mouse_exited" from="Selection/Laser/Button" to="Selection/Laser" method="Exited"]
 [connection signal="pressed" from="Selection/Laser/Button" to="Selection/Laser" method="Pressed"]
@@ -681,3 +780,6 @@ stretch_mode = 4
 [connection signal="mouse_exited" from="Selection/Rocket/Button" to="Selection/Rocket" method="Exited"]
 [connection signal="pressed" from="Selection/Rocket/Button" to="Selection/Rocket" method="Pressed"]
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
+[connection signal="pressed" from="Pause/Resume" to="." method="Resume"]
+[connection signal="pressed" from="Pause/Menu" to="." method="Menu"]
+[connection signal="pressed" from="Pause/Quit" to="." method="Quit"]

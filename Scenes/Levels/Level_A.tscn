@@ -32,7 +32,7 @@ agent_radius = 20.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tbmwd")
-Game_Mode = 3
+Level_Name = "A"
 
 [node name="Music" parent="." instance=ExtResource("2_0exvw")]
 unique_name_in_owner = true

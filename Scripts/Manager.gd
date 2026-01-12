@@ -2,6 +2,7 @@ extends Node2D
 
 
 enum modes {SURVIVAL, CHASE, PLAYGROUND, COLLECT}
+@export var Level_Name: String 
 @export var Game_Mode: modes
 @export var Survive_Time: float = 30
 @onready var timer: float = Survive_Time
@@ -21,8 +22,14 @@ var Special_Enemy_Count: int = 0
 @onready var Win_Anim = $UI/Win/Anim
 
 
+const SAVE_FILE = "user://save_data_gc.txt"
+var save: Dictionary = { "Selected" = modes.SURVIVAL}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_game()
+	Game_Mode = save["Selected"]
+	
 	Music_Finished()
 	Winx.visible = false
 	
@@ -83,6 +90,7 @@ func _process(delta: float) -> void:
 		if Game_Mode == modes.CHASE or Game_Mode == modes.COLLECT:
 			if Enemy_Count == 0 and Special_Enemy_Count < 1:
 				Win()
+				
 
 func Win():
 	if !won:
@@ -96,6 +104,14 @@ func Win():
 		Panel_Anim()
 		%Clock.stop()
 		Play_Sound(load("res://Sounds/Win.mp3"), 0, %Ball.global_position)
+		
+		if Game_Mode == modes.SURVIVAL:
+			save["Levels"][Level_Name]["Survival"] = true
+		if Game_Mode == modes.CHASE:
+			save["Levels"][Level_Name]["Chase"] = true
+		if Game_Mode == modes.COLLECT:
+			save["Levels"][Level_Name]["Collect"] = true
+		save_game()
 	
 func Lose():
 	if !lost:
@@ -159,3 +175,31 @@ func Update_Star_Counter():
 		if Special_Enemy_Count == 0:
 			$UI/Star_Counters/Red.queue_free()
 			$UI/Star_Counters/Red_Texture.queue_free()
+
+
+func load_game():
+	if FileAccess.file_exists(SAVE_FILE):
+		var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+		if file:
+			var json_string = file.get_as_text()
+			var json = JSON.new()
+			var parse_result = json.parse(json_string)
+			
+			if parse_result == OK:
+				save = json.data
+				print("Game loaded!")
+				print("")
+				print(save)
+				print("")
+			else:
+				print("Failed to parse save file")
+	else:
+		print("No save file found, using defaults")
+
+func save_game():
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(save))
+		print("Game saved!")
+	else:
+		print("Failed to save game")

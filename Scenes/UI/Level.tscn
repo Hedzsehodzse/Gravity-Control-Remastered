@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdt1vxt6sdeyv"]
+
+[ext_resource type="Script" uid="uid://hjnq607qxf8j" path="res://Scripts/Management/Level.gd" id="1_n8hi8"]
+[ext_resource type="Texture2D" uid="uid://cstje05of4ane" path="res://Images/Levels/A.png" id="2_dewi4"]
+[ext_resource type="Texture2D" uid="uid://becrhcka2iicn" path="res://Images/UI/Check.png" id="3_dewi4"]
+[ext_resource type="Texture2D" uid="uid://1mmj2fq6dqqd" path="res://Images/UI/Small_Circle.png" id="3_twp0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjh0l"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.04850781, 0.017055787, 0.1854023, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.34422943, 0.22459427, 0.8577755, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_qki4b"]
+Panel/styles/panel = SubResource("StyleBoxFlat_sjh0l")
+
+[node name="Level" type="Panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 250)
+theme = SubResource("Theme_qki4b")
+script = ExtResource("1_n8hi8")
+
+[node name="Image" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -713.0
+offset_top = -391.0
+offset_right = 713.0
+offset_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(863, 483.5)
+texture = ExtResource("2_dewi4")
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 179.99998
+offset_right = 78.14286
+offset_bottom = 197.71428
+scale = Vector2(3.5, 3.5)
+bbcode_enabled = true
+text = "Test"
+
+[node name="Difficulty" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.00002
+offset_top = -198.0
+offset_right = 348.33325
+offset_bottom = 358.83325
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+pivot_offset = Vector2(398.167, 403.417)
+texture = ExtResource("3_twp0x")
+stretch_mode = 4
+
+[node name="Check" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 4.0
+offset_right = 185.0
+offset_bottom = 147.49994
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(231.5, 196.75)
+texture = ExtResource("3_dewi4")
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="Pressed"]

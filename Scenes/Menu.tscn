@@ -1,0 +1,585 @@
+[gd_scene load_steps=43 format=3 uid="uid://det2wbuqv1k48"]
+
+[ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
+[ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
+[ext_resource type="PackedScene" uid="uid://cpqdw5bkpk6d8" path="res://Scenes/BG.tscn" id="3_3jcrr"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="4_aobxe"]
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="5_ab40c"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="6_sjh0l"]
+[ext_resource type="PackedScene" uid="uid://byr03h7x0goox" path="res://Scenes/Objects/Ultra_Bouncy_Wall.tscn" id="7_3jcrr"]
+[ext_resource type="PackedScene" uid="uid://c7hc3mfgcxnhn" path="res://Scenes/Objects/Sticky_Wall.tscn" id="8_ab40c"]
+[ext_resource type="Script" uid="uid://vh80oya0d0k" path="res://Scripts/Gravity.gd" id="10_ab40c"]
+[ext_resource type="Theme" uid="uid://bawwngkc0mnhr" path="res://Resources/Themes/Menu_Button.tres" id="10_sjh0l"]
+[ext_resource type="Theme" uid="uid://hppybex8hgn7" path="res://Resources/Themes/Quit_Button.tres" id="11_du1yi"]
+[ext_resource type="PackedScene" uid="uid://cdt1vxt6sdeyv" path="res://Scenes/UI/Level.tscn" id="11_qki4b"]
+[ext_resource type="Texture2D" uid="uid://cstje05of4ane" path="res://Images/Levels/A.png" id="11_sjh0l"]
+[ext_resource type="Texture2D" uid="uid://lycbky4c8hf0" path="res://Images/Levels/Test.png" id="12_byewe"]
+[ext_resource type="FontFile" uid="uid://xmbht22ff63f" path="res://Resources/m5x7.ttf" id="16_dm44m"]
+[ext_resource type="Texture2D" uid="uid://c28wa2b08h7f1" path="res://Images/Levels/B.png" id="16_dsmso"]
+[ext_resource type="Texture2D" uid="uid://brammr64n82lw" path="res://Images/Levels/E.png" id="17_c0stj"]
+[ext_resource type="Texture2D" uid="uid://ntsf5bja2qnb" path="res://Images/UI/Small_Clock.png" id="17_dm44m"]
+[ext_resource type="Texture2D" uid="uid://do7x843r7h2s1" path="res://Images/Levels/M.png" id="18_dd46u"]
+[ext_resource type="Texture2D" uid="uid://ca8mo1odgsw7q" path="res://Images/UI/Small_Bullet.png" id="18_du1yi"]
+[ext_resource type="Texture2D" uid="uid://b5llk5ja3porm" path="res://Images/UI/Smaller_Circle.png" id="19_c0stj"]
+[ext_resource type="Theme" uid="uid://2mis3itlh0e6" path="res://Resources/Themes/Main_Panel.tres" id="19_dd46u"]
+[ext_resource type="Texture2D" uid="uid://72e1blpch5ih" path="res://Images/UI/Small_Star.png" id="20_3feh0"]
+
+[sub_resource type="DPITexture" id="DPITexture_dm44m"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_du1yi"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_c0stj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"#fff\" stroke-opacity=\".75\" stroke-width=\"3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_3feh0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fff\" fill-opacity=\".37\"/><circle cx=\"8\" cy=\"8\" r=\"4\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ksqlk"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_vkgky"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".25\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_o00om"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ka6xg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m5.5 11-3-3 3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_cdx8w"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_08kpj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".25\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwkn0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.99116415, 0.99116427, 0.99116415, 0.3254902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4fp51"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0stj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.08829392, 0.10223397, 0.38476628, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_size = 8
+
+[sub_resource type="Theme" id="Theme_n3nbb"]
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/h_separation = 15
+PopupMenu/constants/icon_max_width = 0
+PopupMenu/constants/indent = 10
+PopupMenu/constants/item_end_padding = 10
+PopupMenu/constants/item_start_padding = 10
+PopupMenu/constants/outline_size = 0
+PopupMenu/constants/separator_outline_size = 0
+PopupMenu/constants/v_separation = 15
+PopupMenu/font_sizes/font_separator_size = 16
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/fonts/font = ExtResource("16_dm44m")
+PopupMenu/fonts/font_separator = ExtResource("16_dm44m")
+PopupMenu/icons/checked = SubResource("DPITexture_dm44m")
+PopupMenu/icons/checked_disabled = SubResource("DPITexture_du1yi")
+PopupMenu/icons/radio_checked = SubResource("DPITexture_c0stj")
+PopupMenu/icons/radio_checked_disabled = SubResource("DPITexture_3feh0")
+PopupMenu/icons/radio_unchecked = SubResource("DPITexture_ksqlk")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("DPITexture_vkgky")
+PopupMenu/icons/submenu = SubResource("DPITexture_o00om")
+PopupMenu/icons/submenu_mirrored = SubResource("DPITexture_ka6xg")
+PopupMenu/icons/unchecked = SubResource("DPITexture_cdx8w")
+PopupMenu/icons/unchecked_disabled = SubResource("DPITexture_08kpj")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_qwkn0")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_4fp51")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_4fp51")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_c0stj")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_4fp51")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3nbb"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0)
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_size = 8
+
+[sub_resource type="Theme" id="Theme_dm44m"]
+Panel/styles/panel = SubResource("StyleBoxFlat_n3nbb")
+
+[sub_resource type="Animation" id="Animation_dd46u"]
+resource_name = "In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2000, 0), Vector2(1172, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n3nbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1172, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dm44m"]
+_data = {
+&"In": SubResource("Animation_dd46u"),
+&"RESET": SubResource("Animation_n3nbb")
+}
+
+[node name="Menu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_aobxe")
+Colors = PackedColorArray(1, 1, 1, 1, 0, 0.6431373, 0, 1, 0.7607843, 0.62352943, 0, 1, 0.9372549, 0, 0, 1, 0.39106983, 0, 0, 1, 0.5063416, 0.0016092998, 0.70825934, 1)
+
+[node name="Music" parent="." instance=ExtResource("1_idohh")]
+unique_name_in_owner = true
+
+[node name="BG" parent="." instance=ExtResource("3_3jcrr")]
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Stuff" instance=ExtResource("5_ab40c")]
+position = Vector2(-88.81, 193.305)
+rotation = -0.34906584
+scale = Vector2(0.5, 1.3)
+
+[node name="Wall3" parent="Stuff" instance=ExtResource("5_ab40c")]
+position = Vector2(148.45, 171.03)
+scale = Vector2(0.8, 1.5)
+
+[node name="Wall4" parent="Stuff" instance=ExtResource("5_ab40c")]
+position = Vector2(403, 222)
+scale = Vector2(0.8, 1.5)
+
+[node name="Platform" parent="Stuff" instance=ExtResource("6_sjh0l")]
+position = Vector2(167, 109)
+
+[node name="Ultra_Bouncy_Wall" parent="Stuff" instance=ExtResource("7_3jcrr")]
+z_index = -1
+position = Vector2(404, 142.99997)
+rotation = -0.5497787
+scale = Vector2(0.5, 0.5)
+
+[node name="Platform2" parent="Stuff" instance=ExtResource("6_sjh0l")]
+position = Vector2(384, 21)
+rotation = 1.850049
+
+[node name="Platform3" parent="Stuff" instance=ExtResource("6_sjh0l")]
+position = Vector2(240, 59.000004)
+rotation = 1.5969763
+
+[node name="Sticky_Wall" parent="Stuff" instance=ExtResource("8_ab40c")]
+position = Vector2(-333, 203.00002)
+rotation = 0.5235988
+scale = Vector2(0.5, 1)
+
+[node name="Wall" parent="Stuff" instance=ExtResource("5_ab40c")]
+position = Vector2(219, 97.00001)
+rotation = 1.5969763
+scale = Vector2(0.3, 0.4)
+
+[node name="Ball" parent="." instance=ExtResource("4_aobxe")]
+unique_name_in_owner = true
+position = Vector2(167, -1)
+script = ExtResource("10_ab40c")
+time = 1000000.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Pos" type="Node2D" parent="."]
+position = Vector2(358, -238)
+
+[node name="Pos2" type="Node2D" parent="."]
+position = Vector2(-280, -238)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="RichTextLabel" parent="UI"]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 64.0
+offset_right = 48.5
+offset_bottom = 82.0
+grow_horizontal = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(48.5, 9)
+theme_override_colors/font_shadow_color = Color(0.24313726, 0.6627451, 0.8117647, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[center]Gravity Control"
+
+[node name="Main" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="UI/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 893.0
+offset_top = 406.0
+offset_right = 987.80005
+offset_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("10_sjh0l")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Quit" type="Button" parent="UI/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 893.0
+offset_top = 526.0
+offset_right = 987.80005
+offset_bottom = 577.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("11_du1yi")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Levels" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VScrollBar" type="ScrollContainer" parent="UI/Levels"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 200.0
+offset_right = 1251.0
+offset_bottom = 955.0
+horizontal_scroll_mode = 0
+
+[node name="Container" type="FlowContainer" parent="UI/Levels/VScrollBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "Test"
+Sprite = ExtResource("12_byewe")
+Difficulty = Array[int]([3, 2, 0, 3])
+Scene = "res://Scenes/Levels/Test.tscn"
+
+[node name="Level2" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "A"
+Sprite = ExtResource("11_sjh0l")
+Difficulty = Array[int]([3, 2, 0, 4])
+Scene = "res://Scenes/Levels/Level_A.tscn"
+
+[node name="Level3" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "B"
+Sprite = ExtResource("16_dsmso")
+Difficulty = Array[int]([2, 1, 0, 3])
+Scene = "res://Scenes/Levels/Level_B.tscn"
+
+[node name="Level4" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "M"
+Sprite = ExtResource("18_dd46u")
+Difficulty = Array[int]([3, 2, 0, 3])
+Scene = "res://Scenes/Levels/Level_M.tscn"
+
+[node name="Level5" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E"
+Sprite = ExtResource("17_c0stj")
+Difficulty = Array[int]([1, 1, 0, 2])
+Scene = "res://Scenes/Levels/Level_E.tscn"
+
+[node name="Back" type="Button" parent="UI/Levels"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -84.0
+offset_right = 150.80005
+offset_bottom = -33.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("11_du1yi")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Modes" type="OptionButton" parent="UI/Levels"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -602.0
+offset_top = -117.0
+offset_right = -223.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_n3nbb")
+theme_override_font_sizes/font_size = 48
+flat = true
+expand_icon = true
+selected = 0
+item_count = 4
+popup/item_0/text = "Survival"
+popup/item_0/icon = ExtResource("17_dm44m")
+popup/item_0/id = 0
+popup/item_1/text = "Chase"
+popup/item_1/icon = ExtResource("18_du1yi")
+popup/item_1/id = 1
+popup/item_2/text = "Playground"
+popup/item_2/icon = ExtResource("19_c0stj")
+popup/item_2/id = 2
+popup/item_3/text = "Collect"
+popup/item_3/icon = ExtResource("20_3feh0")
+popup/item_3/id = 3
+
+[node name="Preview" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -748.0
+offset_right = -0.0021972656
+offset_bottom = 1073.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="UI/Preview"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 200.0
+offset_right = 682.0
+offset_bottom = 971.0
+theme = ExtResource("19_dd46u")
+
+[node name="Image" type="TextureRect" parent="UI/Preview"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -279.0
+offset_top = 270.0
+offset_right = 1447.0
+offset_bottom = 1237.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_sjh0l")
+
+[node name="Small_Panel" type="Panel" parent="UI/Preview"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 270.0
+offset_right = 613.0
+offset_bottom = 560.0
+theme = SubResource("Theme_dm44m")
+
+[node name="Title" type="RichTextLabel" parent="UI/Preview"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 95.0
+offset_top = 568.0
+offset_right = 181.33333
+offset_bottom = 583.8333
+scale = Vector2(6, 6)
+theme_override_colors/font_shadow_color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+bbcode_enabled = true
+text = "[center]Test"
+
+[node name="XD" type="RichTextLabel" parent="UI/Preview"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 95.0
+offset_top = 663.0
+offset_right = 181.33333
+offset_bottom = 678.8333
+scale = Vector2(4, 4)
+bbcode_enabled = true
+text = "Diff:"
+
+[node name="Diff" type="RichTextLabel" parent="UI/Preview"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 198.0
+offset_top = 663.0
+offset_right = 301.75
+offset_bottom = 678.8333
+scale = Vector2(4, 4)
+bbcode_enabled = true
+text = "Extreme"
+
+[node name="Mode" type="RichTextLabel" parent="UI/Preview"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 95.0
+offset_top = 892.0
+offset_right = 198.75
+offset_bottom = 907.8333
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "Mode: Survival"
+
+[node name="Button" type="Button" parent="UI/Preview"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -305.0
+offset_right = 23.800049
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("10_sjh0l")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Anim" type="AnimationPlayer" parent="UI/Preview"]
+libraries = {
+&"": SubResource("AnimationLibrary_dm44m")
+}
+speed_scale = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="Timeout"]
+[connection signal="pressed" from="UI/Main/Play" to="." method="Play"]
+[connection signal="pressed" from="UI/Main/Quit" to="." method="Quit"]
+[connection signal="pressed" from="UI/Levels/Back" to="." method="Back"]
+[connection signal="item_selected" from="UI/Levels/Modes" to="." method="Item_Selected"]
+[connection signal="pressed" from="UI/Preview/Button" to="." method="Go_To_Level"]

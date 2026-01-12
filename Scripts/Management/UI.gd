@@ -10,6 +10,21 @@ func _ready() -> void:
 	else:
 		get_tree().paused = false
 		
+func _process(_delta: float) -> void:
+	$FPS.bbcode_text = "[center]" + str(roundi(Engine.get_frames_per_second()))
+	
+	if Input.is_action_just_pressed("Enter"):
+		if visible:
+			visible = false
+		else:
+			visible = true
+			
+	if Input.is_action_just_pressed("Escape"):
+		if $Pause.visible:
+			Un_Pause()
+		else:
+			Pause()
+		
 
 func Timeout() -> void:
 	_ready()
@@ -24,3 +39,26 @@ func Play_Sound(stream: Resource, volume_db: float, pos: Vector2):
 	player.playing = true
 	var tween = create_tween()
 	tween.tween_callback(player.queue_free).set_delay(5)
+	
+func Pause():
+	$Pause.visible = true
+	get_tree().paused = true
+	
+func Un_Pause():
+	$Pause.visible =  false
+	get_tree().paused =  false
+
+
+func Resume() -> void:
+	Un_Pause()
+	Play_Sound(load("res://Sounds/Accept.mp3"), 0, Vector2.ZERO)
+
+
+func Menu() -> void:
+	Play_Sound(load("res://Sounds/UI.mp3"), 0, Vector2.ZERO)
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	
+	
+func Quit() -> void:
+	Play_Sound(load("res://Sounds/UI.mp3"), 0, Vector2.ZERO)
+	get_tree().quit()

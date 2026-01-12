@@ -24,3 +24,5 @@ func Body_Entered(body: Node2D) -> void:
 			var main = body.get_parent()
 			var num = str(randi_range(1, 8))
 			main.Play_Sound(load("res://Sounds/Metal" + num + ".mp3"), 0, body.global_position)
+		if Type == types.ULTRA_BOUNCY:
+			body.linear_velocity *= 2
