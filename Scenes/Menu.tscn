@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=45 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -18,10 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://c28wa2b08h7f1" path="res://Images/Levels/B.png" id="16_dsmso"]
 [ext_resource type="Texture2D" uid="uid://brammr64n82lw" path="res://Images/Levels/E.png" id="17_c0stj"]
 [ext_resource type="Texture2D" uid="uid://ntsf5bja2qnb" path="res://Images/UI/Small_Clock.png" id="17_dm44m"]
+[ext_resource type="Texture2D" uid="uid://dwxadx3s5c0do" path="res://Images/Levels/E2.png" id="18_3feh0"]
 [ext_resource type="Texture2D" uid="uid://do7x843r7h2s1" path="res://Images/Levels/M.png" id="18_dd46u"]
 [ext_resource type="Texture2D" uid="uid://ca8mo1odgsw7q" path="res://Images/UI/Small_Bullet.png" id="18_du1yi"]
 [ext_resource type="Texture2D" uid="uid://b5llk5ja3porm" path="res://Images/UI/Smaller_Circle.png" id="19_c0stj"]
 [ext_resource type="Theme" uid="uid://2mis3itlh0e6" path="res://Resources/Themes/Main_Panel.tres" id="19_dd46u"]
+[ext_resource type="Texture2D" uid="uid://tkfqehxun15c" path="res://Images/Levels/I.png" id="19_ksqlk"]
 [ext_resource type="Texture2D" uid="uid://72e1blpch5ih" path="res://Images/UI/Small_Star.png" id="20_3feh0"]
 
 [sub_resource type="DPITexture" id="DPITexture_dm44m"]
@@ -369,7 +371,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_left = 236.0
 offset_top = 200.0
-offset_right = 1251.0
+offset_right = 1160.0
 offset_bottom = 955.0
 horizontal_scroll_mode = 0
 
@@ -411,6 +413,20 @@ Name = "E"
 Sprite = ExtResource("17_c0stj")
 Difficulty = Array[int]([1, 1, 0, 2])
 Scene = "res://Scenes/Levels/Level_E.tscn"
+
+[node name="Level6" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E2"
+Sprite = ExtResource("18_3feh0")
+Difficulty = Array[int]([0, 0, 0, 1])
+Scene = "res://Scenes/Levels/Level_E2.tscn"
+
+[node name="Level7" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "I"
+Sprite = ExtResource("19_ksqlk")
+Difficulty = Array[int]([4, 3, 0, 5])
+Scene = "res://Scenes/Levels/Level_I.tscn"
 
 [node name="Back" type="Button" parent="UI/Levels"]
 texture_filter = 1
