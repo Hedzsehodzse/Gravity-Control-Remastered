@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=48 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://72e1blpch5ih" path="res://Images/UI/Small_Star.png" id="20_3feh0"]
 [ext_resource type="Texture2D" uid="uid://b00hc67222s2e" path="res://Images/Levels/E3.png" id="20_vkgky"]
 [ext_resource type="Texture2D" uid="uid://bbyjfxs761fiw" path="res://Images/Levels/E4.png" id="21_o00om"]
+[ext_resource type="Texture2D" uid="uid://c4cy7f3nqf50v" path="res://Images/Levels/D1.png" id="22_ka6xg"]
 
 [sub_resource type="DPITexture" id="DPITexture_dm44m"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
@@ -463,6 +464,13 @@ Name = "E4"
 Sprite = ExtResource("21_o00om")
 Difficulty = Array[int]([3, 2, 0, 4])
 Scene = "res://Scenes/Levels/Level_E4.tscn"
+
+[node name="Level10" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "D1"
+Sprite = ExtResource("22_ka6xg")
+Difficulty = Array[int]([2, 2, 0, 3])
+Scene = "res://Scenes/Levels/Level_D1.tscn"
 
 [node name="Back" type="Button" parent="UI/Levels"]
 texture_filter = 1

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b84h7km8klrxk" path="res://Scripts/Door.gd" id="5_6bgfb"]
 
 [node name="Door" type="StaticBody2D"]
+z_index = -1
 physics_material_override = ExtResource("1_eaxfl")
 script = ExtResource("2_o57tb")
 

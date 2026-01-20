@@ -6,6 +6,10 @@ extends Sprite2D
 
 var active: bool = true
 
+func _ready() -> void:
+	if No_Disactivation:
+		modulate = Color("#4b9498")
+
 
 func Body_Entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and active:
