@@ -5,6 +5,7 @@ enum modes {SURVIVAL, CHASE, PLAYGROUND, COLLECT}
 @export var Level_Name: String 
 @export var Game_Mode: modes
 @export var Survive_Time: float = 30
+@export var Tutorial: bool = false
 @onready var timer: float = Survive_Time
 var gravity: Vector2 = Vector2(0, 400)
 var won: bool = false
@@ -28,45 +29,70 @@ var save: Dictionary = { "Selected" = modes.SURVIVAL}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_game()
+	
 	Game_Mode = save["Selected"]
+	
+	var folder = save["Levels"][Level_Name]
+	var attempts: int 
+	
+	if Game_Mode == modes.SURVIVAL:
+		folder["Survival_Attempts"] += 1
+		attempts = folder["Survival_Attempts"]
+	elif Game_Mode == modes.CHASE:
+		folder["Chase_Attempts"] += 1
+		attempts = folder["Chase_Attempts"]
+	elif Game_Mode == modes.COLLECT:
+		folder["Collect_Attempts"] += 1
+		attempts = folder["Collect_Attempts"]
+	else:
+		$UI/Win/Attempts.visible = false
+		
+	$UI/Win/Attempts.bbcode_text = "[wave]Attempts: " + str(attempts)
+		
+	save_game()
 	
 	Music_Finished()
 	Winx.visible = false
 	
-	if Game_Mode != modes.CHASE and Game_Mode != modes.PLAYGROUND:
+	if Tutorial:
 		Reload.visible = false
-		
-	if Game_Mode != modes.SURVIVAL:
 		Timex.visible = false
-		
-	if Game_Mode != modes.COLLECT:
-		for node in $Stars.get_children():
-			node.queue_free()
 		$UI/Star_Counters.queue_free()
-		
-	if Game_Mode == modes.COLLECT:
-		for node in $Stars.get_children():
-			if node.is_in_group("Red_Star"):
-				if Special_Enemy_Count < 2:
-					Special_Enemy_Count += 1
-			else:
-				Enemy_Count += 1
-		Update_Star_Counter()
-	
-	if Game_Mode == modes.SURVIVAL:
-		Txt_Timer.wait_time = Survive_Time / 3
-		Txt_Timer.start()
-		Text_Timeout()
-	
-	if Game_Mode == modes.CHASE:
-		for node in get_children():
-			if node.is_in_group("Enemy"):
-				Enemy_Count += 1
-		
-	if Game_Mode == modes.PLAYGROUND:
-		for node in get_children():
-			if node.is_in_group("Enemy"):
+	else:
+		if Game_Mode != modes.CHASE and Game_Mode != modes.PLAYGROUND:
+			Reload.visible = false
+			
+		if Game_Mode != modes.SURVIVAL:
+			Timex.visible = false
+			
+		if Game_Mode != modes.COLLECT:
+			for node in $Stars.get_children():
 				node.queue_free()
+			$UI/Star_Counters.queue_free()
+			
+		if Game_Mode == modes.COLLECT:
+			for node in $Stars.get_children():
+				if node.is_in_group("Red_Star"):
+					if Special_Enemy_Count < 2:
+						Special_Enemy_Count += 1
+				else:
+					Enemy_Count += 1
+			Update_Star_Counter()
+		
+		if Game_Mode == modes.SURVIVAL:
+			Txt_Timer.wait_time = Survive_Time / 3
+			Txt_Timer.start()
+			Text_Timeout()
+		
+		if Game_Mode == modes.CHASE:
+			for node in get_children():
+				if node.is_in_group("Enemy"):
+					Enemy_Count += 1
+			
+		if Game_Mode == modes.PLAYGROUND:
+			for node in get_children():
+				if node.is_in_group("Enemy"):
+					node.queue_free()
 				
 	#Update_Star_Counter()
 		

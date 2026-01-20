@@ -137,6 +137,11 @@ func load_game():
 			save["Levels"][level.Name]["Chase"] = false
 			save["Levels"][level.Name]["Collect"] = false
 			
+		if !save["Levels"][level.Name].has("Survival_Attempts"):
+			save["Levels"][level.Name]["Survival_Attempts"] = 0
+			save["Levels"][level.Name]["Chase_Attempts"] = 0
+			save["Levels"][level.Name]["Collect_Attempts"] = 0
+			
 		level.Colors = Colors
 		level.Display_Difficulty(modes.SURVIVAL)
 
@@ -147,3 +152,7 @@ func save_game():
 		print("Game saved!")
 	else:
 		print("Failed to save game")
+
+
+func Tutorial() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Levels/Tutorial.tscn")

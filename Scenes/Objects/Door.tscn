@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfkq0svvd57h5"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cagn8d2vcpxql" path="res://Resources/Physics/Normal.tres" id="1_eaxfl"]
+[ext_resource type="Script" uid="uid://cnctyjrhjutaw" path="res://Scripts/Bounce.gd" id="2_o57tb"]
+[ext_resource type="Texture2D" uid="uid://8ufpyilcr2yx" path="res://Images/Shapes/Door.png" id="3_o57tb"]
+[ext_resource type="Texture2D" uid="uid://di8mukf0gld7a" path="res://Images/Shapes/Door_Frame.png" id="4_trs56"]
+[ext_resource type="Script" uid="uid://b84h7km8klrxk" path="res://Scripts/Door.gd" id="5_6bgfb"]
+
+[node name="Door" type="StaticBody2D"]
+physics_material_override = ExtResource("1_eaxfl")
+script = ExtResource("2_o57tb")
+
+[node name="Door" type="Sprite2D" parent="."]
+modulate = Color(0.14832392, 0.14775914, 0.28201708, 1)
+texture_filter = 1
+texture = ExtResource("3_o57tb")
+
+[node name="Frame" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_trs56")
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(210.09998, 42)
+polygon = PackedVector2Array(-249.09998, -47, -171.09998, -47, -171.09998, -37, -249.09998, -37)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 129
+script = ExtResource("5_6bgfb")
+
+[node name="Collider" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(210.09998, 42)
+polygon = PackedVector2Array(-249.09998, -47, -171.09998, -47, -171.09998, -37, -249.09998, -37)
+
+[node name="Timer" type="Timer" parent="Area2D"]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="Body_Entered"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="Timeout"]

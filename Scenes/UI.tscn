@@ -434,6 +434,21 @@ theme_override_constants/shadow_offset_y = 0
 bbcode_enabled = true
 text = "[center][pulse freq=1.5]Press space to retry..."
 
+[node name="Attempts" type="RichTextLabel" parent="Win"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 171.0
+offset_right = 189.5
+offset_bottom = 195.0
+scale = Vector2(1.3, 1.3)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.17254902)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[wave]Attempts: 30"
+
 [node name="Selection" type="Panel" parent="."]
 visible = false
 anchors_preset = 8

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=47 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -25,6 +25,8 @@
 [ext_resource type="Theme" uid="uid://2mis3itlh0e6" path="res://Resources/Themes/Main_Panel.tres" id="19_dd46u"]
 [ext_resource type="Texture2D" uid="uid://tkfqehxun15c" path="res://Images/Levels/I.png" id="19_ksqlk"]
 [ext_resource type="Texture2D" uid="uid://72e1blpch5ih" path="res://Images/UI/Small_Star.png" id="20_3feh0"]
+[ext_resource type="Texture2D" uid="uid://b00hc67222s2e" path="res://Images/Levels/E3.png" id="20_vkgky"]
+[ext_resource type="Texture2D" uid="uid://bbyjfxs761fiw" path="res://Images/Levels/E4.png" id="21_o00om"]
 
 [sub_resource type="DPITexture" id="DPITexture_dm44m"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
@@ -338,6 +340,26 @@ theme = ExtResource("10_sjh0l")
 theme_override_font_sizes/font_size = 32
 text = "Play"
 
+[node name="Tutorial" type="Button" parent="UI/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 893.0
+offset_top = 530.0
+offset_right = 987.80005
+offset_bottom = 581.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("10_sjh0l")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+
 [node name="Quit" type="Button" parent="UI/Main"]
 texture_filter = 1
 layout_mode = 1
@@ -347,9 +369,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 893.0
-offset_top = 526.0
+offset_top = 659.0
 offset_right = 987.80005
-offset_bottom = 577.0
+offset_bottom = 710.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -427,6 +449,20 @@ Name = "I"
 Sprite = ExtResource("19_ksqlk")
 Difficulty = Array[int]([4, 3, 0, 5])
 Scene = "res://Scenes/Levels/Level_I.tscn"
+
+[node name="Level8" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E3"
+Sprite = ExtResource("20_vkgky")
+Difficulty = Array[int]([1, 0, 0, 2])
+Scene = "res://Scenes/Levels/Level_E3.tscn"
+
+[node name="Level9" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E4"
+Sprite = ExtResource("21_o00om")
+Difficulty = Array[int]([3, 2, 0, 4])
+Scene = "res://Scenes/Levels/Level_E4.tscn"
 
 [node name="Back" type="Button" parent="UI/Levels"]
 texture_filter = 1
@@ -595,6 +631,7 @@ speed_scale = 2.0
 
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
 [connection signal="pressed" from="UI/Main/Play" to="." method="Play"]
+[connection signal="pressed" from="UI/Main/Tutorial" to="." method="Tutorial"]
 [connection signal="pressed" from="UI/Main/Quit" to="." method="Quit"]
 [connection signal="pressed" from="UI/Levels/Back" to="." method="Back"]
 [connection signal="item_selected" from="UI/Levels/Modes" to="." method="Item_Selected"]

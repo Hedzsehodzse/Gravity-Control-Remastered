@@ -1,0 +1,355 @@
+[gd_scene load_steps=23 format=3 uid="uid://dmnkiowaqqitn"]
+
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_ur3n8"]
+[ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_uavdj"]
+[ext_resource type="PackedScene" uid="uid://did1jm3sy5o31" path="res://Scenes/Clock.tscn" id="3_bah0i"]
+[ext_resource type="PackedScene" uid="uid://cpqdw5bkpk6d8" path="res://Scenes/BG.tscn" id="4_by3ar"]
+[ext_resource type="PackedScene" uid="uid://bb0g0ga6ihknv" path="res://Scenes/Star.tscn" id="5_kdlrp"]
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="6_0ry0s"]
+[ext_resource type="PackedScene" uid="uid://c6mrjxpibn5l6" path="res://Scenes/Objects/Spike.tscn" id="10_siq1i"]
+[ext_resource type="PackedScene" uid="uid://bfkq0svvd57h5" path="res://Scenes/Objects/Door.tscn" id="11_siq1i"]
+[ext_resource type="PackedScene" uid="uid://dy4u204rvk34s" path="res://Scenes/Objects/Button.tscn" id="12_xjf8v"]
+[ext_resource type="PackedScene" uid="uid://clm1xfvtch65v" path="res://Scenes/Objects/Ultra_Bouncy_Platform.tscn" id="13_ylhjl"]
+[ext_resource type="PackedScene" uid="uid://1cbnsuqxiej4" path="res://Scenes/Objects/Ultra_Bouncy_Circle.tscn" id="14_2k6vn"]
+[ext_resource type="PackedScene" uid="uid://c0nxb86u7l0ef" path="res://Scenes/Objects/Large_Blade.tscn" id="15_1gf1h"]
+[ext_resource type="PackedScene" uid="uid://csi1rvlv2slt8" path="res://Scenes/Objects/Sticky_Platform.tscn" id="16_r8mmm"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="17_gmie7"]
+[ext_resource type="PackedScene" uid="uid://dsmc15b8g808k" path="res://Scenes/Objects/Circle.tscn" id="18_wkr0y"]
+[ext_resource type="PackedScene" uid="uid://b2ohtnamrxiwd" path="res://Scenes/Objects/Bouncy_Wall.tscn" id="19_4mnpo"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="19_pp7n8"]
+[ext_resource type="PackedScene" uid="uid://bgqv7o2mkempy" path="res://Scenes/Objects/Platform.tscn" id="20_nvwss"]
+[ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="20_wd6jn"]
+[ext_resource type="PackedScene" uid="uid://djji37pbkyivx" path="res://Scenes/Enemies/Square.tscn" id="21_uavdj"]
+[ext_resource type="PackedScene" uid="uid://brfgvdyk28rnv" path="res://Scenes/Objects/Bouncy_Circle.tscn" id="21_ur3n8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+vertices = PackedVector2Array(-524.10156, 245.5, -414.5, 245.5, -414.5, 431.29688, -538.0703, 477.97656, -366.5, 431.29688, -366.5, 245.5, 58.679688, 245.5, 72.14844, 258.96875, 412.5, -50.890625, 412.5, -199.5, 582.2969, -199.5, 432.1328, -31.257813, 582.2969, -247.5, 412.5, -247.5, 412.5, -294.96875, 629.8125, -299.70313, 671.1875, 397.9375, 629.2969, 197.5, 437.14844, 197.5, 432.1328, 178.74219, 412.5, 50.890625, 432.1328, 31.257813, 101, 266.70313, 129.85156, 258.96875, 346.7422, 264.1328, 364.5, 268.89063, 364.5, 383.29688, 440.5, 0, 143.32031, 245.5, 328.10938, 245.5, 412.5, 383.29688, 412.5, 260.89063, 427.89063, 245.5, 629.2969, 245.5, 412.5, 159.10938, -414.5, 197.5, -521.21875, 197.5, -497.35938, -199.5, -435.52344, -55, -428.20313, -27.742188, -439.35156, -199.5, -435.1328, -183.74219, -414.5, -95.96094, -428.20313, -82.25781, -414.5, -163.10938, -414.5, -14.0390625, 171.74219, 49.203125, 101, 151.29688, 91.671875, 153.78906, 91.671875, 26.703125, 151.79688, 29.257813, 186.5, 148.8125, 191.45313, 148.8125, 191.45313, 197.5, 155.61719, 197.5, 150.96875, 180.14844, 87, 26.703125, 87, -20.5, 92.52344, -20.5, 144.47656, 2, 186.5, -162.84375, 92.52344, -68.5, 92.5, -68.5, 92.5, -157.22656, 171.74219, -166.79688, 88, -157.22656, 88, -199.5, 148.38281, -199.5, 151.79688, -186.74219, 186.5, 53.148438, 129.85156, 159.03125, 151.79688, -25.257813, 171.74219, -45.203125, 186.5, -49.148438, 318.85156, 197.5, 229.45313, 197.5, 229.45313, 148.8125, 234.5, 148.8125, 323.8672, 178.74219, 246.20313, -186.74219, 249.61719, -199.5, 364.5, -199.5, 364.5, -58.890625, 346.7422, -54.132813, 234.5, -36.960938, 234.5, -175.03906, 323.8672, -31.257813, 246.20313, -25.257813, 315.5, 0, 253.52344, 2, 323.8672, 31.257813, 246.20313, 29.257813, 346.7422, 54.132813, 364.5, 58.890625, 364.5, 151.10156, 346.7422, 155.86719, 234.5, 40.960938, -414.5, -266.89063, -433.89063, -247.5, -494.47656, -247.5, -492.79688, -275.27344, -414.5, -276.96875, -366.5, -278.02344, -229.50781, -281, -240.25781, -278.1328, -366.5, -273.60938, -263.1328, -255.25, -349.75, -269.1328, -328.10938, -247.5, -265.20313, -247.5, -177.74219, -278.1328, -191.57031, -281.82813, 364.5, -293.92188, -154.86719, -255.25, -152.79688, -247.5, 199, -268.52344, 364.5, -247.5, 239.96094, -247.5, 226.25781, -261.20313, 171.74219, -261.20313, 158.03906, -247.5, 38.5, -189.5, 44.5, -157.22656, 44.5, -105.07031, 7.9296875, -68.5, -98.953125, -111.5, -98.953125, -159.5, -38.5, -189.5, -325.45313, -111.5, -330.10938, -68.5, -333.79688, -82.25781, -325.5, -130.5, -353.7422, -102.203125, -355.5, -159.32813, -349.75, -160.86719, 38.5, -199.5, 50, -199.5, 50, -157.22656, -325.45313, -130.5, -153.0625, -199.5, -38.5, -199.5, -154.86719, -192.74219, -177.74219, -169.86719, -355.5, -102.671875, -325.5, -169.5, -326.8672, -183.74219, -248.5, -169.5, -325.32813, -189.5, -259.89063, -189.5, -240.25781, -169.86719, -248.5, -159.5, -209, -161.5, -199.90625, 14.6484375, -219.39844, -19.148438, -79.25781, 14.796875, -99.203125, 34.742188, -140.74219, 39.867188, -172, 31.5, 43.671875, 26.703125, 43.671875, 197.5, 2.5234375, 62, -4.796875, 34.742188, 38.078125, -14.4609375, -4.796875, 89.25781, -300.29688, 157.63281, -300.29688, 10.53125, -286.5, 148.5, -286.5, 197.5, -24.742188, 109.203125, -25.476563, 191, -32.796875, 163.74219, -366.5, 197.5, -340.29688, 157.63281, -340.29688, 10.53125, -366.5, -4.3828125, -353.7422, -7.796875, -27.226563, 197.5, -52.742188, 143.79688, -52, 116.52344, -134.52344, 191, -132.77344, 197.5, -247.5, 197.5, -247.5, 148.5, -80, 136.47656, -79.25781, 109.203125, -99.203125, 89.25781, -109.5, 94, -117.86719, 62.742188, -106.52344, 62, -127.203125, 163.74219, -172, 156.5, 44.117188, -20.5, 49, -20.5, 49, 26.703125, -24.742188, 14.796875, 32.039063, -20.5, -234.5, 94, -226.13281, 125.25781, -266.60156, 53.148438, -341.03906, -20.5, -107.25781, 143.79688, -117.86719, 125.25781, -140.74219, 148.13281, -203.25781, 39.867188, -226.13281, 62.742188, -203.25781, 148.13281, -286.09375, 19.351563, -52, 7.4765625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(10, 12, 15, 16, 17), PackedInt32Array(17, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25, 26, 4), PackedInt32Array(27, 11, 10, 17), PackedInt32Array(23, 28, 29, 24), PackedInt32Array(30, 31, 32, 33, 16), PackedInt32Array(19, 34, 20), PackedInt32Array(17, 21, 27), PackedInt32Array(33, 17, 16), PackedInt32Array(26, 30, 16, 3, 4), PackedInt32Array(4, 7, 22), PackedInt32Array(4, 3, 2), PackedInt32Array(35, 36, 37, 38, 39), PackedInt32Array(37, 40, 41, 42, 43), PackedInt32Array(41, 44, 42), PackedInt32Array(37, 43, 38), PackedInt32Array(35, 39, 45), PackedInt32Array(46, 47, 48, 49, 50), PackedInt32Array(51, 52, 53, 54, 55), PackedInt32Array(49, 56, 57, 58, 59), PackedInt32Array(60, 61, 62, 63, 64), PackedInt32Array(63, 65, 66, 67, 68), PackedInt32Array(69, 51, 55, 70, 46), PackedInt32Array(46, 70, 47), PackedInt32Array(59, 50, 49), PackedInt32Array(71, 59, 58, 61), PackedInt32Array(72, 71, 61, 60), PackedInt32Array(60, 73, 72), PackedInt32Array(63, 68, 64), PackedInt32Array(74, 75, 76, 77, 78), PackedInt32Array(79, 80, 81, 82, 83), PackedInt32Array(84, 85, 79, 83, 86, 87), PackedInt32Array(87, 86, 88, 89), PackedInt32Array(89, 88, 90, 91), PackedInt32Array(92, 93, 94, 95, 96), PackedInt32Array(78, 77, 96, 95), PackedInt32Array(90, 92, 96, 91), PackedInt32Array(97, 98, 99, 100, 101), PackedInt32Array(102, 103, 104), PackedInt32Array(105, 102, 104, 106, 107), PackedInt32Array(108, 107, 106, 109), PackedInt32Array(110, 111, 112), PackedInt32Array(113, 110, 112), PackedInt32Array(114, 113, 112, 115), PackedInt32Array(112, 116, 117, 118), PackedInt32Array(119, 120, 114), PackedInt32Array(112, 118, 115), PackedInt32Array(114, 115, 119), PackedInt32Array(121, 122, 123, 124, 125, 126, 127), PackedInt32Array(128, 125, 124, 129, 130), PackedInt32Array(131, 128, 130, 132, 133, 134), PackedInt32Array(121, 135, 136, 137, 122), PackedInt32Array(131, 138, 128), PackedInt32Array(139, 140, 127, 126, 141), PackedInt32Array(142, 141, 126), PackedInt32Array(132, 143, 133), PackedInt32Array(144, 131, 134, 145), PackedInt32Array(146, 144, 145, 147, 148, 149), PackedInt32Array(150, 146, 149, 151), PackedInt32Array(126, 150, 151), PackedInt32Array(142, 126, 151), PackedInt32Array(152, 153, 154, 155, 156, 157), PackedInt32Array(158, 159, 160, 161, 162), PackedInt32Array(163, 160, 159), PackedInt32Array(164, 165, 166, 167), PackedInt32Array(168, 163, 159, 169, 170), PackedInt32Array(164, 167, 171, 172), PackedInt32Array(173, 172, 171, 174, 175), PackedInt32Array(159, 176, 169), PackedInt32Array(168, 170, 177, 178), PackedInt32Array(179, 180, 181, 182), PackedInt32Array(178, 177, 183, 184), PackedInt32Array(185, 186, 187, 188), PackedInt32Array(189, 179, 182, 190), PackedInt32Array(162, 191, 192, 193, 158), PackedInt32Array(162, 161, 194, 195), PackedInt32Array(196, 197, 182, 166, 165, 198), PackedInt32Array(165, 173, 175, 199, 153), PackedInt32Array(186, 185, 184, 183, 200, 201), PackedInt32Array(202, 201, 200, 189), PackedInt32Array(155, 188, 187, 156), PackedInt32Array(152, 157, 203, 198), PackedInt32Array(198, 203, 204), PackedInt32Array(198, 204, 196), PackedInt32Array(190, 202, 189), PackedInt32Array(205, 190, 182), PackedInt32Array(197, 205, 182), PackedInt32Array(206, 198, 165), PackedInt32Array(153, 206, 165), PackedInt32Array(153, 199, 195), PackedInt32Array(154, 153, 195, 207), PackedInt32Array(195, 194, 207)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 14.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ur3n8")
+Level_Name = "E4"
+
+[node name="Music" parent="." instance=ExtResource("2_uavdj")]
+unique_name_in_owner = true
+
+[node name="Clock" parent="." instance=ExtResource("3_bah0i")]
+unique_name_in_owner = true
+
+[node name="BG" parent="." instance=ExtResource("4_by3ar")]
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(0, -174)
+
+[node name="Star2" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(24, -88)
+
+[node name="Star3" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-87, -97)
+
+[node name="Star4" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-209, -97)
+
+[node name="Star5" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-341, -107)
+
+[node name="Star6" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-342, -158)
+
+[node name="Star7" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-288, -181)
+
+[node name="Star8" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-213, -161)
+
+[node name="Star9" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-118, -178)
+
+[node name="Star10" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(123, -185)
+
+[node name="Star11" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(139, -88)
+
+[node name="Star12" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(120, 3)
+
+[node name="Star13" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(5, 7)
+
+[node name="Star14" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(21, 87)
+
+[node name="Star15" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-2, 155)
+
+[node name="Star16" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-64, 126)
+
+[node name="Star17" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-120, 144)
+
+[node name="Star18" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-177, 177)
+
+[node name="Star19" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-235, 142)
+
+[node name="Star20" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-313, 177)
+
+[node name="Star21" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-357, 107)
+
+[node name="Star22" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-322, -6)
+
+[node name="Star23" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-283, 43)
+
+[node name="Star24" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-222, 40)
+
+[node name="Star25" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-217, -17)
+
+[node name="Star26" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-110, 70)
+
+[node name="Star27" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-146, -1)
+
+[node name="Star28" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(-55, -9)
+
+[node name="Star29" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(141, 111)
+
+[node name="Star30" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(180, 180)
+
+[node name="Star31" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(262, 175)
+
+[node name="Star32" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(326, 123)
+
+[node name="Star33" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(279, 2)
+
+[node name="Star34" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(304, -143)
+
+[node name="Star35" parent="Stars" instance=ExtResource("5_kdlrp")]
+position = Vector2(304, -143)
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(-8, -224)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(39, 221)
+scale = Vector2(3, 0.25)
+
+[node name="Wall5" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(-209, -136)
+
+[node name="Spike" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+position = Vector2(-311, -136)
+rotation = -1.5707964
+
+[node name="Spike2" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+position = Vector2(-114, -136)
+rotation = 1.5707964
+
+[node name="Wall6" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(-152, -45)
+scale = Vector2(1.2, 0.25)
+
+[node name="Wall7" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(69, -92.00001)
+rotation = 1.5707964
+scale = Vector2(0.25, 0.25)
+
+[node name="Wall8" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(48, -61.999992)
+rotation = -0.7853982
+scale = Vector2(0.13, 0.3)
+
+[node name="Door" parent="Nav/Stuff" instance=ExtResource("11_siq1i")]
+z_index = -2
+position = Vector2(69, -176)
+rotation = 1.5707964
+
+[node name="Button" parent="Nav/Stuff" node_paths=PackedStringArray("Door") instance=ExtResource("12_xjf8v")]
+position = Vector2(31, -175)
+Door = NodePath("../Door")
+
+[node name="Platform" parent="Nav/Stuff" instance=ExtResource("13_ylhjl")]
+position = Vector2(40, -73.00001)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Spike3" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+position = Vector2(-86, -54)
+
+[node name="Spike4" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+position = Vector2(-209, -126)
+rotation = -3.1415925
+
+[node name="Spike5" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+position = Vector2(-209, -54)
+
+[node name="Ultra_Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("14_2k6vn")]
+position = Vector2(-381, -55)
+
+[node name="Large_Blade" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(-209, -224)
+
+[node name="Platform2" parent="Nav/Stuff" instance=ExtResource("16_r8mmm")]
+position = Vector2(-287, -150)
+
+[node name="Platform4" parent="Nav/Stuff" instance=ExtResource("17_gmie7")]
+position = Vector2(-375, -140)
+rotation = 1.5707964
+
+[node name="Platform5" parent="Nav/Stuff" instance=ExtResource("17_gmie7")]
+position = Vector2(-287, -209)
+
+[node name="Large_Blade2" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(-381, -215)
+
+[node name="Wall9" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(211, -40)
+rotation = 1.5707964
+scale = Vector2(0.91, 0.25)
+
+[node name="Wall10" parent="Nav/Stuff" instance=ExtResource("6_0ry0s")]
+position = Vector2(68.175, 137)
+rotation = 1.5707964
+scale = Vector2(0.47, 0.25)
+
+[node name="Door2" parent="Nav/Stuff" instance=ExtResource("11_siq1i")]
+z_index = -1
+position = Vector2(210.445, 173)
+rotation = 1.5707964
+
+[node name="Button2" parent="Nav/Stuff" node_paths=PackedStringArray("Door") instance=ExtResource("12_xjf8v")]
+position = Vector2(156, 173)
+Door = NodePath("../Door2")
+
+[node name="Door3" parent="Nav/Stuff" instance=ExtResource("11_siq1i")]
+z_index = -1
+position = Vector2(68, 4)
+rotation = 1.5707964
+
+[node name="Button3" parent="Nav/Stuff" node_paths=PackedStringArray("Door") instance=ExtResource("12_xjf8v")]
+position = Vector2(97, 5)
+Door = NodePath("../Door3")
+
+[node name="Button4" parent="Nav/Stuff" node_paths=PackedStringArray("Door") instance=ExtResource("12_xjf8v")]
+position = Vector2(31, 5)
+Door = NodePath("../Door3")
+No_Disactivation = true
+
+[node name="Circle" parent="Nav/Stuff" instance=ExtResource("18_wkr0y")]
+position = Vector2(-52, 62)
+
+[node name="Circle2" parent="Nav/Stuff" instance=ExtResource("18_wkr0y")]
+position = Vector2(-80, 191)
+
+[node name="Large_Blade3" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(-172, 94)
+
+[node name="Bouncy_Wall" parent="Nav/Stuff" instance=ExtResource("19_4mnpo")]
+position = Vector2(-320, 86)
+rotation = 1.5707964
+scale = Vector2(0.3, 0.15)
+
+[node name="Platform6" parent="Nav/Stuff" instance=ExtResource("20_nvwss")]
+position = Vector2(-243.00002, 17)
+rotation = -0.5235988
+
+[node name="Platform7" parent="Nav/Stuff" instance=ExtResource("20_nvwss")]
+position = Vector2(-267, 187)
+rotation = 1.5707964
+
+[node name="Spike6" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(-52, 24)
+
+[node name="Spike7" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(0, 212)
+
+[node name="Spike8" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(-80, 153)
+
+[node name="Spike9" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(-252, 212)
+
+[node name="Spike10" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(-373, 212)
+
+[node name="Spike11" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -8
+position = Vector2(-150, -36)
+rotation = -3.1415925
+
+[node name="Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("21_ur3n8")]
+position = Vector2(199, -214)
+
+[node name="Bouncy_Circle2" parent="Nav/Stuff" instance=ExtResource("21_ur3n8")]
+position = Vector2(199, 2)
+
+[node name="Large_Blade4" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(101.00001, 209)
+scale = Vector2(0.9, 0.9)
+
+[node name="Spike12" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -1
+position = Vector2(202, -102)
+rotation = -1.5707964
+
+[node name="Spike13" parent="Nav/Stuff" instance=ExtResource("10_siq1i")]
+z_index = -1
+position = Vector2(202, 118)
+rotation = -1.5707964
+
+[node name="Large_Blade5" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(378, 210)
+
+[node name="Large_Blade6" parent="Nav/Stuff" instance=ExtResource("15_1gf1h")]
+position = Vector2(378, 0)
+
+[node name="Ball" parent="." instance=ExtResource("19_pp7n8")]
+unique_name_in_owner = true
+position = Vector2(-52, -185)
+
+[node name="UI" parent="." instance=ExtResource("20_wd6jn")]
+unique_name_in_owner = true
+
+[node name="Square" parent="." instance=ExtResource("21_uavdj")]
+position = Vector2(-321, -179)

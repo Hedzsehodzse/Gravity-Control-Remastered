@@ -1,0 +1,258 @@
+[gd_scene load_steps=23 format=3 uid="uid://dlqmtc25234vk"]
+
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_qlkbh"]
+[ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_1wrtt"]
+[ext_resource type="PackedScene" uid="uid://did1jm3sy5o31" path="res://Scenes/Clock.tscn" id="3_1llwk"]
+[ext_resource type="PackedScene" uid="uid://cpqdw5bkpk6d8" path="res://Scenes/BG.tscn" id="4_u4w04"]
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="5_8617h"]
+[ext_resource type="PackedScene" uid="uid://bgqv7o2mkempy" path="res://Scenes/Objects/Platform.tscn" id="6_nwkth"]
+[ext_resource type="PackedScene" uid="uid://c7hc3mfgcxnhn" path="res://Scenes/Objects/Sticky_Wall.tscn" id="6_v6tyg"]
+[ext_resource type="PackedScene" uid="uid://b2ohtnamrxiwd" path="res://Scenes/Objects/Bouncy_Wall.tscn" id="7_1odfw"]
+[ext_resource type="PackedScene" uid="uid://byr03h7x0goox" path="res://Scenes/Objects/Ultra_Bouncy_Wall.tscn" id="8_4rdjy"]
+[ext_resource type="PackedScene" uid="uid://clm1xfvtch65v" path="res://Scenes/Objects/Ultra_Bouncy_Platform.tscn" id="8_ev6ts"]
+[ext_resource type="Theme" uid="uid://2mis3itlh0e6" path="res://Resources/Themes/Main_Panel.tres" id="8_l14b5"]
+[ext_resource type="Script" uid="uid://b5dnpdupys0rb" path="res://Scripts/Management/Tutorial.gd" id="8_obqwn"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="9_2s7u0"]
+[ext_resource type="PackedScene" uid="uid://csi1rvlv2slt8" path="res://Scenes/Objects/Sticky_Platform.tscn" id="10_55wm2"]
+[ext_resource type="Texture2D" uid="uid://dur3lh5uwvqay" path="res://Images/UI/Arrow.png" id="10_65xyd"]
+[ext_resource type="PackedScene" uid="uid://bb0g0ga6ihknv" path="res://Scenes/Star.tscn" id="12_jtkh7"]
+[ext_resource type="PackedScene" uid="uid://dsmc15b8g808k" path="res://Scenes/Objects/Circle.tscn" id="12_qlkbh"]
+[ext_resource type="PackedScene" uid="uid://brfgvdyk28rnv" path="res://Scenes/Objects/Bouncy_Circle.tscn" id="13_1wrtt"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="13_ht16h"]
+[ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="18_hamlw"]
+[ext_resource type="AudioStream" uid="uid://crokg5ma51lhv" path="res://Sounds/Typing.mp3" id="21_u4w04"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 20.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_qlkbh")
+Level_Name = "Test"
+Survive_Time = 999999999.0
+Tutorial = true
+
+[node name="Music" parent="." instance=ExtResource("2_1wrtt")]
+unique_name_in_owner = true
+
+[node name="Clock" parent="." instance=ExtResource("3_1llwk")]
+unique_name_in_owner = true
+
+[node name="BG" parent="." instance=ExtResource("4_u4w04")]
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("5_8617h")]
+position = Vector2(-8, -224)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("5_8617h")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("5_8617h")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("5_8617h")]
+position = Vector2(39, 221)
+scale = Vector2(3, 0.25)
+
+[node name="A1" parent="Nav/Stuff" instance=ExtResource("6_v6tyg")]
+z_index = -1
+position = Vector2(-286, 300)
+
+[node name="A2" parent="Nav/Stuff" instance=ExtResource("5_8617h")]
+z_index = -1
+position = Vector2(-87, 300)
+
+[node name="A3" parent="Nav/Stuff" instance=ExtResource("7_1odfw")]
+z_index = -1
+position = Vector2(111, 300)
+
+[node name="A4" parent="Nav/Stuff" instance=ExtResource("8_4rdjy")]
+z_index = -1
+position = Vector2(309, 300)
+
+[node name="A5" parent="Nav/Stuff" instance=ExtResource("6_v6tyg")]
+z_index = -1
+position = Vector2(0, -258)
+scale = Vector2(3, 0.25)
+
+[node name="Platform" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(0, 114)
+
+[node name="Platform2" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(0, 176)
+
+[node name="Platform3" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(153.00002, 69)
+rotation = -0.6806784
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform4" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(185.00002, 100.00001)
+rotation = -0.6806784
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Platform5" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(115, 0)
+rotation = 1.5707964
+
+[node name="Platform6" parent="Nav/Stuff" instance=ExtResource("8_ev6ts")]
+position = Vector2(-66, 0)
+
+[node name="Platform7" parent="Nav/Stuff" instance=ExtResource("9_2s7u0")]
+position = Vector2(-114, 0)
+
+[node name="Circle" parent="Nav/Stuff" instance=ExtResource("12_qlkbh")]
+position = Vector2(248, -92)
+
+[node name="Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("13_1wrtt")]
+position = Vector2(379, -213)
+
+[node name="Bouncy_Circle2" parent="Nav/Stuff" instance=ExtResource("13_1wrtt")]
+position = Vector2(-259, -106)
+
+[node name="Platform8" parent="Nav/Stuff" instance=ExtResource("6_nwkth")]
+position = Vector2(-324, -163)
+rotation = -0.80285144
+
+[node name="Platform9" parent="Nav/Stuff" instance=ExtResource("10_55wm2")]
+position = Vector2(-189, 104)
+
+[node name="Platform10" parent="Nav/Stuff" instance=ExtResource("10_55wm2")]
+position = Vector2(274, 145)
+rotation = 1.5707964
+
+[node name="Platform11" parent="Nav/Stuff" instance=ExtResource("10_55wm2")]
+position = Vector2(296, 112.999985)
+rotation = 2.8448868
+
+[node name="Circle2" parent="Nav/Stuff" instance=ExtResource("12_qlkbh")]
+position = Vector2(-251, 41)
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="A1" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, 0)
+
+[node name="A2" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, -151)
+
+[node name="A3" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, 145)
+
+[node name="A4" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(0, 145)
+
+[node name="A5" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(0, 1)
+
+[node name="A7" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, -151)
+
+[node name="A8" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, -1)
+
+[node name="A9" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, 145)
+
+[node name="A10" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(168, 82)
+
+[node name="A11" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(168, -119)
+
+[node name="A12" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-190, -119)
+
+[node name="A13" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-189, 83)
+
+[node name="B1" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, 0)
+
+[node name="B2" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, -151)
+
+[node name="B3" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-304, 145)
+
+[node name="B4" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(0, 145)
+
+[node name="B5" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(0, 1)
+
+[node name="B7" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, -151)
+
+[node name="B8" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, -1)
+
+[node name="B9" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(309, 145)
+
+[node name="B10" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(168, 82)
+
+[node name="B11" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(168, -119)
+
+[node name="B12" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-190, -119)
+
+[node name="B13" parent="Stars" instance=ExtResource("12_jtkh7")]
+position = Vector2(-189, 83)
+
+[node name="Ball" parent="." instance=ExtResource("13_ht16h")]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+
+[node name="UI" parent="." instance=ExtResource("18_hamlw")]
+unique_name_in_owner = true
+
+[node name="Hover_Texts" type="Node2D" parent="."]
+z_index = 300
+script = ExtResource("8_obqwn")
+
+[node name="Panel_1" type="Panel" parent="Hover_Texts"]
+modulate = Color(1, 1, 1, 0.5568628)
+texture_filter = 1
+offset_left = -77.0
+offset_top = -184.0
+offset_right = 78.0
+offset_bottom = -119.0
+theme = ExtResource("8_l14b5")
+
+[node name="Text" type="RichTextLabel" parent="Hover_Texts/Panel_1"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 179.99998
+offset_bottom = 69.25
+scale = Vector2(0.8, 0.8)
+text = "Welcome to gravity control! Use W-A-S-D to change gravity direction!"
+scroll_active = false
+
+[node name="Button" type="Button" parent="Hover_Texts/Panel_1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 124.0
+offset_top = 41.0
+offset_right = 145.0
+offset_bottom = 56.0
+focus_mode = 0
+icon = ExtResource("10_65xyd")
+
+[node name="Typing" type="AudioStreamPlayer2D" parent="Hover_Texts"]
+stream = ExtResource("21_u4w04")
+autoplay = true
+
+[connection signal="pressed" from="Hover_Texts/Panel_1/Button" to="Hover_Texts" method="Button_Pressed"]
