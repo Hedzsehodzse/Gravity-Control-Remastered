@@ -12,6 +12,8 @@ var first_time: bool = true
 
 @onready var Reload: Node = $"../UI/Reload"
 
+var mouse_control: bool = false
+
 
 func _ready() -> void:
 	if Weapon == weapons.ROCKET:
@@ -30,17 +32,21 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
+	var gravity: Vector2
 	
 #---------------------MOVEMENT---------------------#
-	if Input.is_action_pressed("W"):
-		gravity_dir = Vector2.UP
-	if Input.is_action_pressed("S"):
-		gravity_dir = Vector2.DOWN
-	if Input.is_action_pressed("A"):
-		gravity_dir = Vector2.LEFT
-	if Input.is_action_pressed("D"):
-		gravity_dir = Vector2.RIGHT
-	var gravity: Vector2 = gravity_dir * gravity_strength
+	if mouse_control:
+		gravity = (mouse_pos - global_position).normalized() * gravity_strength
+	else:
+		if Input.is_action_pressed("W"):
+			gravity_dir = Vector2.UP
+		if Input.is_action_pressed("S"):
+			gravity_dir = Vector2.DOWN
+		if Input.is_action_pressed("A"):
+			gravity_dir = Vector2.LEFT
+		if Input.is_action_pressed("D"):
+			gravity_dir = Vector2.RIGHT
+		gravity = gravity_dir * gravity_strength
 	Main.gravity = gravity
 	
 	linear_velocity += gravity * delta

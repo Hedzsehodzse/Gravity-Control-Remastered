@@ -30,7 +30,10 @@ var save: Dictionary = { "Selected" = modes.SURVIVAL}
 func _ready() -> void:
 	load_game()
 	
-	Game_Mode = save["Selected"]
+	if Tutorial:
+		Game_Mode = modes.SURVIVAL
+	else:
+		Game_Mode = save["Selected"]
 	
 	var folder = save["Levels"][Level_Name]
 	var attempts: int 
