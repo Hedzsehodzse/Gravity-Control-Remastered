@@ -2,6 +2,13 @@ extends StaticBody2D
 
 enum types {DEFAULT, STICKY, BOUNCY, ULTRA_BOUNCY}
 @export var Type: types 
+@export var Open: bool = false
+
+
+func _ready() -> void:
+	if Open:
+		$Area2D.Open = true
+		$Area2D._ready()
 
 
 func Body_Entered(body: Node2D) -> void:

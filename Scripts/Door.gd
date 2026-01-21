@@ -7,7 +7,7 @@ extends Area2D
 
 func _ready() -> void:
 	if Open:
-		position = Vector2(70, 0).rotated(main.global_rotation)
+		main.global_position += Vector2(70, 0).rotated(main.global_rotation)
 		frame.modulate = Color("#2b8025")
 	else:
 		frame.modulate = Color("#861200")
