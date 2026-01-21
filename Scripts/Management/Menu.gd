@@ -5,7 +5,7 @@ var selected: Node
 enum modes {SURVIVAL, CHASE, PLAYGROUND, COLLECT}
 
 const SAVE_FILE = "user://save_data_gc.txt"
-var save: Dictionary = { "Selected" = modes.SURVIVAL,
+var save: Dictionary = { "Selected" = modes.COLLECT,
 						"Levels" = {}
 }
 
@@ -83,9 +83,9 @@ func Item_Selected(index: int) -> void:
 	match index:
 		0:
 			for level in $UI/Levels/VScrollBar/Container.get_children():
-				level.Display_Difficulty(level.modes.SURVIVAL)
-				save["Selected"] = modes.SURVIVAL
-				$UI/Preview/Mode.text = "Mode: Survival"
+				level.Display_Difficulty(level.modes.COLLECT)
+				save["Selected"] = modes.COLLECT
+				$UI/Preview/Mode.text = "Mode: Collect"
 		1:
 			for level in $UI/Levels/VScrollBar/Container.get_children():
 				level.Display_Difficulty(level.modes.CHASE)
@@ -93,14 +93,14 @@ func Item_Selected(index: int) -> void:
 				$UI/Preview/Mode.text = "Mode: Chase"
 		2:
 			for level in $UI/Levels/VScrollBar/Container.get_children():
+				level.Display_Difficulty(level.modes.SURVIVAL)
+				save["Selected"] = modes.SURVIVAL
+				$UI/Preview/Mode.text = "Mode: Survival"
+		3:
+			for level in $UI/Levels/VScrollBar/Container.get_children():
 				level.Display_Difficulty(level.modes.PLAYGROUND)
 				save["Selected"] = modes.PLAYGROUND
 				$UI/Preview/Mode.text = "Mode: Playground"
-		3:
-			for level in $UI/Levels/VScrollBar/Container.get_children():
-				level.Display_Difficulty(level.modes.COLLECT)
-				save["Selected"] = modes.COLLECT
-				$UI/Preview/Mode.text = "Mode: Collect"
 				
 	if selected != null:
 		Select_Level(selected)
@@ -127,7 +127,7 @@ func load_game():
 	else:
 		print("No save file found, using defaults")
 		
-	save["Selected"] = modes.SURVIVAL
+	save["Selected"] = modes.COLLECT
 	if !save.has("Levels"):
 		save["Levels"] = {}
 	for level in $UI/Levels/VScrollBar/Container.get_children():
@@ -143,7 +143,7 @@ func load_game():
 			save["Levels"][level.Name]["Collect_Attempts"] = 0
 			
 		level.Colors = Colors
-		level.Display_Difficulty(modes.SURVIVAL)
+		level.Display_Difficulty(modes.COLLECT)
 
 func save_game():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)

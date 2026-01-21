@@ -16,7 +16,7 @@ var current_diff: String
 func _ready() -> void:
 	$Image.texture = Sprite
 	$Name.text = Name
-	#Display_Difficulty(modes.SURVIVAL)
+	#Display_Difficulty(modes.COLLECT)
 			
 func Display_Difficulty(mode: modes):
 	var diff: difficulties

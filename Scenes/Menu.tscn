@@ -477,7 +477,7 @@ Scene = "res://Scenes/Levels/Level_D1.tscn"
 layout_mode = 2
 Name = "D2"
 Sprite = ExtResource("23_cdx8w")
-Difficulty = Array[int]([3, 2, 0, 4])
+Difficulty = Array[int]([0, 2, 0, 4])
 Scene = "res://Scenes/Levels/Level_D2.tscn"
 
 [node name="Back" type="Button" parent="UI/Levels"]
@@ -518,18 +518,18 @@ flat = true
 expand_icon = true
 selected = 0
 item_count = 4
-popup/item_0/text = "Survival"
-popup/item_0/icon = ExtResource("17_dm44m")
-popup/item_0/id = 0
+popup/item_0/text = "Collect"
+popup/item_0/icon = ExtResource("20_3feh0")
+popup/item_0/id = 3
 popup/item_1/text = "Chase"
 popup/item_1/icon = ExtResource("18_du1yi")
 popup/item_1/id = 1
-popup/item_2/text = "Playground"
-popup/item_2/icon = ExtResource("19_c0stj")
-popup/item_2/id = 2
-popup/item_3/text = "Collect"
-popup/item_3/icon = ExtResource("20_3feh0")
-popup/item_3/id = 3
+popup/item_2/text = "Survival"
+popup/item_2/icon = ExtResource("17_dm44m")
+popup/item_2/id = 0
+popup/item_3/text = "Playground"
+popup/item_3/icon = ExtResource("19_c0stj")
+popup/item_3/id = 2
 
 [node name="Preview" type="Control" parent="UI"]
 visible = false
@@ -617,7 +617,7 @@ offset_right = 198.75
 offset_bottom = 907.8333
 scale = Vector2(2, 2)
 bbcode_enabled = true
-text = "Mode: Survival"
+text = "Mode: Collect"
 
 [node name="Button" type="Button" parent="UI/Preview"]
 texture_filter = 1
