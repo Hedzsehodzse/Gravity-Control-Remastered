@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=55 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -29,6 +29,75 @@
 [ext_resource type="Texture2D" uid="uid://bbyjfxs761fiw" path="res://Images/Levels/E4.png" id="21_o00om"]
 [ext_resource type="Texture2D" uid="uid://c4cy7f3nqf50v" path="res://Images/Levels/D1.png" id="22_ka6xg"]
 [ext_resource type="Texture2D" uid="uid://dl3owjs58qxsh" path="res://Images/Levels/D2.png" id="23_cdx8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdx8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kpj"]
+bg_color = Color(0.26935223, 0.094182216, 0.7581331, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.021075385, 0.0029523282, 0.1278713, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 3
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fp51"]
+bg_color = Color(0.8627451, 0.07450981, 0.24705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.021075385, 0.0029523282, 0.1278713, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 3
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30swk"]
+bg_color = Color(0.07450981, 0.011764706, 0.27058825, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.021075385, 0.0029523282, 0.1278713, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 3
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckbj2"]
+bg_color = Color(0.78431374, 0.6431373, 0.20784314, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.021075385, 0.0029523282, 0.1278713, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 3
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="Theme" id="Theme_nuh2c"]
+Button/styles/focus = SubResource("StyleBoxEmpty_cdx8w")
+Button/styles/hover = SubResource("StyleBoxFlat_08kpj")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_4fp51")
+Button/styles/normal = SubResource("StyleBoxFlat_30swk")
+Button/styles/pressed = SubResource("StyleBoxFlat_ckbj2")
 
 [sub_resource type="DPITexture" id="DPITexture_dm44m"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
@@ -382,6 +451,23 @@ theme = ExtResource("11_du1yi")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
+[node name="Settings" type="Button" parent="UI/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 956.0
+offset_right = 150.80005
+offset_bottom = 1007.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = SubResource("Theme_nuh2c")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
 [node name="Levels" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
@@ -645,10 +731,81 @@ libraries = {
 }
 speed_scale = 2.0
 
+[node name="Settings" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Settings_Back" type="Button" parent="UI/Settings"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 956.0
+offset_right = 150.80005
+offset_bottom = 1007.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("11_du1yi")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Control_Modes" type="Control" parent="UI/Settings"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="RichTextLabel" parent="UI/Settings/Control_Modes"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 156.0
+offset_top = 200.0
+offset_right = 253.0
+offset_bottom = 218.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(48.5, 9)
+theme_override_colors/font_shadow_color = Color(0.5532989, 0.66313875, 0.10413607, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+text = "Control modes:"
+
+[node name="Modes" type="OptionButton" parent="UI/Settings/Control_Modes"]
+texture_filter = 1
+layout_mode = 1
+offset_left = 31.0
+offset_top = 259.0
+offset_right = 410.0
+offset_bottom = 369.0
+focus_mode = 0
+theme = SubResource("Theme_n3nbb")
+theme_override_font_sizes/font_size = 48
+flat = true
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Mouse"
+popup/item_0/id = 0
+popup/item_1/text = "W-A-S-D"
+popup/item_1/id = 1
+
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
 [connection signal="pressed" from="UI/Main/Play" to="." method="Play"]
 [connection signal="pressed" from="UI/Main/Tutorial" to="." method="Tutorial"]
 [connection signal="pressed" from="UI/Main/Quit" to="." method="Quit"]
+[connection signal="pressed" from="UI/Main/Settings" to="." method="Settings"]
 [connection signal="pressed" from="UI/Levels/Back" to="." method="Back"]
 [connection signal="item_selected" from="UI/Levels/Modes" to="." method="Item_Selected"]
 [connection signal="pressed" from="UI/Preview/Button" to="." method="Go_To_Level"]
+[connection signal="pressed" from="UI/Settings/Settings_Back" to="." method="Settings_Back"]
+[connection signal="item_selected" from="UI/Settings/Control_Modes/Modes" to="." method="Control_modes_Item_Selected"]

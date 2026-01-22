@@ -98,6 +98,17 @@ func _ready() -> void:
 					node.queue_free()
 				
 	#Update_Star_Counter()
+	
+	if save["Settings"]["Control_Mode"] == "Mouse_Control":
+		%Ball.mouse_control = true
+		$UI/Pause/Modes.selected = 0
+		if Tutorial:
+			$Hover_Texts/Modes.selected = 0
+	else:
+		%Ball.mouse_control = false
+		$UI/Pause/Modes.selected = 1
+		if Tutorial:
+			$Hover_Texts/Modes.selected = 1
 		
 	get_tree().paused = true
 

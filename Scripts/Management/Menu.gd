@@ -144,6 +144,15 @@ func load_game():
 			
 		level.Colors = Colors
 		level.Display_Difficulty(modes.COLLECT)
+		
+	if !save.has("Settings"):
+		save["Settings"] = {}
+		save["Settings"]["Control_Mode"] = "Mouse_Control"
+		
+	if save["Settings"]["Control_Mode"] == "Mouse_Control":
+		$UI/Settings/Control_Modes/Modes.selected = 0
+	else:
+		$UI/Settings/Control_Modes/Modes.selected = 1
 
 func save_game():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -156,3 +165,23 @@ func save_game():
 
 func Tutorial() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Tutorial.tscn")
+
+
+func Settings() -> void:
+	$UI/Main.visible = false
+	Play_Sound(load("res://Sounds/UI.mp3"), 0, Vector2.ZERO)
+	$UI/Settings.visible = true
+
+func Settings_Back() -> void:
+	$UI/Main.visible = true
+	Play_Sound(load("res://Sounds/UI.mp3"), 0, Vector2.ZERO)
+	$UI/Settings.visible = false
+
+
+func Control_modes_Item_Selected(index: int) -> void:
+	match index:
+		0:
+			save["Settings"]["Control_Mode"] = "Mouse_Control"
+		1:
+			save["Settings"]["Control_Mode"] = "W-A-S-D"
+	save_game()

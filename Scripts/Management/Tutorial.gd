@@ -11,7 +11,7 @@ var Stars_Collected: int = 0
 
 
 func _ready() -> void:
-	Display_Text("Welcome to gravity control! Use W-A-S-D to change gravity direction!")
+	Display_Text("Welcome to gravity control! Select the control input. You can change this any time from the pause menu (ESC)!")
 	
 	for star in $"../Stars".get_children():
 		star.global_position.x += 5000

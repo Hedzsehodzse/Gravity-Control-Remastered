@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlqmtc25234vk"]
+[gd_scene load_steps=38 format=3 uid="uid://dlqmtc25234vk"]
 
 [ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_qlkbh"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_1wrtt"]
@@ -21,10 +21,124 @@
 [ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="13_ht16h"]
 [ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="18_hamlw"]
 [ext_resource type="AudioStream" uid="uid://crokg5ma51lhv" path="res://Sounds/Typing.mp3" id="21_u4w04"]
+[ext_resource type="FontFile" uid="uid://xmbht22ff63f" path="res://Resources/m5x7.ttf" id="22_8617h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
 agent_radius = 20.0
+
+[sub_resource type="DPITexture" id="DPITexture_dm44m"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_du1yi"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_c0stj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"#fff\" stroke-opacity=\".75\" stroke-width=\"3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_3feh0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fff\" fill-opacity=\".37\"/><circle cx=\"8\" cy=\"8\" r=\"4\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ksqlk"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_vkgky"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".25\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_o00om"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ka6xg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m5.5 11-3-3 3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_cdx8w"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_08kpj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".25\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwkn0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.99116415, 0.99116427, 0.99116415, 0.3254902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4fp51"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0stj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.08829392, 0.10223397, 0.38476628, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_size = 8
+
+[sub_resource type="Theme" id="Theme_nwkth"]
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/h_separation = 15
+PopupMenu/constants/icon_max_width = 0
+PopupMenu/constants/indent = 10
+PopupMenu/constants/item_end_padding = 10
+PopupMenu/constants/item_start_padding = 10
+PopupMenu/constants/outline_size = 0
+PopupMenu/constants/separator_outline_size = 0
+PopupMenu/constants/v_separation = 15
+PopupMenu/font_sizes/font_separator_size = 16
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/fonts/font = ExtResource("22_8617h")
+PopupMenu/fonts/font_separator = ExtResource("22_8617h")
+PopupMenu/icons/checked = SubResource("DPITexture_dm44m")
+PopupMenu/icons/checked_disabled = SubResource("DPITexture_du1yi")
+PopupMenu/icons/radio_checked = SubResource("DPITexture_c0stj")
+PopupMenu/icons/radio_checked_disabled = SubResource("DPITexture_3feh0")
+PopupMenu/icons/radio_unchecked = SubResource("DPITexture_ksqlk")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("DPITexture_vkgky")
+PopupMenu/icons/submenu = SubResource("DPITexture_o00om")
+PopupMenu/icons/submenu_mirrored = SubResource("DPITexture_ka6xg")
+PopupMenu/icons/unchecked = SubResource("DPITexture_cdx8w")
+PopupMenu/icons/unchecked_disabled = SubResource("DPITexture_08kpj")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_qwkn0")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_4fp51")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_4fp51")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_c0stj")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_4fp51")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qlkbh")
@@ -255,4 +369,42 @@ icon = ExtResource("10_65xyd")
 stream = ExtResource("21_u4w04")
 autoplay = true
 
+[node name="Modes" type="OptionButton" parent="Hover_Texts"]
+texture_filter = 1
+offset_left = 83.0
+offset_top = -169.0
+offset_right = 462.0
+offset_bottom = -59.0
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+theme = SubResource("Theme_nwkth")
+theme_override_font_sizes/font_size = 48
+flat = true
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Mouse"
+popup/item_0/id = 0
+popup/item_1/text = "W-A-S-D"
+popup/item_1/id = 1
+
+[node name="Title2" type="RichTextLabel" parent="Hover_Texts"]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 83.0
+offset_top = -184.0
+offset_right = 180.0
+offset_bottom = -166.0
+grow_horizontal = 2
+pivot_offset = Vector2(48.5, 9)
+theme_override_colors/font_shadow_color = Color(0.5532989, 0.66313875, 0.10413607, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+text = "Control modes:"
+
 [connection signal="pressed" from="Hover_Texts/Panel_1/Button" to="Hover_Texts" method="Button_Pressed"]
+[connection signal="item_selected" from="Hover_Texts/Modes" to="UI" method="Modes_Item_Selected"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bsl7kmbmonw2n"]
+[gd_scene load_steps=41 format=3 uid="uid://bsl7kmbmonw2n"]
 
 [ext_resource type="Script" uid="uid://cwxnjvy48j4vd" path="res://Scripts/Management/UI.gd" id="1_wunin"]
 [ext_resource type="Texture2D" uid="uid://bayxg8l78h5eu" path="res://Images/UI/Reload_Bar.png" id="2_j04uc"]
@@ -338,6 +338,119 @@ _data = {
 &"Fade": SubResource("Animation_2qiau"),
 &"RESET": SubResource("Animation_50rxc")
 }
+
+[sub_resource type="DPITexture" id="DPITexture_b1goy"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_n04ve"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_wi7yl"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"#fff\" stroke-opacity=\".75\" stroke-width=\"3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_5q4fb"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fff\" fill-opacity=\".37\"/><circle cx=\"8\" cy=\"8\" r=\"4\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_mqm5i"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_jnovg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".25\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_13dyv"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_r71lk"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m5.5 11-3-3 3-3\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_d1ul7"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_pinj1"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".25\" rx=\"2.333\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68ajo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.99116415, 0.99116427, 0.99116415, 0.3254902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_iufls"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8rtp"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.08829392, 0.10223397, 0.38476628, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_size = 8
+
+[sub_resource type="Theme" id="Theme_b1goy"]
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/h_separation = 15
+PopupMenu/constants/icon_max_width = 0
+PopupMenu/constants/indent = 10
+PopupMenu/constants/item_end_padding = 10
+PopupMenu/constants/item_start_padding = 10
+PopupMenu/constants/outline_size = 0
+PopupMenu/constants/separator_outline_size = 0
+PopupMenu/constants/v_separation = 15
+PopupMenu/font_sizes/font_separator_size = 16
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/fonts/font = ExtResource("4_b1goy")
+PopupMenu/fonts/font_separator = ExtResource("4_b1goy")
+PopupMenu/icons/checked = SubResource("DPITexture_b1goy")
+PopupMenu/icons/checked_disabled = SubResource("DPITexture_n04ve")
+PopupMenu/icons/radio_checked = SubResource("DPITexture_wi7yl")
+PopupMenu/icons/radio_checked_disabled = SubResource("DPITexture_5q4fb")
+PopupMenu/icons/radio_unchecked = SubResource("DPITexture_mqm5i")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("DPITexture_jnovg")
+PopupMenu/icons/submenu = SubResource("DPITexture_13dyv")
+PopupMenu/icons/submenu_mirrored = SubResource("DPITexture_r71lk")
+PopupMenu/icons/unchecked = SubResource("DPITexture_d1ul7")
+PopupMenu/icons/unchecked_disabled = SubResource("DPITexture_pinj1")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_68ajo")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_iufls")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_iufls")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_b8rtp")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_iufls")
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -788,6 +901,45 @@ theme = ExtResource("12_b1goy")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
+[node name="Modes" type="OptionButton" parent="Pause"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 259.0
+offset_right = 410.0
+offset_bottom = 369.0
+focus_mode = 0
+theme = SubResource("Theme_b1goy")
+theme_override_font_sizes/font_size = 48
+flat = true
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Mouse"
+popup/item_0/id = 0
+popup/item_1/text = "W-A-S-D"
+popup/item_1/id = 1
+
+[node name="Title2" type="RichTextLabel" parent="Pause"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -775.0
+offset_top = 208.0
+offset_right = -678.0
+offset_bottom = 226.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(48.5, 9)
+theme_override_colors/font_shadow_color = Color(0.5532989, 0.66313875, 0.10413607, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+text = "Control modes:"
+
 [connection signal="mouse_entered" from="Selection/Laser/Button" to="Selection/Laser" method="Entered"]
 [connection signal="mouse_exited" from="Selection/Laser/Button" to="Selection/Laser" method="Exited"]
 [connection signal="pressed" from="Selection/Laser/Button" to="Selection/Laser" method="Pressed"]
@@ -798,3 +950,4 @@ text = "Quit"
 [connection signal="pressed" from="Pause/Resume" to="." method="Resume"]
 [connection signal="pressed" from="Pause/Menu" to="." method="Menu"]
 [connection signal="pressed" from="Pause/Quit" to="." method="Quit"]
+[connection signal="item_selected" from="Pause/Modes" to="." method="Modes_Item_Selected"]
