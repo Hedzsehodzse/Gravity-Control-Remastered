@@ -148,11 +148,17 @@ func load_game():
 	if !save.has("Settings"):
 		save["Settings"] = {}
 		save["Settings"]["Control_Mode"] = "Mouse_Control"
+	if !save["Settings"].has("Music"):
+		save["Settings"]["Music"] = 0.5
+			
+	$UI/Settings/Music/HSlider.value = save["Settings"]["Music"] * 100
 		
 	if save["Settings"]["Control_Mode"] == "Mouse_Control":
 		$UI/Settings/Control_Modes/Modes.selected = 0
 	else:
 		$UI/Settings/Control_Modes/Modes.selected = 1
+		
+	Set_Music()
 
 func save_game():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -184,4 +190,13 @@ func Control_modes_Item_Selected(index: int) -> void:
 			save["Settings"]["Control_Mode"] = "Mouse_Control"
 		1:
 			save["Settings"]["Control_Mode"] = "W-A-S-D"
+	save_game()
+	
+func Set_Music():
+	$Music.volume_db = -36 + 36 * save["Settings"]["Music"]
+
+
+func Value_Changed(value: float) -> void:
+	save["Settings"]["Music"] = value / 100
+	Set_Music()
 	save_game()

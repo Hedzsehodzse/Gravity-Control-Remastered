@@ -101,14 +101,17 @@ func _ready() -> void:
 	
 	if save["Settings"]["Control_Mode"] == "Mouse_Control":
 		%Ball.mouse_control = true
-		$UI/Pause/Modes.selected = 0
+		$UI/Pause/Control_Modes/Modes.selected = 0
 		if Tutorial:
 			$Hover_Texts/Modes.selected = 0
 	else:
 		%Ball.mouse_control = false
-		$UI/Pause/Modes.selected = 1
+		$UI/Pause/Control_Modes/Modes.selected = 1
 		if Tutorial:
 			$Hover_Texts/Modes.selected = 1
+			
+	$UI/Pause/Music/HSlider.value = save["Settings"]["Music"] * 100
+	Set_Music()
 		
 	get_tree().paused = true
 
@@ -243,3 +246,6 @@ func save_game():
 		print("Game saved!")
 	else:
 		print("Failed to save game")
+		
+func Set_Music():
+	$Music.volume_db = -36 + 36 * save["Settings"]["Music"]

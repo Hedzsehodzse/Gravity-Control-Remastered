@@ -80,3 +80,9 @@ func Modes_Item_Selected(index: int) -> void:
 				$"../Hover_Texts/Modes".selected = 1
 			
 	Main.save_game()
+
+
+func Value_Changed(value: float) -> void:
+	Main.save["Settings"]["Music"] = value / 100
+	Main.Set_Music()
+	Main.save_game()
