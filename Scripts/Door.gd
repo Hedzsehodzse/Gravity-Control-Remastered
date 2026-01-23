@@ -26,7 +26,7 @@ func Activate():
 		#color_tween.tween_property(frame, "self_modulate", Color("#2b8025"), 0.2)
 		Open = true
 	$Timer.start()
-	$"../../../..".Play_Sound(load("res://Sounds/Door.mp3"), 0, global_position)
+	$"../../../..".Play_Sound(load("res://Sounds/Door.mp3"), -5, global_position)
 
 func Timeout() -> void:
 	$"../../..".bake_navigation_polygon()

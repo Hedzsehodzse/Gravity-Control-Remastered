@@ -200,3 +200,13 @@ func Value_Changed(value: float) -> void:
 	save["Settings"]["Music"] = value / 100
 	Set_Music()
 	save_game()
+
+
+func Credits() -> void:
+	$UI/Main.visible = false
+	$UI/Credits.visible = true
+
+
+func Credits_Back() -> void:
+	$UI/Main.visible = true
+	$UI/Credits.visible = false

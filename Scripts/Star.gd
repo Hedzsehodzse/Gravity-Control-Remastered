@@ -26,5 +26,5 @@ func Body_Entered(body: Node2D) -> void:
 				Main.Enemy_Count -= 1
 			Main.Update_Star_Counter()
 		
-		Main.Play_Sound(load("res://Sounds/Star.mp3"), 5, body.global_position)
+		Main.Play_Sound(load("res://Sounds/Star.mp3"), 0, body.global_position)
 		queue_free()

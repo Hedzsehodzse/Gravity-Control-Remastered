@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=59 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -29,6 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://bbyjfxs761fiw" path="res://Images/Levels/E4.png" id="21_o00om"]
 [ext_resource type="Texture2D" uid="uid://c4cy7f3nqf50v" path="res://Images/Levels/D1.png" id="22_ka6xg"]
 [ext_resource type="Texture2D" uid="uid://dl3owjs58qxsh" path="res://Images/Levels/D2.png" id="23_cdx8w"]
+[ext_resource type="Texture2D" uid="uid://cfadjppniu867" path="res://Images/Levels/E5.png" id="24_30swk"]
+[ext_resource type="Texture2D" uid="uid://bpfb7o6qjw5vq" path="res://Images/Levels/E6.png" id="25_ckbj2"]
+[ext_resource type="Texture2D" uid="uid://b5ldxhy11861s" path="res://Images/Levels/E7.png" id="26_nuh2c"]
+[ext_resource type="Texture2D" uid="uid://s8mi6pgyl2jv" path="res://Images/Levels/E8.png" id="27_ou2h3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdx8w"]
 
@@ -385,6 +389,28 @@ theme_override_constants/outline_size = 4
 bbcode_enabled = true
 text = "[center]Gravity Control"
 
+[node name="Version_Num" type="RichTextLabel" parent="UI"]
+texture_filter = 1
+clip_contents = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -64.0
+offset_right = -51.1875
+offset_bottom = -49.75
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4, 4)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "0.3"
+
 [node name="Main" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
@@ -467,6 +493,23 @@ pivot_offset = Vector2(47.4, 25.5)
 theme = SubResource("Theme_nuh2c")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
+
+[node name="Credits" type="Button" parent="UI/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 839.0
+offset_right = 162.0
+offset_bottom = 890.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = SubResource("Theme_nuh2c")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
 
 [node name="Levels" type="Control" parent="UI"]
 visible = false
@@ -565,6 +608,34 @@ Name = "D2"
 Sprite = ExtResource("23_cdx8w")
 Difficulty = Array[int]([0, 2, 0, 4])
 Scene = "res://Scenes/Levels/Level_D2.tscn"
+
+[node name="Level12" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E5"
+Sprite = ExtResource("24_30swk")
+Difficulty = Array[int]([0, 0, 0, 1])
+Scene = "res://Scenes/Levels/Level_E5.tscn"
+
+[node name="Level13" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E6"
+Sprite = ExtResource("25_ckbj2")
+Difficulty = Array[int]([1, 0, 0, 2])
+Scene = "res://Scenes/Levels/Level_E6.tscn"
+
+[node name="Level14" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E7"
+Sprite = ExtResource("26_nuh2c")
+Difficulty = Array[int]([0, 0, 0, 1])
+Scene = "res://Scenes/Levels/Level_E7.tscn"
+
+[node name="Level15" parent="UI/Levels/VScrollBar/Container" instance=ExtResource("11_qki4b")]
+layout_mode = 2
+Name = "E8"
+Sprite = ExtResource("27_ou2h3")
+Difficulty = Array[int]([0, 0, 0, 1])
+Scene = "res://Scenes/Levels/Level_E8.tscn"
 
 [node name="Back" type="Button" parent="UI/Levels"]
 texture_filter = 1
@@ -833,14 +904,64 @@ offset_right = 358.0
 offset_bottom = 568.0
 value = 50.0
 
+[node name="Credits" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Credits_Back" type="Button" parent="UI/Credits"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 956.0
+offset_right = 150.80005
+offset_bottom = 1007.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(47.4, 25.5)
+theme = ExtResource("11_du1yi")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Version_Num2" type="RichTextLabel" parent="UI/Credits"]
+texture_filter = 1
+clip_contents = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 168.0
+offset_right = 512.0
+offset_bottom = 321.75
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4, 4)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "Credits to:
+-ZapSplat for the music"
+
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
 [connection signal="pressed" from="UI/Main/Play" to="." method="Play"]
 [connection signal="pressed" from="UI/Main/Tutorial" to="." method="Tutorial"]
 [connection signal="pressed" from="UI/Main/Quit" to="." method="Quit"]
 [connection signal="pressed" from="UI/Main/Settings" to="." method="Settings"]
+[connection signal="pressed" from="UI/Main/Credits" to="." method="Credits"]
 [connection signal="pressed" from="UI/Levels/Back" to="." method="Back"]
 [connection signal="item_selected" from="UI/Levels/Modes" to="." method="Item_Selected"]
 [connection signal="pressed" from="UI/Preview/Button" to="." method="Go_To_Level"]
 [connection signal="pressed" from="UI/Settings/Settings_Back" to="." method="Settings_Back"]
 [connection signal="item_selected" from="UI/Settings/Control_Modes/Modes" to="." method="Control_modes_Item_Selected"]
 [connection signal="value_changed" from="UI/Settings/Music/HSlider" to="." method="Value_Changed"]
+[connection signal="pressed" from="UI/Credits/Credits_Back" to="." method="Credits_Back"]

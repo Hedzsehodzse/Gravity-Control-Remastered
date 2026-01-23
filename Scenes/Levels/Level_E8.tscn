@@ -1,0 +1,192 @@
+[gd_scene load_steps=18 format=3 uid="uid://cw41hkg4datg4"]
+
+[ext_resource type="Script" uid="uid://6udffh6m6uw3" path="res://Scripts/Manager.gd" id="1_6hmrl"]
+[ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="2_vk5tp"]
+[ext_resource type="PackedScene" uid="uid://did1jm3sy5o31" path="res://Scenes/Clock.tscn" id="3_7snc6"]
+[ext_resource type="PackedScene" uid="uid://cpqdw5bkpk6d8" path="res://Scenes/BG.tscn" id="4_2ysr4"]
+[ext_resource type="PackedScene" uid="uid://bb0g0ga6ihknv" path="res://Scenes/Star.tscn" id="5_eudif"]
+[ext_resource type="PackedScene" uid="uid://ddyb1r5mdojua" path="res://Scenes/Objects/Wall.tscn" id="6_e5qrc"]
+[ext_resource type="PackedScene" uid="uid://c0nxb86u7l0ef" path="res://Scenes/Objects/Large_Blade.tscn" id="7_edbpg"]
+[ext_resource type="PackedScene" uid="uid://1cbnsuqxiej4" path="res://Scenes/Objects/Ultra_Bouncy_Circle.tscn" id="9_r3te1"]
+[ext_resource type="PackedScene" uid="uid://d3pv1lwwnskg3" path="res://Scenes/Objects/Sticky_Circle.tscn" id="10_nf7d5"]
+[ext_resource type="PackedScene" uid="uid://bg42pk2o4yk00" path="res://Scenes/Ball.tscn" id="10_yb2yv"]
+[ext_resource type="PackedScene" uid="uid://bgqv7o2mkempy" path="res://Scenes/Objects/Platform.tscn" id="11_2o80d"]
+[ext_resource type="PackedScene" uid="uid://bsl7kmbmonw2n" path="res://Scenes/UI.tscn" id="11_ycgo5"]
+[ext_resource type="PackedScene" uid="uid://c6mrjxpibn5l6" path="res://Scenes/Objects/Spike.tscn" id="12_6hmrl"]
+[ext_resource type="PackedScene" uid="uid://djji37pbkyivx" path="res://Scenes/Enemies/Square.tscn" id="12_gcg5m"]
+[ext_resource type="PackedScene" uid="uid://b85m6r20xji7w" path="res://Scenes/Objects/Bouncy_Platform.tscn" id="13_vk5tp"]
+[ext_resource type="PackedScene" uid="uid://dsmc15b8g808k" path="res://Scenes/Objects/Circle.tscn" id="14_7snc6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mma61"]
+vertices = PackedVector2Array(417.96094, -247.5, 412.5, -252.96094, 412.5, -294.96875, 629.8125, -299.70313, 582.2969, -247.5, 582.2969, -199.5, 671.1875, 397.9375, 629.2969, 197.5, -538.0703, 477.97656, -524.10156, 245.5, -427.96094, 245.5, -414.5, 258.96094, -414.5, 431.29688, -366.5, 431.29688, -366.5, 267.34375, -354.7422, 264.20313, -40.960938, 245.5, -27.257813, 259.20313, 428.6172, 197.5, 425.20313, 184.74219, 412.5, 39.960938, 425.20313, 27.257813, 350.7422, 259.20313, 364.5, 262.89063, 364.5, 383.29688, 432.52344, 0, 425.20313, -27.257813, 425.20313, -185.74219, 428.89063, -199.5, -336.03906, 245.5, 412.5, 172.03906, 412.5, -39.960938, 412.5, -173.03906, 629.2969, 245.5, 412.5, 251.96094, 418.96094, 245.5, 412.5, 383.29688, 337.03906, 245.5, 27.257813, 259.20313, 40.960938, 245.5, 0, 266.52344, -431.28125, 197.5, -521.21875, 197.5, -497.35938, -199.5, -429.20313, 189.74219, -429.20313, 28.257813, -414.5, 175.03906, -436.52344, 1, -434.07813, -199.5, -431.20313, -188.74219, -414.5, -40.960938, -429.20313, -26.257813, -414.5, -172.03906, -414.5, 42.960938, -414.5, -259.96094, -426.96094, -247.5, -494.47656, -247.5, -492.79688, -275.27344, -414.5, -276.96875, -366.5, -278.02344, 364.5, -293.92188, 364.5, -263.89063, 350.7422, -260.20313, 0, -267.52344, -27.257813, -260.20313, -356.7422, -263.20313, -366.5, -265.8125, 338.03906, -247.5, 39.960938, -247.5, 27.257813, -260.20313, -39.960938, -247.5, -341.03906, -247.5, 27.257813, 164.79688, 0, 157.47656, -106.71094, 68.71875, -31.257813, 54.132813, 0, 62.5, 82.5, 91.5, 248.52344, -132, 350.7422, -165.79688, 364.5, -162.10156, 364.5, -50.890625, 350.7422, -47.203125, 241.20313, -104.74219, 364.5, 50.890625, 364.5, 161.10156, 350.7422, 164.79688, 325.09375, 132.64844, 305.60156, 98.85156, 350.7422, 47.203125, -54.132813, 31.257813, -126.09375, 33.742188, 330.79688, -185.74219, 241.20313, -159.25781, 330.79688, -27.257813, 323.47656, 0, 276.52344, -23, 269.20313, -50.257813, 54.132813, 31.257813, 62.5, 0, 167.47656, -23, 174.79688, 4.2578125, 159.5, 52.5, 82.5, 52.5, 249.25781, -70.203125, 269.20313, 4.2578125, 330.79688, 27.257813, -62.5, 0, 263.89063, 122.90625, 263.79688, 122.74219, 249.25781, 24.203125, 159.5, 91.5, 222, 31.523438, 196.90625, 161.35156, 50.617188, 197.5, 47.203125, 184.74219, 327.10938, -199.5, 221.25781, -179.20313, 216.39844, 195.14844, 258.29688, 170.9375, 258.42188, 171.14063, 166.74219, -84.796875, 174.79688, -50.257813, 54.132813, -31.257813, 146.79688, -104.74219, 330.79688, 184.74219, 327.3828, 197.5, 221.25781, -84.796875, 222, -77.52344, 194, -77.47656, 194.74219, -70.203125, -170.47656, -120, -177.79688, -147.25781, 139.47656, -132, 146.79688, -159.25781, 0, -158.47656, -177.79688, -92.74219, -354.7422, 169.79688, -366.5, 166.64063, -366.5, 51.34375, -354.7422, 48.203125, -289.4922, 124.28906, -354.7422, -46.203125, -366.5, -49.34375, -366.5, -166.17969, -356.7422, -168.79688, -336.79688, -188.74219, -333.92188, -199.5, -50.890625, -199.5, -47.203125, -185.74219, -47.203125, 184.74219, -50.617188, 197.5, -332.71875, 197.5, -334.79688, 189.74219, -270.07813, 159.27344, 47.203125, -185.74219, 50.890625, -199.5, 194, -186.52344, 31.257813, -54.132813, 194.74219, 24.203125, 31.257813, 54.132813, -27.257813, 164.79688, -334.79688, 28.257813, -327.47656, 1, -334.79688, -26.257813, -54.132813, -31.257813, -31.257813, -54.132813, -225, -65.47656, -272.20313, -92.74219, -279.52344, -120, -27.257813, -165.79688, -225, -174.52344, -197.74219, -72.796875, 0, -62.5, 166.74219, -179.20313, 27.257813, -165.79688, -252.25781, -72.796875, -272.20313, -147.25781, -252.25781, -167.20313, -197.74219, -167.20313)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(7, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 8), PackedInt32Array(25, 26, 27, 28, 5, 7), PackedInt32Array(15, 29, 16), PackedInt32Array(19, 30, 20), PackedInt32Array(7, 21, 25), PackedInt32Array(26, 31, 32, 27), PackedInt32Array(33, 7, 6), PackedInt32Array(34, 35, 33, 6, 36), PackedInt32Array(36, 6, 8, 24), PackedInt32Array(37, 22, 8, 13), PackedInt32Array(38, 39, 37), PackedInt32Array(13, 17, 40), PackedInt32Array(8, 12, 13), PackedInt32Array(37, 13, 40, 38), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(45, 46, 44, 43, 47), PackedInt32Array(43, 48, 49, 50, 51), PackedInt32Array(49, 52, 50), PackedInt32Array(45, 53, 46), PackedInt32Array(43, 51, 47), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(59, 60, 61, 62, 63), PackedInt32Array(64, 65, 66, 59, 63), PackedInt32Array(62, 67, 68, 69), PackedInt32Array(64, 70, 71, 65), PackedInt32Array(63, 62, 69), PackedInt32Array(72, 73, 74, 75, 76, 77), PackedInt32Array(78, 79, 80, 81, 82, 83), PackedInt32Array(84, 85, 86, 87, 88, 89), PackedInt32Array(90, 75, 74, 91), PackedInt32Array(92, 79, 78, 93), PackedInt32Array(94, 95, 96, 97), PackedInt32Array(98, 99, 100, 101, 102, 103), PackedInt32Array(83, 82, 94, 97, 104), PackedInt32Array(105, 96, 95, 106), PackedInt32Array(107, 90, 91), PackedInt32Array(88, 108, 109), PackedInt32Array(110, 106, 89, 88, 109, 111, 102, 112), PackedInt32Array(77, 111, 109, 113, 114, 115), PackedInt32Array(116, 92, 93, 117), PackedInt32Array(118, 119, 120), PackedInt32Array(121, 122, 100, 99, 123, 124), PackedInt32Array(87, 86, 125, 120), PackedInt32Array(120, 125, 126, 118), PackedInt32Array(127, 83, 104, 128), PackedInt32Array(129, 127, 128, 130), PackedInt32Array(131, 132, 133, 124), PackedInt32Array(134, 133, 132, 135), PackedInt32Array(136, 131, 124), PackedInt32Array(137, 138, 139, 140, 141), PackedInt32Array(142, 143, 144, 145), PackedInt32Array(146, 147, 148, 149), PackedInt32Array(150, 151, 152, 153, 154), PackedInt32Array(155, 156, 116, 157), PackedInt32Array(121, 129, 130, 122), PackedInt32Array(124, 123, 158), PackedInt32Array(110, 105, 106), PackedInt32Array(159, 112, 102), PackedInt32Array(101, 159, 102), PackedInt32Array(160, 98, 103, 77), PackedInt32Array(76, 160, 77), PackedInt32Array(118, 126, 114), PackedInt32Array(113, 118, 114), PackedInt32Array(77, 115, 72), PackedInt32Array(74, 73, 161), PackedInt32Array(74, 161, 150, 154), PackedInt32Array(141, 154, 153, 137), PackedInt32Array(141, 140, 162, 91), PackedInt32Array(91, 162, 163), PackedInt32Array(91, 163, 164, 165, 107), PackedInt32Array(166, 165, 164, 142, 167), PackedInt32Array(168, 142, 145, 146, 169), PackedInt32Array(146, 149, 170, 171), PackedInt32Array(172, 136, 124, 173, 166), PackedInt32Array(124, 158, 173), PackedInt32Array(116, 117, 157), PackedInt32Array(155, 157, 174), PackedInt32Array(155, 174, 134, 175), PackedInt32Array(167, 172, 166), PackedInt32Array(176, 167, 142), PackedInt32Array(168, 176, 142), PackedInt32Array(177, 169, 146), PackedInt32Array(178, 177, 146), PackedInt32Array(171, 178, 146), PackedInt32Array(179, 171, 170), PackedInt32Array(132, 179, 170, 135), PackedInt32Array(134, 135, 175)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-506, -289, 643, -314, 686, 411, -553, 493)])
+agent_radius = 14.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6hmrl")
+Level_Name = "E8"
+
+[node name="Music" parent="." instance=ExtResource("2_vk5tp")]
+unique_name_in_owner = true
+
+[node name="Clock" parent="." instance=ExtResource("3_7snc6")]
+unique_name_in_owner = true
+
+[node name="BG" parent="." instance=ExtResource("4_2ysr4")]
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Star" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(0, -105)
+
+[node name="Star2" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(194, -195)
+
+[node name="Star3" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(307, -117)
+
+[node name="Star4" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(213, -81)
+
+[node name="Star5" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(123, -12)
+
+[node name="Star6" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(309, -5)
+
+[node name="Star7" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(203, 47)
+
+[node name="Star8" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(56, 56)
+
+[node name="Star9" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(220, 193)
+
+[node name="Star10" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(342, 107)
+
+[node name="Star11" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(0, 98)
+
+[node name="Star12" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(-276, 173)
+
+[node name="Star13" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(-328, 104)
+
+[node name="Star14" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(-316, -60)
+
+[node name="Star15" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(-123, -63)
+
+[node name="Star16" parent="Stars" instance=ExtResource("5_eudif")]
+position = Vector2(-231, -192)
+
+[node name="Nav" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mma61")
+
+[node name="Stuff" type="Node2D" parent="Nav"]
+
+[node name="Wall" parent="Nav/Stuff" instance=ExtResource("6_e5qrc")]
+position = Vector2(-8, -224)
+scale = Vector2(3, 0.25)
+
+[node name="Wall2" parent="Nav/Stuff" instance=ExtResource("6_e5qrc")]
+position = Vector2(389, -207.00002)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall3" parent="Nav/Stuff" instance=ExtResource("6_e5qrc")]
+position = Vector2(-390, -159)
+rotation = 1.5707964
+scale = Vector2(3, 0.25)
+
+[node name="Wall4" parent="Nav/Stuff" instance=ExtResource("6_e5qrc")]
+position = Vector2(39, 221)
+scale = Vector2(3, 0.25)
+
+[node name="Large_Blade" parent="Nav/Stuff" instance=ExtResource("7_edbpg")]
+
+[node name="Ultra_Bouncy_Circle" parent="Nav/Stuff" instance=ExtResource("9_r3te1")]
+position = Vector2(-382, 1)
+
+[node name="Ultra_Bouncy_Circle2" parent="Nav/Stuff" instance=ExtResource("9_r3te1")]
+position = Vector2(378, 0)
+
+[node name="Ultra_Bouncy_Circle3" parent="Nav/Stuff" instance=ExtResource("9_r3te1")]
+position = Vector2(0, 212)
+
+[node name="Ultra_Bouncy_Circle4" parent="Nav/Stuff" instance=ExtResource("9_r3te1")]
+position = Vector2(0, -213)
+
+[node name="Sitcky_Circle" parent="Nav/Stuff" instance=ExtResource("10_nf7d5")]
+position = Vector2(378, 212)
+
+[node name="Platform" parent="Nav/Stuff" instance=ExtResource("11_2o80d")]
+position = Vector2(240, 159)
+rotation = -0.5235988
+
+[node name="Platform2" parent="Nav/Stuff" instance=ExtResource("11_2o80d")]
+position = Vector2(282, 134.99998)
+rotation = -0.5235988
+
+[node name="Spike" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(274, 212)
+
+[node name="Platform3" parent="Nav/Stuff" instance=ExtResource("13_vk5tp")]
+position = Vector2(121, 72)
+
+[node name="Spike2" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(121, 212)
+
+[node name="Circle" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(-382, 217)
+
+[node name="Wall5" parent="Nav/Stuff" instance=ExtResource("6_e5qrc")]
+position = Vector2(-196.00002, 95.00001)
+rotation = -0.5061455
+scale = Vector2(0.4, 0.15000002)
+
+[node name="Spike3" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(-264.00003, 126.000015)
+rotation = -0.5061455
+
+[node name="Spike4" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(-138.00002, 57.000008)
+rotation = -0.5061455
+
+[node name="Circle2" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(-225, -120)
+
+[node name="Circle3" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(-384, -216)
+
+[node name="Circle4" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(378, -213)
+
+[node name="Circle5" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(194, -132)
+
+[node name="Circle6" parent="Nav/Stuff" instance=ExtResource("14_7snc6")]
+position = Vector2(222, -23)
+
+[node name="Spike5" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(294, -214)
+rotation = -3.1415925
+
+[node name="Spike6" parent="Nav/Stuff" instance=ExtResource("12_6hmrl")]
+position = Vector2(-382, -120)
+rotation = 1.5707964
+
+[node name="Ball" parent="." instance=ExtResource("10_yb2yv")]
+unique_name_in_owner = true
+position = Vector2(0, -132)
+
+[node name="UI" parent="." instance=ExtResource("11_ycgo5")]
+unique_name_in_owner = true
+
+[node name="Square" parent="." instance=ExtResource("12_gcg5m")]
+position = Vector2(0, 128)
