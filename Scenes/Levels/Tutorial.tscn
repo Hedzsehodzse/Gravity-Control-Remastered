@@ -367,6 +367,7 @@ icon = ExtResource("10_65xyd")
 
 [node name="Typing" type="AudioStreamPlayer2D" parent="Hover_Texts"]
 stream = ExtResource("21_u4w04")
+volume_db = -15.0
 autoplay = true
 
 [node name="Modes" type="OptionButton" parent="Hover_Texts"]
