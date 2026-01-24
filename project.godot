@@ -13,7 +13,7 @@ config_version=5
 config/name="Gravity Control"
 run/main_scene="uid://det2wbuqv1k48"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://410rc4rxatnl"
 
 [display]
 

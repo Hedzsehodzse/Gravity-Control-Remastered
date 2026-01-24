@@ -69,13 +69,13 @@ func Modes_Item_Selected(index: int) -> void:
 		0:
 			%Ball.mouse_control = true
 			Main.save["Settings"]["Control_Mode"] = "Mouse_Control"
-			$Pause/Modes.selected = 0
+			$Pause/Control_Modes/Modes.selected = 0
 			if Main.Tutorial:
 				$"../Hover_Texts/Modes".selected = 0
 		1:
 			%Ball.mouse_control = false
 			Main.save["Settings"]["Control_Mode"] = "W-A-S-D"
-			$Pause/Modes.selected = 1
+			$Pause/Control_Modes/Modes.selected = 1
 			if Main.Tutorial:
 				$"../Hover_Texts/Modes".selected = 1
 			
