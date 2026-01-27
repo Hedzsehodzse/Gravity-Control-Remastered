@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
 
+@export var Web_Test: bool = false
 @export var SPEED = 300.0
 
 
 func _physics_process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	global_rotation += PI / 2
-	velocity += (get_global_mouse_position() - global_position).normalized() * SPEED * delta
-	move_and_slide()
+	if !Web_Test:
+		look_at(get_global_mouse_position())
+		global_rotation += PI / 2
+		velocity += (get_global_mouse_position() - global_position).normalized() * SPEED * delta
+		move_and_slide()
 
 
 func Body_Entered(body: Node2D) -> void:

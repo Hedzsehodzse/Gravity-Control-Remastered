@@ -1,44 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg42pk2o4yk00"]
+[gd_scene load_steps=8 format=3 uid="uid://bg42pk2o4yk00"]
 
 [ext_resource type="Script" uid="uid://cbm1284refie2" path="res://Scripts/Ball.gd" id="1_eb1ap"]
 [ext_resource type="Texture2D" uid="uid://4weadiup5hsa" path="res://Images/Shapes/Circle.png" id="2_27lt3"]
 [ext_resource type="PackedScene" uid="uid://r1q8r3rp4ocj" path="res://Scenes/Particles/Death.tscn" id="3_3dh43"]
 [ext_resource type="AudioStream" uid="uid://ckh6sowyy86b0" path="res://Sounds/Explosion.mp3" id="4_3dh43"]
+[ext_resource type="Material" uid="uid://cqjovrwamnsso" path="res://Resources/Particle_Materials/Death.tres" id="4_o2oe4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dy5s"]
 radius = 8.0
-
-[sub_resource type="Curve" id="Curve_yfqi8"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.67424244, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_aaj1x"]
-curve = SubResource("Curve_yfqi8")
-
-[sub_resource type="Curve" id="Curve_681bb"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.75757575, 1.52809), 0.0, 0.0, 0, 0, Vector2(0.9621212, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_vtcox"]
-curve = SubResource("Curve_681bb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_27lt3"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(5, 5, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_max = 75.0
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 3.0
-scale_curve = SubResource("CurveTexture_vtcox")
-color = Color(0, 0.29803923, 1, 1)
-alpha_curve = SubResource("CurveTexture_aaj1x")
-hue_variation_min = -0.100000024
-hue_variation_max = 0.09999997
 
 [sub_resource type="GDScript" id="GDScript_3dh43"]
 script/source = "extends GPUParticles2D
@@ -74,7 +43,7 @@ visible = false
 shape = SubResource("CircleShape2D_0dy5s")
 
 [node name="Death" parent="." instance=ExtResource("3_3dh43")]
-process_material = SubResource("ParticleProcessMaterial_27lt3")
+process_material = ExtResource("4_o2oe4")
 script = SubResource("GDScript_3dh43")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

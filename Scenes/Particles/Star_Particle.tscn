@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmckgbbgjuk7x"]
+
+[ext_resource type="Texture2D" uid="uid://dqcjb1qtjwo76" path="res://Images/Shapes/Star.png" id="1_08vt8"]
+[ext_resource type="Material" uid="uid://dhop5gyu5i1vl" path="res://Resources/Particle_Materials/Star_Particle.tres" id="2_1vfqa"]
+[ext_resource type="Script" uid="uid://d0j76nuonclan" path="res://Scripts/Clear/Particle.gd" id="2_0728k"]
+
+[node name="Pop" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+texture = ExtResource("1_08vt8")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.54
+process_material = ExtResource("2_1vfqa")
+script = ExtResource("2_0728k")
+
+[connection signal="finished" from="." to="." method="Finished"]

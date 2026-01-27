@@ -1,38 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://mp3fjehy7rek"]
+[gd_scene load_steps=3 format=3 uid="uid://mp3fjehy7rek"]
+
+[ext_resource type="Material" uid="uid://oam8fhccy1gd" path="res://Resources/Particle_Materials/Explosion.tres" id="1_ejvl8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_04b3i"]
 blend_mode = 1
-
-[sub_resource type="Curve" id="Curve_iywrq"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.67424244, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_aaj1x"]
-curve = SubResource("Curve_iywrq")
-
-[sub_resource type="Curve" id="Curve_kra5k"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.75757575, 1.52809), 0.0, 0.0, 0, 0, Vector2(0.9621212, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_vtcox"]
-curve = SubResource("Curve_kra5k")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6mg7h"]
-particle_flag_align_y = true
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_max = 75.0
-gravity = Vector3(0, 0, 0)
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_vtcox")
-color = Color(0.95686275, 0.3882353, 0.105882354, 1)
-alpha_curve = SubResource("CurveTexture_aaj1x")
-hue_variation_min = -0.100000024
-hue_variation_max = 0.09999997
 
 [node name="Explosion" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_04b3i")
@@ -41,4 +12,4 @@ amount = 50
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_6mg7h")
+process_material = ExtResource("1_ejvl8")

@@ -10,9 +10,14 @@ var save: Dictionary = { "Selected" = modes.COLLECT,
 }
 
 @export var Colors: PackedColorArray
+@export var Web: bool = false
 
 func _ready() -> void:
 	get_tree().paused = false
+	if Web:
+		for node in $"Pre-Render stuff".get_children():
+			if node is GPUParticles2D:
+				node.emitting = true
 	
 	Music_Finished()
 	

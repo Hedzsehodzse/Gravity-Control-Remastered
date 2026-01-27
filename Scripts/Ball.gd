@@ -16,6 +16,7 @@ var mouse_control: bool = false
 
 
 func _ready() -> void:
+	
 	if Weapon == weapons.ROCKET:
 		$Shoot.volume_db = -2
 		$Shoot.stream = load("res://Sounds/Rocket.mp3")

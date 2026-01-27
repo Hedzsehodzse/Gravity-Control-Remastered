@@ -112,6 +112,19 @@ func _ready() -> void:
 			
 	$UI/Pause/Music/HSlider.value = save["Settings"]["Music"] * 100
 	Set_Music()
+	
+	#Preload particles (for web compatibility)
+	
+	preload("res://Resources/Particle_Materials/Death.tres") 
+	preload("res://Resources/Particle_Materials/Red.tres") 
+	preload("res://Resources/Particle_Materials/Hit_Particle.tres") 
+	if Game_Mode == modes.CHASE or Game_Mode == modes.PLAYGROUND:
+		preload("res://Scenes/Projectiles/Laser.tscn") 
+		preload("res://Resources/Particle_Materials/Smoke.tres") 
+		preload("res://Resources/Particle_Materials/Smoke2.tres") 
+		preload("res://Sounds/Explosion.mp3") 
+	if Game_Mode == modes.COLLECT:
+		preload("res://Resources/Particle_Materials/Star_Particle.tres")
 		
 	get_tree().paused = true
 

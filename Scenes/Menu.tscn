@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://det2wbuqv1k48"]
+[gd_scene load_steps=67 format=3 uid="uid://det2wbuqv1k48"]
 
 [ext_resource type="Script" uid="uid://d0l1eu7uyxspl" path="res://Scripts/Management/Menu.gd" id="1_aobxe"]
 [ext_resource type="PackedScene" uid="uid://bon05imfq1dw1" path="res://Scenes/Music.tscn" id="1_idohh"]
@@ -33,6 +33,14 @@
 [ext_resource type="Texture2D" uid="uid://bpfb7o6qjw5vq" path="res://Images/Levels/E6.png" id="25_ckbj2"]
 [ext_resource type="Texture2D" uid="uid://b5ldxhy11861s" path="res://Images/Levels/E7.png" id="26_nuh2c"]
 [ext_resource type="Texture2D" uid="uid://s8mi6pgyl2jv" path="res://Images/Levels/E8.png" id="27_ou2h3"]
+[ext_resource type="PackedScene" uid="uid://r1q8r3rp4ocj" path="res://Scenes/Particles/Death.tscn" id="34_b7pwh"]
+[ext_resource type="PackedScene" uid="uid://mp3fjehy7rek" path="res://Scenes/Particles/Explosion.tscn" id="35_2grpp"]
+[ext_resource type="PackedScene" uid="uid://d1iwx6kwm7pn2" path="res://Scenes/Particles/Hit_Particle.tscn" id="36_2nbq4"]
+[ext_resource type="PackedScene" uid="uid://dcffkw40agn87" path="res://Scenes/Particles/Red.tscn" id="37_jmv5b"]
+[ext_resource type="PackedScene" uid="uid://dxb0iwewnrj0t" path="res://Scenes/Particles/Smoke.tscn" id="38_dml4c"]
+[ext_resource type="PackedScene" uid="uid://dmckgbbgjuk7x" path="res://Scenes/Particles/Star_Particle.tscn" id="39_mcql4"]
+[ext_resource type="PackedScene" uid="uid://cdb87wqnueuib" path="res://Scenes/Projectiles/Laser.tscn" id="40_2grpp"]
+[ext_resource type="PackedScene" uid="uid://brxu38feey5x2" path="res://Scenes/Projectiles/Rocket.tscn" id="41_2nbq4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdx8w"]
 
@@ -303,6 +311,7 @@ _data = {
 process_mode = 3
 script = ExtResource("1_aobxe")
 Colors = PackedColorArray(1, 1, 1, 1, 0, 0.6431373, 0, 1, 0.7607843, 0.62352943, 0, 1, 0.9372549, 0, 0, 1, 0.39106983, 0, 0, 1, 0.5063416, 0.0016092998, 0.70825934, 1)
+Web = true
 
 [node name="Music" parent="." instance=ExtResource("1_idohh")]
 unique_name_in_owner = true
@@ -951,6 +960,34 @@ theme_override_constants/outline_size = 4
 bbcode_enabled = true
 text = "Credits to:
 -ZapSplat for the music"
+
+[node name="Pre-Render stuff" type="Node2D" parent="."]
+
+[node name="Death" parent="Pre-Render stuff" instance=ExtResource("34_b7pwh")]
+position = Vector2(450, -672)
+
+[node name="Explosion" parent="Pre-Render stuff" instance=ExtResource("35_2grpp")]
+position = Vector2(647, -582)
+
+[node name="Hit_Particle" parent="Pre-Render stuff" instance=ExtResource("36_2nbq4")]
+position = Vector2(119, -630)
+Web_Test = true
+
+[node name="Red" parent="Pre-Render stuff" instance=ExtResource("37_jmv5b")]
+position = Vector2(275, -524)
+
+[node name="Smoke" parent="Pre-Render stuff" instance=ExtResource("38_dml4c")]
+position = Vector2(18, -809)
+
+[node name="Pop" parent="Pre-Render stuff" instance=ExtResource("39_mcql4")]
+position = Vector2(-72, -590)
+
+[node name="Laser" parent="Pre-Render stuff" instance=ExtResource("40_2grpp")]
+position = Vector2(562, -514)
+
+[node name="Rocket" parent="Pre-Render stuff" instance=ExtResource("41_2nbq4")]
+position = Vector2(598, -457)
+Web_Test = true
 
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
 [connection signal="pressed" from="UI/Main/Play" to="." method="Play"]
